@@ -1,5 +1,7 @@
 # IngoMobility — Ingolstadt Open Mobility Intelligence
 
+[![CI](https://github.com/vxx2207/ingolstadt-mobility-intelligence/actions/workflows/ci.yml/badge.svg)](https://github.com/vxx2207/ingolstadt-mobility-intelligence/actions/workflows/ci.yml)
+
 **Where should Ingolstadt put new EV charging points, which bus lines are under-served, and how much traffic is coming tomorrow?** This repository answers all three from open mobility data, with one reproducible pipeline: data-quality gate → DuckDB star schema → forecasting model → interactive dashboard → written analysis.
 
 | | |
