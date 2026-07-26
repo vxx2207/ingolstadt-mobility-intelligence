@@ -27,7 +27,7 @@ A model is only as good as the baseline it beats. Reporting a single hold-out ag
 | Calendar + weather model | 108.5 ± 6.2 | 0.81 |
 | **Full model (lags + calendar)** | **98.4 ± 6.6** | **0.84** |
 
-The honest headline is the **9.4 % gain over calendar-only**, not the larger gain over the naive baselines. These figures come from a Windows 11 / Python 3.12 run; the same seed on Linux / Python 3.10 gives 99.33 +/- 7.75 and an 8.6 % lift, so the conclusions are stable across platforms even though the last decimal is not.
+The honest headline is the **9.4 % gain over calendar-only**, not the larger gain over the naive baselines. These figures come from a Windows 11 / Python 3.12 run; the same seed on Linux / Python 3.10 gives 99.33 +/- 7.75 and an 8.6 % lift, so the conclusions are stable across platforms even though the last decimal is not. The live dashboard is rebuilt by CI on Ubuntu at every deploy and currently reports MAE 99.4 with an 8.5 % lift - the same picture, one decimal apart. Treat the first decimal as noise, not signal.
 
 An earlier revision of this project reported R² 0.98. That was wrong — not a bug, but a bad benchmark: the synthetic generator was nearly noiseless, and a calendar-only model scored just as well, which proved the number measured nothing. The generator now includes autocorrelated residuals, drifting detector levels, roadworks, incidents, sensor faults and missing hours. The full write-up is in [`docs/model_card.md`](docs/model_card.md).
 
