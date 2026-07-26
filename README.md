@@ -2,6 +2,8 @@
 
 [![CI](https://github.com/vxx2207/ingolstadt-mobility-intelligence/actions/workflows/ci.yml/badge.svg)](https://github.com/vxx2207/ingolstadt-mobility-intelligence/actions/workflows/ci.yml)
 
+**[Live dashboard](https://vxx2207.github.io/ingolstadt-mobility-intelligence/)** | [Analysis report](reports/strategy_report.md) | [How this was verified](docs/verification_report.md)
+
 **Where should Ingolstadt put new EV charging points, which bus lines are under-served, and how much traffic is coming tomorrow?** This repository answers all three from open mobility data, with one reproducible pipeline: data-quality gate → DuckDB star schema → forecasting model → interactive dashboard → written analysis.
 
 | | |
@@ -10,8 +12,8 @@
 | **Data** | Public transport (GTFS, VGI/INVG) · hourly weather (DWD Open Data) · EV charging (OpenStreetMap/Overpass) · hourly loop-detector counts. Schemas are the real ones — see [Data & honesty](#data--honesty). |
 | **Built** | Python ETL, **DuckDB star schema** (7 dims · 3 facts · 5 marts), **Java 11** data-quality gate, scikit-learn forecasting with rolling-origin CV, Plotly dashboard, 60+ tests, CI on 3 operating systems. |
 | **Headline result** | The demand model reaches **MAE 98.4 ± 6.6** (R² 0.84) across 4 CV folds — **9.4 % better than a calendar-only model** and 39 % better than a seasonal-naive baseline. |
-| **Run it** | `pip install -r requirements-dev.txt && pip install -e . && python -m ingomob.cli run-all` |
-| **See it** | `python -m ingomob.cli serve` → <http://localhost:8000> · or deploy to GitHub Pages (workflow included) |
+| **Run it** | `pip install -r requirements-dev.txt -c constraints.txt && pip install -e . -c constraints.txt && python -m ingomob.cli run-all` |
+| **See it** | `python -m ingomob.cli serve` → <http://localhost:8000> · deployed live from this repo via GitHub Pages |
 | **Limits** | Default data is synthetic-but-realistic; live mode covers 3 of 4 domains. Read [`docs/limitations.md`](docs/limitations.md) before quoting any number. |
 
 ![Baseline ladder](reports/figures/cv_comparison.png)
