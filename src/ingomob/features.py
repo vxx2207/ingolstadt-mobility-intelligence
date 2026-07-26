@@ -13,6 +13,7 @@ sorting by time, so no future information can enter a training row.
 """
 from __future__ import annotations
 
+import numpy as np
 import pandas as pd
 
 from .errors import NotBuiltError
@@ -49,18 +50,19 @@ def build_feature_frame() -> pd.DataFrame:
     df = df.sort_values(["detector_id", "ts"]).reset_index(drop=True)
 
     # Cyclical encoding: hour 23 and hour 0 are adjacent, not 23 apart.
-    import numpy as np
     df["hour_sin"] = np.sin(2 * np.pi * df["hour"] / 24)
     df["hour_cos"] = np.cos(2 * np.pi * df["hour"] / 24)
 
     # Lags are computed on the *time index*, so gaps in the series do not
-    # silently shift a "24h ago" lag onto the wrong timestamp.
+    # silently shift a "24h ago" lag onto the wrong timestamp. The offsets use
+    # explicit NumPy units: pd.Timedelta relies on an implicit unit-less
+    # conversion that newer NumPy versions deprecate.
     frames = []
     for _det, grp in df.groupby("detector_id", sort=False):
         g = grp.set_index("ts").sort_index()
         target = g[TARGET]
-        g["lag_24"] = target.reindex(g.index - pd.Timedelta(hours=24)).to_numpy()
-        g["lag_168"] = target.reindex(g.index - pd.Timedelta(hours=168)).to_numpy()
+        g["lag_24"] = target.reindex(g.index - np.timedelta64(24, "h")).to_numpy()
+        g["lag_168"] = target.reindex(g.index - np.timedelta64(168, "h")).to_numpy()
         roll = target.shift(1).rolling("24h", min_periods=6)
         g["roll_mean_24"] = roll.mean()
         g["roll_std_24"] = roll.std()

@@ -72,8 +72,8 @@ def _folds(df: pd.DataFrame) -> list[tuple[pd.Index, pd.Index, pd.Timestamp]]:
     end = df["ts"].max().normalize()
     out = []
     for k in range(N_FOLDS, 0, -1):
-        test_start = end - pd.Timedelta(days=TEST_HORIZON_DAYS * k - 1)
-        test_end = test_start + pd.Timedelta(days=TEST_HORIZON_DAYS)
+        test_start = end - np.timedelta64(TEST_HORIZON_DAYS * k - 1, "D")
+        test_end = test_start + np.timedelta64(TEST_HORIZON_DAYS, "D")
         tr = df.index[df["ts"] < test_start]
         te = df.index[(df["ts"] >= test_start) & (df["ts"] < test_end)]
         if len(tr) > 500 and len(te) > 100:
