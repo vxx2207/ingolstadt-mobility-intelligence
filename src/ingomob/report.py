@@ -15,7 +15,7 @@ def _load(s: Settings, name: str) -> dict:
     p = s.processed_dir / name
     if not p.exists():
         raise NotBuiltError(f"{name} not found. Run 'ingomob run-all' first.")
-    return json.loads(p.read_text())
+    return json.loads(p.read_text(encoding="utf-8"))
 
 
 def _table(headers, rows) -> str:

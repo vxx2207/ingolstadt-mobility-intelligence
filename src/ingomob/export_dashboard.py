@@ -27,7 +27,7 @@ def _records(df: pd.DataFrame) -> list[dict]:
 
 
 def _read_json(path):
-    return json.loads(path.read_text()) if path.exists() else {}
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
 
 
 def build_dashboard_data(settings: Settings | None = None) -> dict:
@@ -138,6 +138,6 @@ def build_dashboard_data(settings: Settings | None = None) -> dict:
     }
     s.dashboard_dir.mkdir(parents=True, exist_ok=True)
     out = s.dashboard_dir / "data.json"
-    out.write_text(json.dumps(data, ensure_ascii=False, indent=2))
+    out.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
     log.info("dashboard payload: %s (%s bytes)", out.name, f"{out.stat().st_size:,}")
     return {"path": str(out), "bytes": out.stat().st_size, "kpis": kpis}

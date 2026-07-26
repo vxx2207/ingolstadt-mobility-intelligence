@@ -112,7 +112,7 @@ def evaluate(settings: Settings) -> dict:
 
 def write_report(report: dict, settings: Settings) -> None:
     settings.processed_dir.mkdir(parents=True, exist_ok=True)
-    (settings.processed_dir / "data_quality_report.json").write_text(json.dumps(report, indent=2))
+    (settings.processed_dir / "data_quality_report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
 
 
 def enforce(report: dict) -> None:

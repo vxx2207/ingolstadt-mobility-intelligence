@@ -96,7 +96,7 @@ def fig_siting_map():
     ch = query_df("SELECT lat, lon FROM dim_charging_station")
     import json
     rec = json.loads(
-        _require(load_settings().processed_dir / "siting_summary.json").read_text())["recommendations"]
+        _require(load_settings().processed_dir / "siting_summary.json").read_text(encoding="utf-8"))["recommendations"]
     rec = pd.DataFrame(rec)
     fig, ax = plt.subplots(figsize=(8, 6.5))
     for rt, col in ROAD_COLORS.items():
@@ -117,7 +117,7 @@ def fig_siting_map():
 
 def fig_cv_comparison():
     import json
-    m = json.loads(_require(load_settings().processed_dir / "forecast_metrics.json").read_text())
+    m = json.loads(_require(load_settings().processed_dir / "forecast_metrics.json").read_text(encoding="utf-8"))
     summ = m["cv"]["summary"]
     order = [("last_value", "Last value (24h)"), ("seasonal_naive", "Seasonal-naive (168h)"),
              ("calendar_only", "Calendar-only model"), ("model", "Full model")]

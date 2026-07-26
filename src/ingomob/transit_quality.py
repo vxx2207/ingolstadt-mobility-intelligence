@@ -49,7 +49,7 @@ def summarize(settings: Settings | None = None) -> dict:
                         "quintile of weekday departures among stops with any service."),
     }
     s.processed_dir.mkdir(parents=True, exist_ok=True)
-    (s.processed_dir / "transit_quality.json").write_text(json.dumps(summary, indent=2, default=str))
+    (s.processed_dir / "transit_quality.json").write_text(json.dumps(summary, indent=2, default=str), encoding="utf-8")
     log.info("transit: %d routes, mean peak headway %.1f min, %d underserved stops",
              summary["n_routes"], summary["avg_peak_headway_min"], summary["n_underserved_stops"])
     return summary

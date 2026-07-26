@@ -57,7 +57,7 @@ def fetch(url: str, cache_dir: Path, *, timeout: int = 30, retries: int = 3,
             meta.write_text(json.dumps({
                 "url": url, "status": status, "bytes": len(payload),
                 "sha256": digest, "fetched_at": time.strftime("%Y-%m-%dT%H:%M:%S"),
-            }, indent=2))
+            }, indent=2), encoding="utf-8")
             log.info("saved %s (%d bytes, sha256=%s…)", dest.name, len(payload), digest[:12])
             return dest
         except (urllib.error.URLError, urllib.error.HTTPError, OSError, DownloadError) as exc:
@@ -74,7 +74,7 @@ def provenance(cache_dir: Path) -> list[dict]:
     out = []
     for m in sorted(cache_dir.glob("*.meta.json")):
         try:
-            out.append(json.loads(m.read_text()))
+            out.append(json.loads(m.read_text(encoding="utf-8")))
         except (OSError, json.JSONDecodeError):
             continue
     return out

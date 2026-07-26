@@ -34,7 +34,7 @@ def _run_java(s: Settings) -> dict:
                            str(s.raw_dir), str(report_path)], capture_output=True, text=True)
     if proc.returncode not in (0, 2):        # 2 = rules failed, still writes a report
         raise RuntimeError(proc.stderr.strip() or "java validator crashed")
-    report = json.loads(report_path.read_text())
+    report = json.loads(report_path.read_text(encoding="utf-8"))
     report["engine"] = "java"
     return report
 

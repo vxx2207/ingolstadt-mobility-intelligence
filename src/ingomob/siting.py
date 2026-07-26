@@ -130,7 +130,7 @@ def recommend(n_recommend=8, grid_n=18, sigma_km=1.3,
         "recommendations": recs[["rank", "lat", "lon", "gap_score",
                                  "demand", "supply", "nearest_district"]].to_dict("records"),
     }
-    (s.processed_dir / "siting_summary.json").write_text(json.dumps(out, indent=2, default=str))
+    (s.processed_dir / "siting_summary.json").write_text(json.dumps(out, indent=2, default=str), encoding="utf-8")
     log.info("siting: %d recommendations over %d grid cells", len(recs), len(grid))
     return out
 

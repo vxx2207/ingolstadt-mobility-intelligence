@@ -153,7 +153,7 @@ def train_and_evaluate(settings: Settings | None = None) -> dict:
         "test_start": str(start.date()), "test_end": str(df.loc[te, "ts"].max().date()),
     }
     s.processed_dir.mkdir(parents=True, exist_ok=True)
-    (s.processed_dir / "forecast_metrics.json").write_text(json.dumps(results, indent=2))
+    (s.processed_dir / "forecast_metrics.json").write_text(json.dumps(results, indent=2), encoding="utf-8")
     city.to_csv(s.processed_dir / "forecast_timeseries.csv", index=False)
     importance.to_csv(s.processed_dir / "forecast_importance.csv", index=False)
     log.info("CV MAE %.2f +/- %.2f | seasonal-naive %.2f | calendar-only %.2f (lift %.1f%%)",
