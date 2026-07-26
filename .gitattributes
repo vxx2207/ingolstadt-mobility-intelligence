@@ -1,0 +1,8 @@
+# Normalise every text file to LF, in the repository and in the working tree.
+# A CRLF Makefile or Dockerfile breaks builds on Linux and in CI.
+* text=auto eol=lf
+
+# Binary assets must never be line-ending converted.
+*.png binary
+*.zip binary
+*.duckdb binary

@@ -1,0 +1,31 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+build/
+dist/
+.DS_Store
+.idea/
+.vscode/
+
+# Generated data - reproducible via `ingomob run-all`
+data/raw/**
+data/processed/**
+data/warehouse/**
+data/cache/**
+*.duckdb
+*.duckdb.wal
+java/out/
+
+# Keep directory placeholders and the committed demo artefacts that make the
+# repository readable (and GitHub Pages renderable) without running anything.
+# Nested directories must be un-ignored before their contents: git never
+# descends into an excluded directory.
+!data/raw/gtfs/
+!**/.gitkeep
+!dashboard/data.json
+!reports/strategy_report.md
+!reports/figures/*.png

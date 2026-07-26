@@ -1,0 +1,8031 @@
+{
+  "meta": {
+    "city": "Ingolstadt",
+    "generated_at": "2026-07-26T23:55:50",
+    "source_mode": "demo",
+    "source_label": "Demo (synthetic, seeded)",
+    "source_detail": "Generated locally to the real Ingolstadt/VGI schemas. Figures are illustrative and must not be read as official statistics.",
+    "window": {
+      "start": "2025-01-01",
+      "end": "2025-06-29"
+    },
+    "data_quality": {
+      "rows_checked": 60320,
+      "all_passed": true,
+      "engine": "java"
+    }
+  },
+  "kpis": {
+    "n_detectors": 14,
+    "n_stops": 52,
+    "n_routes": 9,
+    "n_charging_stations": 47,
+    "n_charging_points": 114,
+    "total_charging_kw": 4016,
+    "avg_daily_traffic_citywide": 130466,
+    "forecast_mae": 98.39,
+    "forecast_mae_std": 6.55,
+    "forecast_r2": 0.84,
+    "baseline_mae": 161.35,
+    "calendar_only_mae": 108.54,
+    "lift_over_calendar_pct": 9.4,
+    "avg_peak_headway_min": 14.8,
+    "n_underserved_stops": 9,
+    "n_stops_without_sunday_service": 8,
+    "dq_rows_checked": 60320,
+    "dq_all_passed": true
+  },
+  "glossary": {
+    "avg_daily_traffic_citywide": "Mean vehicles counted per day across all loop detectors.",
+    "forecast_mae": "Mean absolute error of the demand model, averaged over 4 rolling-origin CV folds (± is the spread across folds). Lower is better.",
+    "forecast_r2": "Share of hourly variance explained by the model (0-1), mean across folds.",
+    "baseline_mae": "Seasonal-naive baseline: predict the same hour one week earlier.",
+    "calendar_only_mae": "A model using only calendar and weather features - the honest benchmark to beat.",
+    "lift_over_calendar_pct": "How much the full model improves on the calendar-only model.",
+    "avg_peak_headway_min": "Mean minutes between consecutive departures during 07:00-09:00 and 16:00-18:00.",
+    "n_underserved_stops": "Stops in the bottom quintile of weekday departures.",
+    "n_charging_points": "Individual charging connectors (a station may have several).",
+    "dq_rows_checked": "Rows validated by the data-quality gate before any analysis ran."
+  },
+  "filters": {
+    "districts": [
+      "Etting",
+      "Friedrichshofen",
+      "Mitte",
+      "Nordost",
+      "Nordwest",
+      "Oberhaunstadt",
+      "Ringsee",
+      "Suedost",
+      "Suedwest",
+      "Unsernherrn"
+    ],
+    "road_types": [
+      "arterial",
+      "collector",
+      "local",
+      "ring"
+    ]
+  },
+  "hourly_profile": [
+    {
+      "hour": 0,
+      "is_weekend": false,
+      "avg_count": 44.9
+    },
+    {
+      "hour": 0,
+      "is_weekend": true,
+      "avg_count": 65.3
+    },
+    {
+      "hour": 1,
+      "is_weekend": false,
+      "avg_count": 26.6
+    },
+    {
+      "hour": 1,
+      "is_weekend": true,
+      "avg_count": 46.0
+    },
+    {
+      "hour": 2,
+      "is_weekend": false,
+      "avg_count": 17.8
+    },
+    {
+      "hour": 2,
+      "is_weekend": true,
+      "avg_count": 32.7
+    },
+    {
+      "hour": 3,
+      "is_weekend": false,
+      "avg_count": 17.6
+    },
+    {
+      "hour": 3,
+      "is_weekend": true,
+      "avg_count": 19.5
+    },
+    {
+      "hour": 4,
+      "is_weekend": true,
+      "avg_count": 19.6
+    },
+    {
+      "hour": 4,
+      "is_weekend": false,
+      "avg_count": 43.7
+    },
+    {
+      "hour": 5,
+      "is_weekend": true,
+      "avg_count": 38.9
+    },
+    {
+      "hour": 5,
+      "is_weekend": false,
+      "avg_count": 129.4
+    },
+    {
+      "hour": 6,
+      "is_weekend": false,
+      "avg_count": 390.9
+    },
+    {
+      "hour": 6,
+      "is_weekend": true,
+      "avg_count": 77.6
+    },
+    {
+      "hour": 7,
+      "is_weekend": true,
+      "avg_count": 127.6
+    },
+    {
+      "hour": 7,
+      "is_weekend": false,
+      "avg_count": 743.2
+    },
+    {
+      "hour": 8,
+      "is_weekend": true,
+      "avg_count": 226.2
+    },
+    {
+      "hour": 8,
+      "is_weekend": false,
+      "avg_count": 871.2
+    },
+    {
+      "hour": 9,
+      "is_weekend": true,
+      "avg_count": 363.6
+    },
+    {
+      "hour": 9,
+      "is_weekend": false,
+      "avg_count": 661.9
+    },
+    {
+      "hour": 10,
+      "is_weekend": false,
+      "avg_count": 532.1
+    },
+    {
+      "hour": 10,
+      "is_weekend": true,
+      "avg_count": 465.6
+    },
+    {
+      "hour": 11,
+      "is_weekend": false,
+      "avg_count": 545.5
+    },
+    {
+      "hour": 11,
+      "is_weekend": true,
+      "avg_count": 536.5
+    },
+    {
+      "hour": 12,
+      "is_weekend": false,
+      "avg_count": 575.6
+    },
+    {
+      "hour": 12,
+      "is_weekend": true,
+      "avg_count": 563.2
+    },
+    {
+      "hour": 13,
+      "is_weekend": true,
+      "avg_count": 574.4
+    },
+    {
+      "hour": 13,
+      "is_weekend": false,
+      "avg_count": 563.2
+    },
+    {
+      "hour": 14,
+      "is_weekend": false,
+      "avg_count": 591.8
+    },
+    {
+      "hour": 14,
+      "is_weekend": true,
+      "avg_count": 545.0
+    },
+    {
+      "hour": 15,
+      "is_weekend": true,
+      "avg_count": 538.9
+    },
+    {
+      "hour": 15,
+      "is_weekend": false,
+      "avg_count": 712.4
+    },
+    {
+      "hour": 16,
+      "is_weekend": false,
+      "avg_count": 833.0
+    },
+    {
+      "hour": 16,
+      "is_weekend": true,
+      "avg_count": 523.4
+    },
+    {
+      "hour": 17,
+      "is_weekend": true,
+      "avg_count": 483.7
+    },
+    {
+      "hour": 17,
+      "is_weekend": false,
+      "avg_count": 874.6
+    },
+    {
+      "hour": 18,
+      "is_weekend": false,
+      "avg_count": 747.3
+    },
+    {
+      "hour": 18,
+      "is_weekend": true,
+      "avg_count": 431.4
+    },
+    {
+      "hour": 19,
+      "is_weekend": false,
+      "avg_count": 527.9
+    },
+    {
+      "hour": 19,
+      "is_weekend": true,
+      "avg_count": 365.7
+    },
+    {
+      "hour": 20,
+      "is_weekend": false,
+      "avg_count": 396.1
+    },
+    {
+      "hour": 20,
+      "is_weekend": true,
+      "avg_count": 296.5
+    },
+    {
+      "hour": 21,
+      "is_weekend": false,
+      "avg_count": 266.3
+    },
+    {
+      "hour": 21,
+      "is_weekend": true,
+      "avg_count": 249.2
+    },
+    {
+      "hour": 22,
+      "is_weekend": false,
+      "avg_count": 159.6
+    },
+    {
+      "hour": 22,
+      "is_weekend": true,
+      "avg_count": 183.2
+    },
+    {
+      "hour": 23,
+      "is_weekend": true,
+      "avg_count": 119.5
+    },
+    {
+      "hour": 23,
+      "is_weekend": false,
+      "avg_count": 88.7
+    }
+  ],
+  "hourly_by_roadtype": [
+    {
+      "hour": 0,
+      "road_type": "arterial",
+      "avg_count": 71.4
+    },
+    {
+      "hour": 1,
+      "road_type": "arterial",
+      "avg_count": 41.8
+    },
+    {
+      "hour": 2,
+      "road_type": "arterial",
+      "avg_count": 28.2
+    },
+    {
+      "hour": 3,
+      "road_type": "arterial",
+      "avg_count": 28.0
+    },
+    {
+      "hour": 4,
+      "road_type": "arterial",
+      "avg_count": 69.3
+    },
+    {
+      "hour": 5,
+      "road_type": "arterial",
+      "avg_count": 205.3
+    },
+    {
+      "hour": 6,
+      "road_type": "arterial",
+      "avg_count": 626.1
+    },
+    {
+      "hour": 7,
+      "road_type": "arterial",
+      "avg_count": 1192.2
+    },
+    {
+      "hour": 8,
+      "road_type": "arterial",
+      "avg_count": 1394.8
+    },
+    {
+      "hour": 9,
+      "road_type": "arterial",
+      "avg_count": 1060.0
+    },
+    {
+      "hour": 10,
+      "road_type": "arterial",
+      "avg_count": 851.9
+    },
+    {
+      "hour": 11,
+      "road_type": "arterial",
+      "avg_count": 872.8
+    },
+    {
+      "hour": 12,
+      "road_type": "arterial",
+      "avg_count": 914.4
+    },
+    {
+      "hour": 13,
+      "road_type": "arterial",
+      "avg_count": 900.6
+    },
+    {
+      "hour": 14,
+      "road_type": "arterial",
+      "avg_count": 949.1
+    },
+    {
+      "hour": 15,
+      "road_type": "arterial",
+      "avg_count": 1137.7
+    },
+    {
+      "hour": 16,
+      "road_type": "arterial",
+      "avg_count": 1355.6
+    },
+    {
+      "hour": 17,
+      "road_type": "arterial",
+      "avg_count": 1391.9
+    },
+    {
+      "hour": 18,
+      "road_type": "arterial",
+      "avg_count": 1179.4
+    },
+    {
+      "hour": 19,
+      "road_type": "arterial",
+      "avg_count": 836.4
+    },
+    {
+      "hour": 20,
+      "road_type": "arterial",
+      "avg_count": 623.4
+    },
+    {
+      "hour": 21,
+      "road_type": "arterial",
+      "avg_count": 423.4
+    },
+    {
+      "hour": 22,
+      "road_type": "arterial",
+      "avg_count": 252.2
+    },
+    {
+      "hour": 23,
+      "road_type": "arterial",
+      "avg_count": 139.6
+    },
+    {
+      "hour": 0,
+      "road_type": "collector",
+      "avg_count": 29.5
+    },
+    {
+      "hour": 1,
+      "road_type": "collector",
+      "avg_count": 17.5
+    },
+    {
+      "hour": 2,
+      "road_type": "collector",
+      "avg_count": 11.6
+    },
+    {
+      "hour": 3,
+      "road_type": "collector",
+      "avg_count": 11.4
+    },
+    {
+      "hour": 4,
+      "road_type": "collector",
+      "avg_count": 28.2
+    },
+    {
+      "hour": 5,
+      "road_type": "collector",
+      "avg_count": 84.6
+    },
+    {
+      "hour": 6,
+      "road_type": "collector",
+      "avg_count": 251.4
+    },
+    {
+      "hour": 7,
+      "road_type": "collector",
+      "avg_count": 478.7
+    },
+    {
+      "hour": 8,
+      "road_type": "collector",
+      "avg_count": 566.4
+    },
+    {
+      "hour": 9,
+      "road_type": "collector",
+      "avg_count": 427.1
+    },
+    {
+      "hour": 10,
+      "road_type": "collector",
+      "avg_count": 347.3
+    },
+    {
+      "hour": 11,
+      "road_type": "collector",
+      "avg_count": 350.4
+    },
+    {
+      "hour": 12,
+      "road_type": "collector",
+      "avg_count": 375.9
+    },
+    {
+      "hour": 13,
+      "road_type": "collector",
+      "avg_count": 371.3
+    },
+    {
+      "hour": 14,
+      "road_type": "collector",
+      "avg_count": 394.6
+    },
+    {
+      "hour": 15,
+      "road_type": "collector",
+      "avg_count": 476.1
+    },
+    {
+      "hour": 16,
+      "road_type": "collector",
+      "avg_count": 554.4
+    },
+    {
+      "hour": 17,
+      "road_type": "collector",
+      "avg_count": 586.2
+    },
+    {
+      "hour": 18,
+      "road_type": "collector",
+      "avg_count": 496.7
+    },
+    {
+      "hour": 19,
+      "road_type": "collector",
+      "avg_count": 352.6
+    },
+    {
+      "hour": 20,
+      "road_type": "collector",
+      "avg_count": 265.4
+    },
+    {
+      "hour": 21,
+      "road_type": "collector",
+      "avg_count": 175.3
+    },
+    {
+      "hour": 22,
+      "road_type": "collector",
+      "avg_count": 105.4
+    },
+    {
+      "hour": 23,
+      "road_type": "collector",
+      "avg_count": 58.6
+    },
+    {
+      "hour": 0,
+      "road_type": "local",
+      "avg_count": 11.0
+    },
+    {
+      "hour": 1,
+      "road_type": "local",
+      "avg_count": 6.7
+    },
+    {
+      "hour": 2,
+      "road_type": "local",
+      "avg_count": 4.6
+    },
+    {
+      "hour": 3,
+      "road_type": "local",
+      "avg_count": 4.5
+    },
+    {
+      "hour": 4,
+      "road_type": "local",
+      "avg_count": 11.0
+    },
+    {
+      "hour": 5,
+      "road_type": "local",
+      "avg_count": 32.2
+    },
+    {
+      "hour": 6,
+      "road_type": "local",
+      "avg_count": 95.3
+    },
+    {
+      "hour": 7,
+      "road_type": "local",
+      "avg_count": 181.2
+    },
+    {
+      "hour": 8,
+      "road_type": "local",
+      "avg_count": 210.7
+    },
+    {
+      "hour": 9,
+      "road_type": "local",
+      "avg_count": 160.0
+    },
+    {
+      "hour": 10,
+      "road_type": "local",
+      "avg_count": 128.6
+    },
+    {
+      "hour": 11,
+      "road_type": "local",
+      "avg_count": 131.4
+    },
+    {
+      "hour": 12,
+      "road_type": "local",
+      "avg_count": 138.1
+    },
+    {
+      "hour": 13,
+      "road_type": "local",
+      "avg_count": 133.3
+    },
+    {
+      "hour": 14,
+      "road_type": "local",
+      "avg_count": 139.4
+    },
+    {
+      "hour": 15,
+      "road_type": "local",
+      "avg_count": 169.5
+    },
+    {
+      "hour": 16,
+      "road_type": "local",
+      "avg_count": 200.8
+    },
+    {
+      "hour": 17,
+      "road_type": "local",
+      "avg_count": 207.7
+    },
+    {
+      "hour": 18,
+      "road_type": "local",
+      "avg_count": 178.7
+    },
+    {
+      "hour": 19,
+      "road_type": "local",
+      "avg_count": 127.5
+    },
+    {
+      "hour": 20,
+      "road_type": "local",
+      "avg_count": 95.9
+    },
+    {
+      "hour": 21,
+      "road_type": "local",
+      "avg_count": 63.8
+    },
+    {
+      "hour": 22,
+      "road_type": "local",
+      "avg_count": 38.8
+    },
+    {
+      "hour": 23,
+      "road_type": "local",
+      "avg_count": 22.0
+    },
+    {
+      "hour": 0,
+      "road_type": "ring",
+      "avg_count": 63.7
+    },
+    {
+      "hour": 1,
+      "road_type": "ring",
+      "avg_count": 38.6
+    },
+    {
+      "hour": 2,
+      "road_type": "ring",
+      "avg_count": 25.6
+    },
+    {
+      "hour": 3,
+      "road_type": "ring",
+      "avg_count": 25.2
+    },
+    {
+      "hour": 4,
+      "road_type": "ring",
+      "avg_count": 62.9
+    },
+    {
+      "hour": 5,
+      "road_type": "ring",
+      "avg_count": 185.4
+    },
+    {
+      "hour": 6,
+      "road_type": "ring",
+      "avg_count": 558.5
+    },
+    {
+      "hour": 7,
+      "road_type": "ring",
+      "avg_count": 1054.8
+    },
+    {
+      "hour": 8,
+      "road_type": "ring",
+      "avg_count": 1243.1
+    },
+    {
+      "hour": 9,
+      "road_type": "ring",
+      "avg_count": 947.5
+    },
+    {
+      "hour": 10,
+      "road_type": "ring",
+      "avg_count": 753.9
+    },
+    {
+      "hour": 11,
+      "road_type": "ring",
+      "avg_count": 782.6
+    },
+    {
+      "hour": 12,
+      "road_type": "ring",
+      "avg_count": 828.7
+    },
+    {
+      "hour": 13,
+      "road_type": "ring",
+      "avg_count": 798.1
+    },
+    {
+      "hour": 14,
+      "road_type": "ring",
+      "avg_count": 832.6
+    },
+    {
+      "hour": 15,
+      "road_type": "ring",
+      "avg_count": 997.5
+    },
+    {
+      "hour": 16,
+      "road_type": "ring",
+      "avg_count": 1142.8
+    },
+    {
+      "hour": 17,
+      "road_type": "ring",
+      "avg_count": 1238.8
+    },
+    {
+      "hour": 18,
+      "road_type": "ring",
+      "avg_count": 1071.7
+    },
+    {
+      "hour": 19,
+      "road_type": "ring",
+      "avg_count": 750.7
+    },
+    {
+      "hour": 20,
+      "road_type": "ring",
+      "avg_count": 569.0
+    },
+    {
+      "hour": 21,
+      "road_type": "ring",
+      "avg_count": 380.6
+    },
+    {
+      "hour": 22,
+      "road_type": "ring",
+      "avg_count": 229.8
+    },
+    {
+      "hour": 23,
+      "road_type": "ring",
+      "avg_count": 127.1
+    }
+  ],
+  "daily_traffic": [
+    {
+      "date": "2025-01-01T00:00:00.000",
+      "total_count": 38757.0,
+      "is_weekend": false,
+      "is_holiday": true,
+      "holiday_name": "Neujahr"
+    },
+    {
+      "date": "2025-01-02T00:00:00.000",
+      "total_count": 104565.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-03T00:00:00.000",
+      "total_count": 113657.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-04T00:00:00.000",
+      "total_count": 85056.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-05T00:00:00.000",
+      "total_count": 64099.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-06T00:00:00.000",
+      "total_count": 39402.0,
+      "is_weekend": false,
+      "is_holiday": true,
+      "holiday_name": "Heilige Drei Koenige"
+    },
+    {
+      "date": "2025-01-07T00:00:00.000",
+      "total_count": 125230.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-08T00:00:00.000",
+      "total_count": 131913.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-09T00:00:00.000",
+      "total_count": 130494.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-10T00:00:00.000",
+      "total_count": 137122.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-11T00:00:00.000",
+      "total_count": 90557.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-12T00:00:00.000",
+      "total_count": 71794.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-13T00:00:00.000",
+      "total_count": 134847.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-14T00:00:00.000",
+      "total_count": 131091.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-15T00:00:00.000",
+      "total_count": 144151.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-16T00:00:00.000",
+      "total_count": 128325.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-17T00:00:00.000",
+      "total_count": 130572.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-18T00:00:00.000",
+      "total_count": 108722.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-19T00:00:00.000",
+      "total_count": 76026.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-20T00:00:00.000",
+      "total_count": 138321.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-21T00:00:00.000",
+      "total_count": 142969.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-22T00:00:00.000",
+      "total_count": 137796.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-23T00:00:00.000",
+      "total_count": 145840.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-24T00:00:00.000",
+      "total_count": 146493.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-25T00:00:00.000",
+      "total_count": 105866.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-26T00:00:00.000",
+      "total_count": 74445.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-27T00:00:00.000",
+      "total_count": 147077.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-28T00:00:00.000",
+      "total_count": 151168.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-29T00:00:00.000",
+      "total_count": 141059.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-30T00:00:00.000",
+      "total_count": 149972.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-01-31T00:00:00.000",
+      "total_count": 147647.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-01T00:00:00.000",
+      "total_count": 105547.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-02T00:00:00.000",
+      "total_count": 83955.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-03T00:00:00.000",
+      "total_count": 141942.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-04T00:00:00.000",
+      "total_count": 162587.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-05T00:00:00.000",
+      "total_count": 150066.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-06T00:00:00.000",
+      "total_count": 150206.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-07T00:00:00.000",
+      "total_count": 147151.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-08T00:00:00.000",
+      "total_count": 103979.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-09T00:00:00.000",
+      "total_count": 81480.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-10T00:00:00.000",
+      "total_count": 144752.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-11T00:00:00.000",
+      "total_count": 148336.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-12T00:00:00.000",
+      "total_count": 139388.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-13T00:00:00.000",
+      "total_count": 143693.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-14T00:00:00.000",
+      "total_count": 135307.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-15T00:00:00.000",
+      "total_count": 104439.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-16T00:00:00.000",
+      "total_count": 80256.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-17T00:00:00.000",
+      "total_count": 153427.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-18T00:00:00.000",
+      "total_count": 149407.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-19T00:00:00.000",
+      "total_count": 155813.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-20T00:00:00.000",
+      "total_count": 135613.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-21T00:00:00.000",
+      "total_count": 138715.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-22T00:00:00.000",
+      "total_count": 110474.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-23T00:00:00.000",
+      "total_count": 83700.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-24T00:00:00.000",
+      "total_count": 138385.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-25T00:00:00.000",
+      "total_count": 141585.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-26T00:00:00.000",
+      "total_count": 150470.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-27T00:00:00.000",
+      "total_count": 142456.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-02-28T00:00:00.000",
+      "total_count": 143293.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-01T00:00:00.000",
+      "total_count": 103262.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-02T00:00:00.000",
+      "total_count": 83591.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-03T00:00:00.000",
+      "total_count": 131666.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-04T00:00:00.000",
+      "total_count": 135652.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-05T00:00:00.000",
+      "total_count": 135842.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-06T00:00:00.000",
+      "total_count": 128161.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-07T00:00:00.000",
+      "total_count": 138549.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-08T00:00:00.000",
+      "total_count": 110831.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-09T00:00:00.000",
+      "total_count": 81206.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-10T00:00:00.000",
+      "total_count": 164987.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-11T00:00:00.000",
+      "total_count": 160989.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-12T00:00:00.000",
+      "total_count": 158698.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-13T00:00:00.000",
+      "total_count": 162621.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-14T00:00:00.000",
+      "total_count": 152180.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-15T00:00:00.000",
+      "total_count": 112093.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-16T00:00:00.000",
+      "total_count": 83544.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-17T00:00:00.000",
+      "total_count": 145889.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-18T00:00:00.000",
+      "total_count": 151333.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-19T00:00:00.000",
+      "total_count": 166309.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-20T00:00:00.000",
+      "total_count": 147302.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-21T00:00:00.000",
+      "total_count": 158633.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-22T00:00:00.000",
+      "total_count": 101716.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-23T00:00:00.000",
+      "total_count": 86716.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-24T00:00:00.000",
+      "total_count": 138551.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-25T00:00:00.000",
+      "total_count": 138890.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-26T00:00:00.000",
+      "total_count": 154928.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-27T00:00:00.000",
+      "total_count": 149427.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-28T00:00:00.000",
+      "total_count": 147705.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-29T00:00:00.000",
+      "total_count": 108086.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-30T00:00:00.000",
+      "total_count": 82793.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-03-31T00:00:00.000",
+      "total_count": 130030.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-01T00:00:00.000",
+      "total_count": 158005.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-02T00:00:00.000",
+      "total_count": 161477.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-03T00:00:00.000",
+      "total_count": 141912.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-04T00:00:00.000",
+      "total_count": 151542.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-05T00:00:00.000",
+      "total_count": 111329.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-06T00:00:00.000",
+      "total_count": 82129.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-07T00:00:00.000",
+      "total_count": 155417.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-08T00:00:00.000",
+      "total_count": 151599.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-09T00:00:00.000",
+      "total_count": 141593.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-10T00:00:00.000",
+      "total_count": 166452.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-11T00:00:00.000",
+      "total_count": 156366.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-12T00:00:00.000",
+      "total_count": 113514.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-13T00:00:00.000",
+      "total_count": 93040.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-14T00:00:00.000",
+      "total_count": 146890.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-15T00:00:00.000",
+      "total_count": 153948.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-16T00:00:00.000",
+      "total_count": 144810.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-17T00:00:00.000",
+      "total_count": 158410.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-18T00:00:00.000",
+      "total_count": 50197.0,
+      "is_weekend": false,
+      "is_holiday": true,
+      "holiday_name": "Karfreitag"
+    },
+    {
+      "date": "2025-04-19T00:00:00.000",
+      "total_count": 109095.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-20T00:00:00.000",
+      "total_count": 80858.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-21T00:00:00.000",
+      "total_count": 54890.0,
+      "is_weekend": false,
+      "is_holiday": true,
+      "holiday_name": "Ostermontag"
+    },
+    {
+      "date": "2025-04-22T00:00:00.000",
+      "total_count": 159361.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-23T00:00:00.000",
+      "total_count": 162230.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-24T00:00:00.000",
+      "total_count": 167047.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-25T00:00:00.000",
+      "total_count": 157352.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-26T00:00:00.000",
+      "total_count": 120773.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-27T00:00:00.000",
+      "total_count": 95208.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-28T00:00:00.000",
+      "total_count": 166286.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-29T00:00:00.000",
+      "total_count": 182094.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-04-30T00:00:00.000",
+      "total_count": 172391.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-01T00:00:00.000",
+      "total_count": 48797.0,
+      "is_weekend": false,
+      "is_holiday": true,
+      "holiday_name": "Tag der Arbeit"
+    },
+    {
+      "date": "2025-05-02T00:00:00.000",
+      "total_count": 164133.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-03T00:00:00.000",
+      "total_count": 114083.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-04T00:00:00.000",
+      "total_count": 92220.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-05T00:00:00.000",
+      "total_count": 159195.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-06T00:00:00.000",
+      "total_count": 159218.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-07T00:00:00.000",
+      "total_count": 155984.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-08T00:00:00.000",
+      "total_count": 167950.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-09T00:00:00.000",
+      "total_count": 171116.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-10T00:00:00.000",
+      "total_count": 118138.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-11T00:00:00.000",
+      "total_count": 86844.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-12T00:00:00.000",
+      "total_count": 170885.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-13T00:00:00.000",
+      "total_count": 162905.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-14T00:00:00.000",
+      "total_count": 167728.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-15T00:00:00.000",
+      "total_count": 177291.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-16T00:00:00.000",
+      "total_count": 178321.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-17T00:00:00.000",
+      "total_count": 118374.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-18T00:00:00.000",
+      "total_count": 91037.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-19T00:00:00.000",
+      "total_count": 165573.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-20T00:00:00.000",
+      "total_count": 178950.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-21T00:00:00.000",
+      "total_count": 179114.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-22T00:00:00.000",
+      "total_count": 163420.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-23T00:00:00.000",
+      "total_count": 170470.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-24T00:00:00.000",
+      "total_count": 112365.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-25T00:00:00.000",
+      "total_count": 98543.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-26T00:00:00.000",
+      "total_count": 156622.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-27T00:00:00.000",
+      "total_count": 156672.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-28T00:00:00.000",
+      "total_count": 171379.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-29T00:00:00.000",
+      "total_count": 48227.0,
+      "is_weekend": false,
+      "is_holiday": true,
+      "holiday_name": "Christi Himmelfahrt"
+    },
+    {
+      "date": "2025-05-30T00:00:00.000",
+      "total_count": 165539.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-05-31T00:00:00.000",
+      "total_count": 111487.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-06-01T00:00:00.000",
+      "total_count": 87555.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-06-02T00:00:00.000",
+      "total_count": 166114.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-06-03T00:00:00.000",
+      "total_count": 169551.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-06-04T00:00:00.000",
+      "total_count": 171864.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-06-05T00:00:00.000",
+      "total_count": 147411.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-06-06T00:00:00.000",
+      "total_count": 166149.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-06-07T00:00:00.000",
+      "total_count": 116786.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-06-08T00:00:00.000",
+      "total_count": 89266.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-06-09T00:00:00.000",
+      "total_count": 46775.0,
+      "is_weekend": false,
+      "is_holiday": true,
+      "holiday_name": "Pfingstmontag"
+    },
+    {
+      "date": "2025-06-10T00:00:00.000",
+      "total_count": 137025.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-06-11T00:00:00.000",
+      "total_count": 145163.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-06-12T00:00:00.000",
+      "total_count": 138193.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-06-13T00:00:00.000",
+      "total_count": 140844.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-06-14T00:00:00.000",
+      "total_count": 95964.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-06-15T00:00:00.000",
+      "total_count": 77629.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-06-16T00:00:00.000",
+      "total_count": 141416.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-06-17T00:00:00.000",
+      "total_count": 133746.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-06-18T00:00:00.000",
+      "total_count": 141720.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-06-19T00:00:00.000",
+      "total_count": 47057.0,
+      "is_weekend": false,
+      "is_holiday": true,
+      "holiday_name": "Fronleichnam"
+    },
+    {
+      "date": "2025-06-20T00:00:00.000",
+      "total_count": 144101.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-06-21T00:00:00.000",
+      "total_count": 115406.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-06-22T00:00:00.000",
+      "total_count": 87839.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-06-23T00:00:00.000",
+      "total_count": 171029.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-06-24T00:00:00.000",
+      "total_count": 158918.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-06-25T00:00:00.000",
+      "total_count": 159504.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-06-26T00:00:00.000",
+      "total_count": 161142.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-06-27T00:00:00.000",
+      "total_count": 153191.0,
+      "is_weekend": false,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-06-28T00:00:00.000",
+      "total_count": 106231.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    },
+    {
+      "date": "2025-06-29T00:00:00.000",
+      "total_count": 83960.0,
+      "is_weekend": true,
+      "is_holiday": false,
+      "holiday_name": null
+    }
+  ],
+  "forecast": {
+    "metrics": {
+      "source": "demo",
+      "cv": {
+        "n_folds": 4,
+        "horizon_days": 14,
+        "summary": {
+          "model": {
+            "mae": {
+              "mean": 98.39,
+              "std": 6.55
+            },
+            "rmse": {
+              "mean": 186.02,
+              "std": 13.95
+            },
+            "r2": {
+              "mean": 0.84,
+              "std": 0.01
+            }
+          },
+          "seasonal_naive": {
+            "mae": {
+              "mean": 161.35,
+              "std": 7.13
+            },
+            "rmse": {
+              "mean": 304.98,
+              "std": 6.18
+            },
+            "r2": {
+              "mean": 0.57,
+              "std": 0.07
+            }
+          },
+          "last_value": {
+            "mae": {
+              "mean": 181.14,
+              "std": 9.93
+            },
+            "rmse": {
+              "mean": 340.84,
+              "std": 19.12
+            },
+            "r2": {
+              "mean": 0.47,
+              "std": 0.06
+            }
+          },
+          "calendar_only": {
+            "mae": {
+              "mean": 108.54,
+              "std": 6.19
+            },
+            "rmse": {
+              "mean": 204.91,
+              "std": 17.22
+            },
+            "r2": {
+              "mean": 0.81,
+              "std": 0.02
+            }
+          }
+        },
+        "per_fold": {
+          "model": [
+            {
+              "mae": 108.56,
+              "rmse": 206.26,
+              "r2": 0.8372,
+              "smape_pct": 29.03,
+              "n": 4635
+            },
+            {
+              "mae": 96.99,
+              "rmse": 183.92,
+              "r2": 0.8627,
+              "smape_pct": 29.09,
+              "n": 4646
+            },
+            {
+              "mae": 97.72,
+              "rmse": 186.97,
+              "r2": 0.8264,
+              "smape_pct": 30.54,
+              "n": 4648
+            },
+            {
+              "mae": 90.28,
+              "rmse": 166.95,
+              "r2": 0.8503,
+              "smape_pct": 30.73,
+              "n": 4641
+            }
+          ],
+          "seasonal_naive": [
+            {
+              "mae": 154.56,
+              "rmse": 297.32,
+              "r2": 0.6617,
+              "smape_pct": 35.98,
+              "n": 4635
+            },
+            {
+              "mae": 153.91,
+              "rmse": 303.32,
+              "r2": 0.6266,
+              "smape_pct": 35.92,
+              "n": 4646
+            },
+            {
+              "mae": 169.17,
+              "rmse": 314.53,
+              "r2": 0.5086,
+              "smape_pct": 42.8,
+              "n": 4648
+            },
+            {
+              "mae": 167.75,
+              "rmse": 304.73,
+              "r2": 0.5013,
+              "smape_pct": 46.88,
+              "n": 4641
+            }
+          ],
+          "last_value": [
+            {
+              "mae": 177.31,
+              "rmse": 346.82,
+              "r2": 0.5396,
+              "smape_pct": 39.67,
+              "n": 4635
+            },
+            {
+              "mae": 195.76,
+              "rmse": 366.22,
+              "r2": 0.4556,
+              "smape_pct": 48.68,
+              "n": 4646
+            },
+            {
+              "mae": 168.4,
+              "rmse": 313.11,
+              "r2": 0.513,
+              "smape_pct": 45.08,
+              "n": 4648
+            },
+            {
+              "mae": 183.1,
+              "rmse": 337.2,
+              "r2": 0.3894,
+              "smape_pct": 47.75,
+              "n": 4641
+            }
+          ],
+          "calendar_only": [
+            {
+              "mae": 114.71,
+              "rmse": 224.3,
+              "r2": 0.8075,
+              "smape_pct": 28.86,
+              "n": 4635
+            },
+            {
+              "mae": 109.34,
+              "rmse": 203.64,
+              "r2": 0.8317,
+              "smape_pct": 32.53,
+              "n": 4646
+            },
+            {
+              "mae": 111.77,
+              "rmse": 213.8,
+              "r2": 0.773,
+              "smape_pct": 37.3,
+              "n": 4648
+            },
+            {
+              "mae": 98.34,
+              "rmse": 177.9,
+              "r2": 0.83,
+              "smape_pct": 33.37,
+              "n": 4641
+            }
+          ]
+        }
+      },
+      "holdout": {
+        "test_start": "2025-06-16",
+        "test_end": "2025-06-29",
+        "n_train": 52739,
+        "n_test": 4641,
+        "model": {
+          "mae": 90.28,
+          "rmse": 166.95,
+          "r2": 0.8503,
+          "smape_pct": 30.73,
+          "n": 4641
+        },
+        "seasonal_naive": {
+          "mae": 167.75,
+          "rmse": 304.73,
+          "r2": 0.5013,
+          "smape_pct": 46.88,
+          "n": 4641
+        },
+        "last_value": {
+          "mae": 183.1,
+          "rmse": 337.2,
+          "r2": 0.3894,
+          "smape_pct": 47.75,
+          "n": 4641
+        }
+      },
+      "mae_improvement_pct": 46.2,
+      "lift_over_calendar_only_pct": 9.4,
+      "features_used": [
+        "hour_sin",
+        "hour_cos",
+        "dow",
+        "month",
+        "is_weekend",
+        "is_holiday",
+        "is_school_holiday",
+        "temp_c",
+        "precip_mm",
+        "lag_24",
+        "lag_168",
+        "roll_mean_24",
+        "roll_std_24",
+        "road_type",
+        "detector_id"
+      ],
+      "features_excluded": [
+        "peak_base (generator parameter - leakage risk)"
+      ],
+      "top_features": [
+        {
+          "feature": "hour_cos",
+          "importance": 105.79257378516763
+        },
+        {
+          "feature": "lag_24",
+          "importance": 73.86764873142292
+        },
+        {
+          "feature": "lag_168",
+          "importance": 72.42336532802315
+        },
+        {
+          "feature": "roll_mean_24",
+          "importance": 63.556211903671816
+        },
+        {
+          "feature": "is_weekend",
+          "importance": 19.916853336852864
+        },
+        {
+          "feature": "hour_sin",
+          "importance": 19.122735456993627
+        },
+        {
+          "feature": "is_holiday",
+          "importance": 17.390963911228198
+        },
+        {
+          "feature": "road_type_local",
+          "importance": 11.56430226433162
+        },
+        {
+          "feature": "roll_std_24",
+          "importance": 6.78829553567499
+        },
+        {
+          "feature": "dow",
+          "importance": 6.3222856956421225
+        },
+        {
+          "feature": "road_type_collector",
+          "importance": 1.7879156461640833
+        },
+        {
+          "feature": "detector_id_D004",
+          "importance": 1.6139532849175908
+        }
+      ],
+      "model": {
+        "mae": 90.28,
+        "rmse": 166.95,
+        "r2": 0.8503,
+        "smape_pct": 30.73,
+        "n": 4641
+      },
+      "baseline": {
+        "mae": 167.75,
+        "rmse": 304.73,
+        "r2": 0.5013,
+        "smape_pct": 46.88,
+        "n": 4641
+      },
+      "n_train": 52739,
+      "n_test": 4641,
+      "test_start": "2025-06-16",
+      "test_end": "2025-06-29"
+    },
+    "timeseries": [
+      {
+        "ts": "2025-06-16 00:00:00",
+        "actual": 555,
+        "predicted": 481.7468346496,
+        "baseline": 396.0
+      },
+      {
+        "ts": "2025-06-16 01:00:00",
+        "actual": 299,
+        "predicted": 253.6980302877,
+        "baseline": 274.0
+      },
+      {
+        "ts": "2025-06-16 02:00:00",
+        "actual": 214,
+        "predicted": 253.0296023365,
+        "baseline": 205.0
+      },
+      {
+        "ts": "2025-06-16 03:00:00",
+        "actual": 208,
+        "predicted": 268.5580110668,
+        "baseline": 118.0
+      },
+      {
+        "ts": "2025-06-16 04:00:00",
+        "actual": 617,
+        "predicted": 361.4844690417,
+        "baseline": 135.0
+      },
+      {
+        "ts": "2025-06-16 05:00:00",
+        "actual": 1785,
+        "predicted": 677.8774952892,
+        "baseline": 236.0
+      },
+      {
+        "ts": "2025-06-16 06:00:00",
+        "actual": 4229,
+        "predicted": 3160.4617786064,
+        "baseline": 400.0
+      },
+      {
+        "ts": "2025-06-16 07:00:00",
+        "actual": 10892,
+        "predicted": 9596.915906147,
+        "baseline": 977.0
+      },
+      {
+        "ts": "2025-06-16 08:00:00",
+        "actual": 12731,
+        "predicted": 10821.7946643274,
+        "baseline": 1674.0
+      },
+      {
+        "ts": "2025-06-16 09:00:00",
+        "actual": 8802,
+        "predicted": 9482.8889014004,
+        "baseline": 2606.0
+      },
+      {
+        "ts": "2025-06-16 10:00:00",
+        "actual": 7216,
+        "predicted": 6881.2346370895,
+        "baseline": 3608.0
+      },
+      {
+        "ts": "2025-06-16 11:00:00",
+        "actual": 7589,
+        "predicted": 6970.0947857827,
+        "baseline": 3080.0
+      },
+      {
+        "ts": "2025-06-16 12:00:00",
+        "actual": 7664,
+        "predicted": 7369.7292992976,
+        "baseline": 3561.0
+      },
+      {
+        "ts": "2025-06-16 13:00:00",
+        "actual": 6765,
+        "predicted": 7031.7957977367,
+        "baseline": 3898.0
+      },
+      {
+        "ts": "2025-06-16 14:00:00",
+        "actual": 8091,
+        "predicted": 7632.4770845145,
+        "baseline": 3689.0
+      },
+      {
+        "ts": "2025-06-16 15:00:00",
+        "actual": 9204,
+        "predicted": 8717.5475323945,
+        "baseline": 3469.0
+      },
+      {
+        "ts": "2025-06-16 16:00:00",
+        "actual": 10493,
+        "predicted": 10918.7316734404,
+        "baseline": 3663.0
+      },
+      {
+        "ts": "2025-06-16 17:00:00",
+        "actual": 11409,
+        "predicted": 11322.4309813094,
+        "baseline": 3030.0
+      },
+      {
+        "ts": "2025-06-16 18:00:00",
+        "actual": 11180,
+        "predicted": 10125.6278003968,
+        "baseline": 2888.0
+      },
+      {
+        "ts": "2025-06-16 19:00:00",
+        "actual": 7698,
+        "predicted": 6402.9671658093,
+        "baseline": 2512.0
+      },
+      {
+        "ts": "2025-06-16 20:00:00",
+        "actual": 5642,
+        "predicted": 4563.0030248172,
+        "baseline": 1983.0
+      },
+      {
+        "ts": "2025-06-16 21:00:00",
+        "actual": 4105,
+        "predicted": 2836.4554204517,
+        "baseline": 1862.0
+      },
+      {
+        "ts": "2025-06-16 22:00:00",
+        "actual": 2023,
+        "predicted": 1835.8666913114,
+        "baseline": 1452.0
+      },
+      {
+        "ts": "2025-06-16 23:00:00",
+        "actual": 1080,
+        "predicted": 988.7047825404,
+        "baseline": 791.0
+      },
+      {
+        "ts": "2025-06-17 00:00:00",
+        "actual": 582,
+        "predicted": 587.7388087817,
+        "baseline": 610.0
+      },
+      {
+        "ts": "2025-06-17 01:00:00",
+        "actual": 326,
+        "predicted": 292.8105006805,
+        "baseline": 301.0
+      },
+      {
+        "ts": "2025-06-17 02:00:00",
+        "actual": 232,
+        "predicted": 255.5109482005,
+        "baseline": 235.0
+      },
+      {
+        "ts": "2025-06-17 03:00:00",
+        "actual": 258,
+        "predicted": 305.3855610575,
+        "baseline": 227.0
+      },
+      {
+        "ts": "2025-06-17 04:00:00",
+        "actual": 741,
+        "predicted": 597.1035023033,
+        "baseline": 654.0
+      },
+      {
+        "ts": "2025-06-17 05:00:00",
+        "actual": 2216,
+        "predicted": 1917.5392908883,
+        "baseline": 1995.0
+      },
+      {
+        "ts": "2025-06-17 06:00:00",
+        "actual": 4498,
+        "predicted": 4981.3152213765,
+        "baseline": 5304.0
+      },
+      {
+        "ts": "2025-06-17 07:00:00",
+        "actual": 10178,
+        "predicted": 11415.0881746591,
+        "baseline": 11256.0
+      },
+      {
+        "ts": "2025-06-17 08:00:00",
+        "actual": 11657,
+        "predicted": 12410.9254245568,
+        "baseline": 12036.0
+      },
+      {
+        "ts": "2025-06-17 09:00:00",
+        "actual": 8577,
+        "predicted": 9377.5096691963,
+        "baseline": 8957.0
+      },
+      {
+        "ts": "2025-06-17 10:00:00",
+        "actual": 7414,
+        "predicted": 7557.9691500979,
+        "baseline": 6395.0
+      },
+      {
+        "ts": "2025-06-17 11:00:00",
+        "actual": 7031,
+        "predicted": 7715.9291352367,
+        "baseline": 6059.0
+      },
+      {
+        "ts": "2025-06-17 12:00:00",
+        "actual": 7866,
+        "predicted": 8087.3761857494,
+        "baseline": 6979.0
+      },
+      {
+        "ts": "2025-06-17 13:00:00",
+        "actual": 7539,
+        "predicted": 7485.1670548078,
+        "baseline": 6799.0
+      },
+      {
+        "ts": "2025-06-17 14:00:00",
+        "actual": 7794,
+        "predicted": 8055.7047718096,
+        "baseline": 6866.0
+      },
+      {
+        "ts": "2025-06-17 15:00:00",
+        "actual": 8163,
+        "predicted": 9996.4157323007,
+        "baseline": 8781.0
+      },
+      {
+        "ts": "2025-06-17 16:00:00",
+        "actual": 9980,
+        "predicted": 11181.5251410832,
+        "baseline": 10669.0
+      },
+      {
+        "ts": "2025-06-17 17:00:00",
+        "actual": 10226,
+        "predicted": 11679.9989006487,
+        "baseline": 11711.0
+      },
+      {
+        "ts": "2025-06-17 18:00:00",
+        "actual": 8699,
+        "predicted": 9400.2878769268,
+        "baseline": 9606.0
+      },
+      {
+        "ts": "2025-06-17 19:00:00",
+        "actual": 5744,
+        "predicted": 6282.1306533475,
+        "baseline": 6668.0
+      },
+      {
+        "ts": "2025-06-17 20:00:00",
+        "actual": 5324,
+        "predicted": 5492.5825793954,
+        "baseline": 6121.0
+      },
+      {
+        "ts": "2025-06-17 21:00:00",
+        "actual": 3524,
+        "predicted": 3856.6958640282,
+        "baseline": 3942.0
+      },
+      {
+        "ts": "2025-06-17 22:00:00",
+        "actual": 2148,
+        "predicted": 2172.0694491414,
+        "baseline": 2273.0
+      },
+      {
+        "ts": "2025-06-17 23:00:00",
+        "actual": 1291,
+        "predicted": 1068.2831699298,
+        "baseline": 1117.0
+      },
+      {
+        "ts": "2025-06-18 00:00:00",
+        "actual": 658,
+        "predicted": 561.3416893725,
+        "baseline": 531.0
+      },
+      {
+        "ts": "2025-06-18 01:00:00",
+        "actual": 389,
+        "predicted": 342.9638094199,
+        "baseline": 348.0
+      },
+      {
+        "ts": "2025-06-18 02:00:00",
+        "actual": 215,
+        "predicted": 240.4904424481,
+        "baseline": 216.0
+      },
+      {
+        "ts": "2025-06-18 03:00:00",
+        "actual": 247,
+        "predicted": 269.6025451699,
+        "baseline": 213.0
+      },
+      {
+        "ts": "2025-06-18 04:00:00",
+        "actual": 625,
+        "predicted": 692.6491278546,
+        "baseline": 621.0
+      },
+      {
+        "ts": "2025-06-18 05:00:00",
+        "actual": 1799,
+        "predicted": 2008.8223526758,
+        "baseline": 1988.0
+      },
+      {
+        "ts": "2025-06-18 06:00:00",
+        "actual": 5210,
+        "predicted": 5685.2121955394,
+        "baseline": 7574.0
+      },
+      {
+        "ts": "2025-06-18 07:00:00",
+        "actual": 10781,
+        "predicted": 10765.5593676384,
+        "baseline": 12741.0
+      },
+      {
+        "ts": "2025-06-18 08:00:00",
+        "actual": 12418,
+        "predicted": 11988.4332313928,
+        "baseline": 12562.0
+      },
+      {
+        "ts": "2025-06-18 09:00:00",
+        "actual": 8710,
+        "predicted": 9068.9392783342,
+        "baseline": 9332.0
+      },
+      {
+        "ts": "2025-06-18 10:00:00",
+        "actual": 7272,
+        "predicted": 7577.3850884909,
+        "baseline": 6924.0
+      },
+      {
+        "ts": "2025-06-18 11:00:00",
+        "actual": 7328,
+        "predicted": 7397.5395367129,
+        "baseline": 7866.0
+      },
+      {
+        "ts": "2025-06-18 12:00:00",
+        "actual": 7400,
+        "predicted": 8101.4996973125,
+        "baseline": 8566.0
+      },
+      {
+        "ts": "2025-06-18 13:00:00",
+        "actual": 7283,
+        "predicted": 7706.2263322554,
+        "baseline": 7761.0
+      },
+      {
+        "ts": "2025-06-18 14:00:00",
+        "actual": 7832,
+        "predicted": 7360.7582699152,
+        "baseline": 7164.0
+      },
+      {
+        "ts": "2025-06-18 15:00:00",
+        "actual": 9524,
+        "predicted": 9314.5172114957,
+        "baseline": 8608.0
+      },
+      {
+        "ts": "2025-06-18 16:00:00",
+        "actual": 12057,
+        "predicted": 10936.9829058666,
+        "baseline": 10522.0
+      },
+      {
+        "ts": "2025-06-18 17:00:00",
+        "actual": 11366,
+        "predicted": 11381.8373251246,
+        "baseline": 11548.0
+      },
+      {
+        "ts": "2025-06-18 18:00:00",
+        "actual": 10084,
+        "predicted": 9399.977935772,
+        "baseline": 9557.0
+      },
+      {
+        "ts": "2025-06-18 19:00:00",
+        "actual": 6652,
+        "predicted": 6159.1787203079,
+        "baseline": 6748.0
+      },
+      {
+        "ts": "2025-06-18 20:00:00",
+        "actual": 5706,
+        "predicted": 5338.4870536491,
+        "baseline": 5808.0
+      },
+      {
+        "ts": "2025-06-18 21:00:00",
+        "actual": 3144,
+        "predicted": 2782.5730475416,
+        "baseline": 2795.0
+      },
+      {
+        "ts": "2025-06-18 22:00:00",
+        "actual": 2494,
+        "predicted": 2303.5203721456,
+        "baseline": 2235.0
+      },
+      {
+        "ts": "2025-06-18 23:00:00",
+        "actual": 1257,
+        "predicted": 1223.7997007598,
+        "baseline": 1157.0
+      },
+      {
+        "ts": "2025-06-19 00:00:00",
+        "actual": 456,
+        "predicted": 332.689964094,
+        "baseline": 513.0
+      },
+      {
+        "ts": "2025-06-19 01:00:00",
+        "actual": 314,
+        "predicted": 70.4689702413,
+        "baseline": 310.0
+      },
+      {
+        "ts": "2025-06-19 02:00:00",
+        "actual": 200,
+        "predicted": 29.7477605998,
+        "baseline": 199.0
+      },
+      {
+        "ts": "2025-06-19 03:00:00",
+        "actual": 139,
+        "predicted": 27.233403432,
+        "baseline": 264.0
+      },
+      {
+        "ts": "2025-06-19 04:00:00",
+        "actual": 136,
+        "predicted": 257.6774766888,
+        "baseline": 595.0
+      },
+      {
+        "ts": "2025-06-19 05:00:00",
+        "actual": 312,
+        "predicted": 493.6295053478,
+        "baseline": 1780.0
+      },
+      {
+        "ts": "2025-06-19 06:00:00",
+        "actual": 600,
+        "predicted": 1290.3124560994,
+        "baseline": 5533.0
+      },
+      {
+        "ts": "2025-06-19 07:00:00",
+        "actual": 1004,
+        "predicted": 787.605670985,
+        "baseline": 10695.0
+      },
+      {
+        "ts": "2025-06-19 08:00:00",
+        "actual": 1628,
+        "predicted": 1642.5766800056,
+        "baseline": 11496.0
+      },
+      {
+        "ts": "2025-06-19 09:00:00",
+        "actual": 2463,
+        "predicted": 3071.1151193413,
+        "baseline": 8320.0
+      },
+      {
+        "ts": "2025-06-19 10:00:00",
+        "actual": 3068,
+        "predicted": 3358.682034322,
+        "baseline": 6976.0
+      },
+      {
+        "ts": "2025-06-19 11:00:00",
+        "actual": 3721,
+        "predicted": 3719.0343662917,
+        "baseline": 7043.0
+      },
+      {
+        "ts": "2025-06-19 12:00:00",
+        "actual": 4001,
+        "predicted": 3950.4975156888,
+        "baseline": 7771.0
+      },
+      {
+        "ts": "2025-06-19 13:00:00",
+        "actual": 3722,
+        "predicted": 3531.5134368976,
+        "baseline": 6823.0
+      },
+      {
+        "ts": "2025-06-19 14:00:00",
+        "actual": 3164,
+        "predicted": 3364.9328598342,
+        "baseline": 7978.0
+      },
+      {
+        "ts": "2025-06-19 15:00:00",
+        "actual": 2982,
+        "predicted": 3570.1165109868,
+        "baseline": 10745.0
+      },
+      {
+        "ts": "2025-06-19 16:00:00",
+        "actual": 3257,
+        "predicted": 3544.374890298,
+        "baseline": 11182.0
+      },
+      {
+        "ts": "2025-06-19 17:00:00",
+        "actual": 3194,
+        "predicted": 3206.8183048,
+        "baseline": 11343.0
+      },
+      {
+        "ts": "2025-06-19 18:00:00",
+        "actual": 3156,
+        "predicted": 3197.4344286801,
+        "baseline": 9104.0
+      },
+      {
+        "ts": "2025-06-19 19:00:00",
+        "actual": 2905,
+        "predicted": 2502.1578989348,
+        "baseline": 7280.0
+      },
+      {
+        "ts": "2025-06-19 20:00:00",
+        "actual": 2173,
+        "predicted": 1874.0700037831,
+        "baseline": 5341.0
+      },
+      {
+        "ts": "2025-06-19 21:00:00",
+        "actual": 1345,
+        "predicted": 1340.5963407169,
+        "baseline": 2309.0
+      },
+      {
+        "ts": "2025-06-19 22:00:00",
+        "actual": 1495,
+        "predicted": 1170.4265570747,
+        "baseline": 2132.0
+      },
+      {
+        "ts": "2025-06-19 23:00:00",
+        "actual": 981,
+        "predicted": 744.0047208793,
+        "baseline": 1219.0
+      },
+      {
+        "ts": "2025-06-20 00:00:00",
+        "actual": 745,
+        "predicted": 473.0874426044,
+        "baseline": 520.0
+      },
+      {
+        "ts": "2025-06-20 01:00:00",
+        "actual": 402,
+        "predicted": 239.967405842,
+        "baseline": 278.0
+      },
+      {
+        "ts": "2025-06-20 02:00:00",
+        "actual": 265,
+        "predicted": 218.4117199878,
+        "baseline": 179.0
+      },
+      {
+        "ts": "2025-06-20 03:00:00",
+        "actual": 200,
+        "predicted": 226.6117377619,
+        "baseline": 180.0
+      },
+      {
+        "ts": "2025-06-20 04:00:00",
+        "actual": 593,
+        "predicted": 441.8723138802,
+        "baseline": 602.0
+      },
+      {
+        "ts": "2025-06-20 05:00:00",
+        "actual": 2019,
+        "predicted": 1576.93049613,
+        "baseline": 1921.0
+      },
+      {
+        "ts": "2025-06-20 06:00:00",
+        "actual": 6289,
+        "predicted": 4819.702813456,
+        "baseline": 5525.0
+      },
+      {
+        "ts": "2025-06-20 07:00:00",
+        "actual": 10602,
+        "predicted": 9535.8478026804,
+        "baseline": 9926.0
+      },
+      {
+        "ts": "2025-06-20 08:00:00",
+        "actual": 13502,
+        "predicted": 11019.0544847967,
+        "baseline": 13717.0
+      },
+      {
+        "ts": "2025-06-20 09:00:00",
+        "actual": 7920,
+        "predicted": 7972.7468049515,
+        "baseline": 9185.0
+      },
+      {
+        "ts": "2025-06-20 10:00:00",
+        "actual": 7895,
+        "predicted": 6620.5288678932,
+        "baseline": 7296.0
+      },
+      {
+        "ts": "2025-06-20 11:00:00",
+        "actual": 7148,
+        "predicted": 6033.5208142662,
+        "baseline": 7151.0
+      },
+      {
+        "ts": "2025-06-20 12:00:00",
+        "actual": 7762,
+        "predicted": 7183.362847953,
+        "baseline": 8046.0
+      },
+      {
+        "ts": "2025-06-20 13:00:00",
+        "actual": 7324,
+        "predicted": 6871.3879405973,
+        "baseline": 7423.0
+      },
+      {
+        "ts": "2025-06-20 14:00:00",
+        "actual": 8713,
+        "predicted": 7398.9536557999,
+        "baseline": 7651.0
+      },
+      {
+        "ts": "2025-06-20 15:00:00",
+        "actual": 9882,
+        "predicted": 9318.2461226669,
+        "baseline": 9077.0
+      },
+      {
+        "ts": "2025-06-20 16:00:00",
+        "actual": 11865,
+        "predicted": 12006.3329040326,
+        "baseline": 11012.0
+      },
+      {
+        "ts": "2025-06-20 17:00:00",
+        "actual": 12098,
+        "predicted": 12608.4675056346,
+        "baseline": 12669.0
+      },
+      {
+        "ts": "2025-06-20 18:00:00",
+        "actual": 9190,
+        "predicted": 10119.0510988976,
+        "baseline": 9500.0
+      },
+      {
+        "ts": "2025-06-20 19:00:00",
+        "actual": 6758,
+        "predicted": 7113.0292579607,
+        "baseline": 6694.0
+      },
+      {
+        "ts": "2025-06-20 20:00:00",
+        "actual": 4867,
+        "predicted": 5160.2571056698,
+        "baseline": 4979.0
+      },
+      {
+        "ts": "2025-06-20 21:00:00",
+        "actual": 3261,
+        "predicted": 3189.6097348779,
+        "baseline": 3506.0
+      },
+      {
+        "ts": "2025-06-20 22:00:00",
+        "actual": 2051,
+        "predicted": 1859.0686199082,
+        "baseline": 1876.0
+      },
+      {
+        "ts": "2025-06-20 23:00:00",
+        "actual": 1252,
+        "predicted": 1116.391504937,
+        "baseline": 1254.0
+      },
+      {
+        "ts": "2025-06-21 00:00:00",
+        "actual": 1074,
+        "predicted": 1017.2569829029,
+        "baseline": 981.0
+      },
+      {
+        "ts": "2025-06-21 01:00:00",
+        "actual": 826,
+        "predicted": 606.7979048793,
+        "baseline": 673.0
+      },
+      {
+        "ts": "2025-06-21 02:00:00",
+        "actual": 566,
+        "predicted": 460.7062111171,
+        "baseline": 451.0
+      },
+      {
+        "ts": "2025-06-21 03:00:00",
+        "actual": 340,
+        "predicted": 331.9926253301,
+        "baseline": 257.0
+      },
+      {
+        "ts": "2025-06-21 04:00:00",
+        "actual": 312,
+        "predicted": 413.9775798342,
+        "baseline": 242.0
+      },
+      {
+        "ts": "2025-06-21 05:00:00",
+        "actual": 539,
+        "predicted": 733.8589688419,
+        "baseline": 447.0
+      },
+      {
+        "ts": "2025-06-21 06:00:00",
+        "actual": 1202,
+        "predicted": 1640.9233135971,
+        "baseline": 1147.0
+      },
+      {
+        "ts": "2025-06-21 07:00:00",
+        "actual": 2100,
+        "predicted": 2269.4097599676,
+        "baseline": 1939.0
+      },
+      {
+        "ts": "2025-06-21 08:00:00",
+        "actual": 3840,
+        "predicted": 3417.6165423597,
+        "baseline": 3383.0
+      },
+      {
+        "ts": "2025-06-21 09:00:00",
+        "actual": 7105,
+        "predicted": 5289.8856821668,
+        "baseline": 5570.0
+      },
+      {
+        "ts": "2025-06-21 10:00:00",
+        "actual": 8558,
+        "predicted": 7014.1492970317,
+        "baseline": 7233.0
+      },
+      {
+        "ts": "2025-06-21 11:00:00",
+        "actual": 8197,
+        "predicted": 6765.7121140375,
+        "baseline": 6790.0
+      },
+      {
+        "ts": "2025-06-21 12:00:00",
+        "actual": 9035,
+        "predicted": 8928.4930647132,
+        "baseline": 8047.0
+      },
+      {
+        "ts": "2025-06-21 13:00:00",
+        "actual": 9043,
+        "predicted": 8808.7783728945,
+        "baseline": 8252.0
+      },
+      {
+        "ts": "2025-06-21 14:00:00",
+        "actual": 8354,
+        "predicted": 8688.7797886124,
+        "baseline": 7162.0
+      },
+      {
+        "ts": "2025-06-21 15:00:00",
+        "actual": 9608,
+        "predicted": 8135.4866064969,
+        "baseline": 6994.0
+      },
+      {
+        "ts": "2025-06-21 16:00:00",
+        "actual": 9689,
+        "predicted": 8028.9375476622,
+        "baseline": 7564.0
+      },
+      {
+        "ts": "2025-06-21 17:00:00",
+        "actual": 7956,
+        "predicted": 7741.9628073492,
+        "baseline": 7205.0
+      },
+      {
+        "ts": "2025-06-21 18:00:00",
+        "actual": 6794,
+        "predicted": 7317.9920846205,
+        "baseline": 5943.0
+      },
+      {
+        "ts": "2025-06-21 19:00:00",
+        "actual": 5453,
+        "predicted": 5976.4409305217,
+        "baseline": 4199.0
+      },
+      {
+        "ts": "2025-06-21 20:00:00",
+        "actual": 4465,
+        "predicted": 4610.5321928005,
+        "baseline": 3293.0
+      },
+      {
+        "ts": "2025-06-21 21:00:00",
+        "actual": 4034,
+        "predicted": 3491.5017420354,
+        "baseline": 2867.0
+      },
+      {
+        "ts": "2025-06-21 22:00:00",
+        "actual": 2744,
+        "predicted": 2307.1772918905,
+        "baseline": 2040.0
+      },
+      {
+        "ts": "2025-06-21 23:00:00",
+        "actual": 1892,
+        "predicted": 1516.4619934199,
+        "baseline": 1599.0
+      },
+      {
+        "ts": "2025-06-22 00:00:00",
+        "actual": 794,
+        "predicted": 773.306821919,
+        "baseline": 697.0
+      },
+      {
+        "ts": "2025-06-22 01:00:00",
+        "actual": 521,
+        "predicted": 541.1116459514,
+        "baseline": 437.0
+      },
+      {
+        "ts": "2025-06-22 02:00:00",
+        "actual": 415,
+        "predicted": 401.354120458,
+        "baseline": 322.0
+      },
+      {
+        "ts": "2025-06-22 03:00:00",
+        "actual": 254,
+        "predicted": 262.9768879359,
+        "baseline": 198.0
+      },
+      {
+        "ts": "2025-06-22 04:00:00",
+        "actual": 265,
+        "predicted": 257.7475791873,
+        "baseline": 222.0
+      },
+      {
+        "ts": "2025-06-22 05:00:00",
+        "actual": 505,
+        "predicted": 374.1634520486,
+        "baseline": 367.0
+      },
+      {
+        "ts": "2025-06-22 06:00:00",
+        "actual": 798,
+        "predicted": 755.2876714469,
+        "baseline": 729.0
+      },
+      {
+        "ts": "2025-06-22 07:00:00",
+        "actual": 1801,
+        "predicted": 1649.3461106395,
+        "baseline": 1571.0
+      },
+      {
+        "ts": "2025-06-22 08:00:00",
+        "actual": 2954,
+        "predicted": 2572.8889210141,
+        "baseline": 2304.0
+      },
+      {
+        "ts": "2025-06-22 09:00:00",
+        "actual": 5229,
+        "predicted": 4606.4841609388,
+        "baseline": 4237.0
+      },
+      {
+        "ts": "2025-06-22 10:00:00",
+        "actual": 6423,
+        "predicted": 5678.172721775,
+        "baseline": 4826.0
+      },
+      {
+        "ts": "2025-06-22 11:00:00",
+        "actual": 6995,
+        "predicted": 6749.8173630763,
+        "baseline": 5378.0
+      },
+      {
+        "ts": "2025-06-22 12:00:00",
+        "actual": 7205,
+        "predicted": 6957.6133065283,
+        "baseline": 6332.0
+      },
+      {
+        "ts": "2025-06-22 13:00:00",
+        "actual": 7283,
+        "predicted": 6978.9780418674,
+        "baseline": 7250.0
+      },
+      {
+        "ts": "2025-06-22 14:00:00",
+        "actual": 6298,
+        "predicted": 7074.219851603,
+        "baseline": 6755.0
+      },
+      {
+        "ts": "2025-06-22 15:00:00",
+        "actual": 6284,
+        "predicted": 6776.8010680056,
+        "baseline": 6960.0
+      },
+      {
+        "ts": "2025-06-22 16:00:00",
+        "actual": 5865,
+        "predicted": 6308.5833844165,
+        "baseline": 5925.0
+      },
+      {
+        "ts": "2025-06-22 17:00:00",
+        "actual": 5519,
+        "predicted": 5974.2919550397,
+        "baseline": 5321.0
+      },
+      {
+        "ts": "2025-06-22 18:00:00",
+        "actual": 4745,
+        "predicted": 5301.1169836631,
+        "baseline": 4259.0
+      },
+      {
+        "ts": "2025-06-22 19:00:00",
+        "actual": 4681,
+        "predicted": 4547.634554449,
+        "baseline": 4045.0
+      },
+      {
+        "ts": "2025-06-22 20:00:00",
+        "actual": 4512,
+        "predicted": 3757.6800429207,
+        "baseline": 3117.0
+      },
+      {
+        "ts": "2025-06-22 21:00:00",
+        "actual": 3547,
+        "predicted": 3100.3733587176,
+        "baseline": 2608.0
+      },
+      {
+        "ts": "2025-06-22 22:00:00",
+        "actual": 2679,
+        "predicted": 2098.1558568775,
+        "baseline": 1863.0
+      },
+      {
+        "ts": "2025-06-22 23:00:00",
+        "actual": 1642,
+        "predicted": 1416.8284907394,
+        "baseline": 1290.0
+      },
+      {
+        "ts": "2025-06-23 00:00:00",
+        "actual": 620,
+        "predicted": 625.9507609384,
+        "baseline": 487.0
+      },
+      {
+        "ts": "2025-06-23 01:00:00",
+        "actual": 428,
+        "predicted": 370.0882408011,
+        "baseline": 299.0
+      },
+      {
+        "ts": "2025-06-23 02:00:00",
+        "actual": 274,
+        "predicted": 315.8459767584,
+        "baseline": 214.0
+      },
+      {
+        "ts": "2025-06-23 03:00:00",
+        "actual": 276,
+        "predicted": 309.9189255839,
+        "baseline": 234.0
+      },
+      {
+        "ts": "2025-06-23 04:00:00",
+        "actual": 853,
+        "predicted": 654.5500004132,
+        "baseline": 617.0
+      },
+      {
+        "ts": "2025-06-23 05:00:00",
+        "actual": 2507,
+        "predicted": 1822.1536890436,
+        "baseline": 1785.0
+      },
+      {
+        "ts": "2025-06-23 06:00:00",
+        "actual": 5696,
+        "predicted": 5332.1112554829,
+        "baseline": 5128.0
+      },
+      {
+        "ts": "2025-06-23 07:00:00",
+        "actual": 11483,
+        "predicted": 11995.65377422,
+        "baseline": 10892.0
+      },
+      {
+        "ts": "2025-06-23 08:00:00",
+        "actual": 15005,
+        "predicted": 13322.1301574409,
+        "baseline": 12731.0
+      },
+      {
+        "ts": "2025-06-23 09:00:00",
+        "actual": 10861,
+        "predicted": 10284.5260560087,
+        "baseline": 8802.0
+      },
+      {
+        "ts": "2025-06-23 10:00:00",
+        "actual": 8295,
+        "predicted": 8843.5693793958,
+        "baseline": 7216.0
+      },
+      {
+        "ts": "2025-06-23 11:00:00",
+        "actual": 8367,
+        "predicted": 8231.5278229715,
+        "baseline": 7205.0
+      },
+      {
+        "ts": "2025-06-23 12:00:00",
+        "actual": 8730,
+        "predicted": 9049.0442319681,
+        "baseline": 7664.0
+      },
+      {
+        "ts": "2025-06-23 13:00:00",
+        "actual": 8988,
+        "predicted": 8658.2082368344,
+        "baseline": 6765.0
+      },
+      {
+        "ts": "2025-06-23 14:00:00",
+        "actual": 8904,
+        "predicted": 9454.8219364223,
+        "baseline": 8091.0
+      },
+      {
+        "ts": "2025-06-23 15:00:00",
+        "actual": 11844,
+        "predicted": 10788.7710084419,
+        "baseline": 9204.0
+      },
+      {
+        "ts": "2025-06-23 16:00:00",
+        "actual": 13742,
+        "predicted": 13263.8242298237,
+        "baseline": 10493.0
+      },
+      {
+        "ts": "2025-06-23 17:00:00",
+        "actual": 16653,
+        "predicted": 14373.181071273,
+        "baseline": 11409.0
+      },
+      {
+        "ts": "2025-06-23 18:00:00",
+        "actual": 13682,
+        "predicted": 12407.5557858033,
+        "baseline": 11180.0
+      },
+      {
+        "ts": "2025-06-23 19:00:00",
+        "actual": 8289,
+        "predicted": 8625.9279367306,
+        "baseline": 7698.0
+      },
+      {
+        "ts": "2025-06-23 20:00:00",
+        "actual": 6592,
+        "predicted": 6356.7581880027,
+        "baseline": 5642.0
+      },
+      {
+        "ts": "2025-06-23 21:00:00",
+        "actual": 4082,
+        "predicted": 4292.9036233094,
+        "baseline": 4105.0
+      },
+      {
+        "ts": "2025-06-23 22:00:00",
+        "actual": 2375,
+        "predicted": 2564.8511390816,
+        "baseline": 2023.0
+      },
+      {
+        "ts": "2025-06-23 23:00:00",
+        "actual": 1316,
+        "predicted": 1369.0954947775,
+        "baseline": 1080.0
+      },
+      {
+        "ts": "2025-06-24 00:00:00",
+        "actual": 600,
+        "predicted": 646.1846337659,
+        "baseline": 531.0
+      },
+      {
+        "ts": "2025-06-24 01:00:00",
+        "actual": 441,
+        "predicted": 453.1357022811,
+        "baseline": 359.0
+      },
+      {
+        "ts": "2025-06-24 02:00:00",
+        "actual": 248,
+        "predicted": 331.6860332056,
+        "baseline": 224.0
+      },
+      {
+        "ts": "2025-06-24 03:00:00",
+        "actual": 247,
+        "predicted": 384.0797977907,
+        "baseline": 258.0
+      },
+      {
+        "ts": "2025-06-24 04:00:00",
+        "actual": 630,
+        "predicted": 850.759311912,
+        "baseline": 741.0
+      },
+      {
+        "ts": "2025-06-24 05:00:00",
+        "actual": 2080,
+        "predicted": 2245.2809780432,
+        "baseline": 2216.0
+      },
+      {
+        "ts": "2025-06-24 06:00:00",
+        "actual": 5885,
+        "predicted": 6538.1996158076,
+        "baseline": 5834.0
+      },
+      {
+        "ts": "2025-06-24 07:00:00",
+        "actual": 11261,
+        "predicted": 12344.2877401724,
+        "baseline": 10178.0
+      },
+      {
+        "ts": "2025-06-24 08:00:00",
+        "actual": 12340,
+        "predicted": 14347.2387496265,
+        "baseline": 11657.0
+      },
+      {
+        "ts": "2025-06-24 09:00:00",
+        "actual": 8722,
+        "predicted": 10337.7530357707,
+        "baseline": 8577.0
+      },
+      {
+        "ts": "2025-06-24 10:00:00",
+        "actual": 7809,
+        "predicted": 8692.7308401908,
+        "baseline": 7414.0
+      },
+      {
+        "ts": "2025-06-24 11:00:00",
+        "actual": 7780,
+        "predicted": 8519.8681540779,
+        "baseline": 7031.0
+      },
+      {
+        "ts": "2025-06-24 12:00:00",
+        "actual": 8176,
+        "predicted": 9258.6604161061,
+        "baseline": 7866.0
+      },
+      {
+        "ts": "2025-06-24 13:00:00",
+        "actual": 8515,
+        "predicted": 9196.7234492265,
+        "baseline": 7908.0
+      },
+      {
+        "ts": "2025-06-24 14:00:00",
+        "actual": 8779,
+        "predicted": 9570.7671811931,
+        "baseline": 7794.0
+      },
+      {
+        "ts": "2025-06-24 15:00:00",
+        "actual": 11071,
+        "predicted": 11468.5652802558,
+        "baseline": 8163.0
+      },
+      {
+        "ts": "2025-06-24 16:00:00",
+        "actual": 13307,
+        "predicted": 13434.8407516574,
+        "baseline": 9980.0
+      },
+      {
+        "ts": "2025-06-24 17:00:00",
+        "actual": 13325,
+        "predicted": 13256.1853547876,
+        "baseline": 9947.0
+      },
+      {
+        "ts": "2025-06-24 18:00:00",
+        "actual": 12180,
+        "predicted": 10706.4949643386,
+        "baseline": 8699.0
+      },
+      {
+        "ts": "2025-06-24 19:00:00",
+        "actual": 8875,
+        "predicted": 7360.1280203098,
+        "baseline": 5744.0
+      },
+      {
+        "ts": "2025-06-24 20:00:00",
+        "actual": 7328,
+        "predicted": 6026.1704608566,
+        "baseline": 5324.0
+      },
+      {
+        "ts": "2025-06-24 21:00:00",
+        "actual": 4244,
+        "predicted": 4149.0119418801,
+        "baseline": 3524.0
+      },
+      {
+        "ts": "2025-06-24 22:00:00",
+        "actual": 2472,
+        "predicted": 2546.9986016856,
+        "baseline": 2148.0
+      },
+      {
+        "ts": "2025-06-24 23:00:00",
+        "actual": 1366,
+        "predicted": 1346.6301203525,
+        "baseline": 1291.0
+      },
+      {
+        "ts": "2025-06-25 00:00:00",
+        "actual": 683,
+        "predicted": 746.6519544121,
+        "baseline": 658.0
+      },
+      {
+        "ts": "2025-06-25 01:00:00",
+        "actual": 447,
+        "predicted": 447.3109544201,
+        "baseline": 389.0
+      },
+      {
+        "ts": "2025-06-25 02:00:00",
+        "actual": 236,
+        "predicted": 294.2715978176,
+        "baseline": 206.0
+      },
+      {
+        "ts": "2025-06-25 03:00:00",
+        "actual": 266,
+        "predicted": 349.8773534287,
+        "baseline": 247.0
+      },
+      {
+        "ts": "2025-06-25 04:00:00",
+        "actual": 675,
+        "predicted": 697.005363355,
+        "baseline": 625.0
+      },
+      {
+        "ts": "2025-06-25 05:00:00",
+        "actual": 1834,
+        "predicted": 1943.959484831,
+        "baseline": 1799.0
+      },
+      {
+        "ts": "2025-06-25 06:00:00",
+        "actual": 6039,
+        "predicted": 6075.3678198241,
+        "baseline": 5210.0
+      },
+      {
+        "ts": "2025-06-25 07:00:00",
+        "actual": 10951,
+        "predicted": 11705.4433665943,
+        "baseline": 10781.0
+      },
+      {
+        "ts": "2025-06-25 08:00:00",
+        "actual": 12097,
+        "predicted": 13242.7769103976,
+        "baseline": 12418.0
+      },
+      {
+        "ts": "2025-06-25 09:00:00",
+        "actual": 9331,
+        "predicted": 10293.5820956422,
+        "baseline": 8710.0
+      },
+      {
+        "ts": "2025-06-25 10:00:00",
+        "actual": 8094,
+        "predicted": 8259.0268805305,
+        "baseline": 7272.0
+      },
+      {
+        "ts": "2025-06-25 11:00:00",
+        "actual": 7264,
+        "predicted": 8319.9289244474,
+        "baseline": 7461.0
+      },
+      {
+        "ts": "2025-06-25 12:00:00",
+        "actual": 8595,
+        "predicted": 9032.7849468288,
+        "baseline": 7400.0
+      },
+      {
+        "ts": "2025-06-25 13:00:00",
+        "actual": 11269,
+        "predicted": 8883.9691026696,
+        "baseline": 7283.0
+      },
+      {
+        "ts": "2025-06-25 14:00:00",
+        "actual": 9946,
+        "predicted": 8878.9544592524,
+        "baseline": 7832.0
+      },
+      {
+        "ts": "2025-06-25 15:00:00",
+        "actual": 12007,
+        "predicted": 11098.8956421584,
+        "baseline": 9360.0
+      },
+      {
+        "ts": "2025-06-25 16:00:00",
+        "actual": 13500,
+        "predicted": 13153.2850030145,
+        "baseline": 12057.0
+      },
+      {
+        "ts": "2025-06-25 17:00:00",
+        "actual": 12905,
+        "predicted": 12869.9290125353,
+        "baseline": 11200.0
+      },
+      {
+        "ts": "2025-06-25 18:00:00",
+        "actual": 10731,
+        "predicted": 11185.4241809365,
+        "baseline": 10084.0
+      },
+      {
+        "ts": "2025-06-25 19:00:00",
+        "actual": 7789,
+        "predicted": 8177.2143502824,
+        "baseline": 7788.0
+      },
+      {
+        "ts": "2025-06-25 20:00:00",
+        "actual": 6357,
+        "predicted": 6163.5285053828,
+        "baseline": 5706.0
+      },
+      {
+        "ts": "2025-06-25 21:00:00",
+        "actual": 3098,
+        "predicted": 3271.3418627771,
+        "baseline": 3144.0
+      },
+      {
+        "ts": "2025-06-25 22:00:00",
+        "actual": 2503,
+        "predicted": 2532.8785867654,
+        "baseline": 2494.0
+      },
+      {
+        "ts": "2025-06-25 23:00:00",
+        "actual": 1403,
+        "predicted": 1328.6589839626,
+        "baseline": 1257.0
+      },
+      {
+        "ts": "2025-06-26 00:00:00",
+        "actual": 667,
+        "predicted": 622.2125512227,
+        "baseline": 456.0
+      },
+      {
+        "ts": "2025-06-26 01:00:00",
+        "actual": 462,
+        "predicted": 416.5683957893,
+        "baseline": 314.0
+      },
+      {
+        "ts": "2025-06-26 02:00:00",
+        "actual": 262,
+        "predicted": 336.4580544156,
+        "baseline": 207.0
+      },
+      {
+        "ts": "2025-06-26 03:00:00",
+        "actual": 284,
+        "predicted": 340.8252510512,
+        "baseline": 139.0
+      },
+      {
+        "ts": "2025-06-26 04:00:00",
+        "actual": 684,
+        "predicted": 486.1469471639,
+        "baseline": 142.0
+      },
+      {
+        "ts": "2025-06-26 05:00:00",
+        "actual": 2028,
+        "predicted": 1345.5203218448,
+        "baseline": 312.0
+      },
+      {
+        "ts": "2025-06-26 06:00:00",
+        "actual": 6697,
+        "predicted": 5023.9174929072,
+        "baseline": 600.0
+      },
+      {
+        "ts": "2025-06-26 07:00:00",
+        "actual": 12133,
+        "predicted": 11512.2698672233,
+        "baseline": 1004.0
+      },
+      {
+        "ts": "2025-06-26 08:00:00",
+        "actual": 13960,
+        "predicted": 13209.1704011188,
+        "baseline": 1628.0
+      },
+      {
+        "ts": "2025-06-26 09:00:00",
+        "actual": 11423,
+        "predicted": 10841.6939041327,
+        "baseline": 2463.0
+      },
+      {
+        "ts": "2025-06-26 10:00:00",
+        "actual": 9366,
+        "predicted": 7840.5787670427,
+        "baseline": 3068.0
+      },
+      {
+        "ts": "2025-06-26 11:00:00",
+        "actual": 8090,
+        "predicted": 7826.0906591312,
+        "baseline": 3721.0
+      },
+      {
+        "ts": "2025-06-26 12:00:00",
+        "actual": 8416,
+        "predicted": 8874.6719536708,
+        "baseline": 4001.0
+      },
+      {
+        "ts": "2025-06-26 13:00:00",
+        "actual": 7677,
+        "predicted": 8376.7740081549,
+        "baseline": 3722.0
+      },
+      {
+        "ts": "2025-06-26 14:00:00",
+        "actual": 8531,
+        "predicted": 8381.2122591139,
+        "baseline": 3321.0
+      },
+      {
+        "ts": "2025-06-26 15:00:00",
+        "actual": 11297,
+        "predicted": 10001.5965899484,
+        "baseline": 2937.0
+      },
+      {
+        "ts": "2025-06-26 16:00:00",
+        "actual": 12277,
+        "predicted": 11974.7115496045,
+        "baseline": 3257.0
+      },
+      {
+        "ts": "2025-06-26 17:00:00",
+        "actual": 13701,
+        "predicted": 11906.009572729,
+        "baseline": 3194.0
+      },
+      {
+        "ts": "2025-06-26 18:00:00",
+        "actual": 11563,
+        "predicted": 11087.9205789002,
+        "baseline": 3156.0
+      },
+      {
+        "ts": "2025-06-26 19:00:00",
+        "actual": 7881,
+        "predicted": 7359.2698645244,
+        "baseline": 2905.0
+      },
+      {
+        "ts": "2025-06-26 20:00:00",
+        "actual": 5294,
+        "predicted": 5113.4663054634,
+        "baseline": 1957.0
+      },
+      {
+        "ts": "2025-06-26 21:00:00",
+        "actual": 4274,
+        "predicted": 3470.7027210794,
+        "baseline": 1816.0
+      },
+      {
+        "ts": "2025-06-26 22:00:00",
+        "actual": 2534,
+        "predicted": 2214.2498213426,
+        "baseline": 1495.0
+      },
+      {
+        "ts": "2025-06-26 23:00:00",
+        "actual": 1437,
+        "predicted": 1193.6614786062,
+        "baseline": 981.0
+      },
+      {
+        "ts": "2025-06-27 00:00:00",
+        "actual": 697,
+        "predicted": 797.1090536111,
+        "baseline": 745.0
+      },
+      {
+        "ts": "2025-06-27 01:00:00",
+        "actual": 376,
+        "predicted": 472.6760054403,
+        "baseline": 402.0
+      },
+      {
+        "ts": "2025-06-27 02:00:00",
+        "actual": 248,
+        "predicted": 349.0899286862,
+        "baseline": 265.0
+      },
+      {
+        "ts": "2025-06-27 03:00:00",
+        "actual": 257,
+        "predicted": 360.3410998219,
+        "baseline": 229.0
+      },
+      {
+        "ts": "2025-06-27 04:00:00",
+        "actual": 672,
+        "predicted": 684.6918981376,
+        "baseline": 593.0
+      },
+      {
+        "ts": "2025-06-27 05:00:00",
+        "actual": 2009,
+        "predicted": 2209.8163901604,
+        "baseline": 2019.0
+      },
+      {
+        "ts": "2025-06-27 06:00:00",
+        "actual": 5753,
+        "predicted": 6387.2715138192,
+        "baseline": 6289.0
+      },
+      {
+        "ts": "2025-06-27 07:00:00",
+        "actual": 11131,
+        "predicted": 11541.3257068219,
+        "baseline": 10602.0
+      },
+      {
+        "ts": "2025-06-27 08:00:00",
+        "actual": 12785,
+        "predicted": 13759.8110978754,
+        "baseline": 13502.0
+      },
+      {
+        "ts": "2025-06-27 09:00:00",
+        "actual": 10198,
+        "predicted": 10020.4243654542,
+        "baseline": 9389.0
+      },
+      {
+        "ts": "2025-06-27 10:00:00",
+        "actual": 6896,
+        "predicted": 8158.6420893638,
+        "baseline": 7895.0
+      },
+      {
+        "ts": "2025-06-27 11:00:00",
+        "actual": 6476,
+        "predicted": 7478.4455262305,
+        "baseline": 7148.0
+      },
+      {
+        "ts": "2025-06-27 12:00:00",
+        "actual": 8558,
+        "predicted": 8598.969275739,
+        "baseline": 7762.0
+      },
+      {
+        "ts": "2025-06-27 13:00:00",
+        "actual": 9276,
+        "predicted": 8748.3022428723,
+        "baseline": 7324.0
+      },
+      {
+        "ts": "2025-06-27 14:00:00",
+        "actual": 9392,
+        "predicted": 9260.0299205886,
+        "baseline": 8713.0
+      },
+      {
+        "ts": "2025-06-27 15:00:00",
+        "actual": 11217,
+        "predicted": 10819.8577583377,
+        "baseline": 9882.0
+      },
+      {
+        "ts": "2025-06-27 16:00:00",
+        "actual": 12824,
+        "predicted": 12360.5848075861,
+        "baseline": 11865.0
+      },
+      {
+        "ts": "2025-06-27 17:00:00",
+        "actual": 12165,
+        "predicted": 11947.0378343455,
+        "baseline": 11677.0
+      },
+      {
+        "ts": "2025-06-27 18:00:00",
+        "actual": 11279,
+        "predicted": 10424.8279826518,
+        "baseline": 9190.0
+      },
+      {
+        "ts": "2025-06-27 19:00:00",
+        "actual": 7304,
+        "predicted": 7674.5539323606,
+        "baseline": 6758.0
+      },
+      {
+        "ts": "2025-06-27 20:00:00",
+        "actual": 4862,
+        "predicted": 5165.9378055482,
+        "baseline": 4432.0
+      },
+      {
+        "ts": "2025-06-27 21:00:00",
+        "actual": 3914,
+        "predicted": 3926.1860309113,
+        "baseline": 3261.0
+      },
+      {
+        "ts": "2025-06-27 22:00:00",
+        "actual": 2062,
+        "predicted": 2027.99110138,
+        "baseline": 1872.0
+      },
+      {
+        "ts": "2025-06-27 23:00:00",
+        "actual": 1482,
+        "predicted": 1302.0851210713,
+        "baseline": 1252.0
+      },
+      {
+        "ts": "2025-06-28 00:00:00",
+        "actual": 1202,
+        "predicted": 1018.197934322,
+        "baseline": 1074.0
+      },
+      {
+        "ts": "2025-06-28 01:00:00",
+        "actual": 759,
+        "predicted": 705.6536555431,
+        "baseline": 826.0
+      },
+      {
+        "ts": "2025-06-28 02:00:00",
+        "actual": 573,
+        "predicted": 487.9638843718,
+        "baseline": 566.0
+      },
+      {
+        "ts": "2025-06-28 03:00:00",
+        "actual": 297,
+        "predicted": 334.2872415855,
+        "baseline": 340.0
+      },
+      {
+        "ts": "2025-06-28 04:00:00",
+        "actual": 295,
+        "predicted": 438.3670470272,
+        "baseline": 312.0
+      },
+      {
+        "ts": "2025-06-28 05:00:00",
+        "actual": 515,
+        "predicted": 783.1323182207,
+        "baseline": 539.0
+      },
+      {
+        "ts": "2025-06-28 06:00:00",
+        "actual": 1253,
+        "predicted": 1573.3376417266,
+        "baseline": 1202.0
+      },
+      {
+        "ts": "2025-06-28 07:00:00",
+        "actual": 1902,
+        "predicted": 2358.3085799474,
+        "baseline": 2147.0
+      },
+      {
+        "ts": "2025-06-28 08:00:00",
+        "actual": 3231,
+        "predicted": 3422.8083006486,
+        "baseline": 3840.0
+      },
+      {
+        "ts": "2025-06-28 09:00:00",
+        "actual": 6331,
+        "predicted": 6421.8148301142,
+        "baseline": 7508.0
+      },
+      {
+        "ts": "2025-06-28 10:00:00",
+        "actual": 7355,
+        "predicted": 7821.4458556999,
+        "baseline": 8558.0
+      },
+      {
+        "ts": "2025-06-28 11:00:00",
+        "actual": 8881,
+        "predicted": 8535.1743674215,
+        "baseline": 9427.0
+      },
+      {
+        "ts": "2025-06-28 12:00:00",
+        "actual": 9096,
+        "predicted": 9104.1327701248,
+        "baseline": 9035.0
+      },
+      {
+        "ts": "2025-06-28 13:00:00",
+        "actual": 8966,
+        "predicted": 9289.8225303551,
+        "baseline": 9043.0
+      },
+      {
+        "ts": "2025-06-28 14:00:00",
+        "actual": 8756,
+        "predicted": 8967.041159,
+        "baseline": 8354.0
+      },
+      {
+        "ts": "2025-06-28 15:00:00",
+        "actual": 7303,
+        "predicted": 8718.2341447016,
+        "baseline": 9608.0
+      },
+      {
+        "ts": "2025-06-28 16:00:00",
+        "actual": 7792,
+        "predicted": 8395.4620143107,
+        "baseline": 9689.0
+      },
+      {
+        "ts": "2025-06-28 17:00:00",
+        "actual": 7251,
+        "predicted": 7099.4445577399,
+        "baseline": 7117.0
+      },
+      {
+        "ts": "2025-06-28 18:00:00",
+        "actual": 6293,
+        "predicted": 6740.8866001057,
+        "baseline": 6794.0
+      },
+      {
+        "ts": "2025-06-28 19:00:00",
+        "actual": 5252,
+        "predicted": 5659.5523275021,
+        "baseline": 5453.0
+      },
+      {
+        "ts": "2025-06-28 20:00:00",
+        "actual": 4190,
+        "predicted": 4222.9524072043,
+        "baseline": 3813.0
+      },
+      {
+        "ts": "2025-06-28 21:00:00",
+        "actual": 3528,
+        "predicted": 3947.6464672851,
+        "baseline": 4034.0
+      },
+      {
+        "ts": "2025-06-28 22:00:00",
+        "actual": 2420,
+        "predicted": 2342.110200429,
+        "baseline": 2414.0
+      },
+      {
+        "ts": "2025-06-28 23:00:00",
+        "actual": 1729,
+        "predicted": 1777.0763312691,
+        "baseline": 1892.0
+      },
+      {
+        "ts": "2025-06-29 00:00:00",
+        "actual": 776,
+        "predicted": 900.2113091921,
+        "baseline": 794.0
+      },
+      {
+        "ts": "2025-06-29 01:00:00",
+        "actual": 535,
+        "predicted": 603.6234400375,
+        "baseline": 521.0
+      },
+      {
+        "ts": "2025-06-29 02:00:00",
+        "actual": 366,
+        "predicted": 453.2128067293,
+        "baseline": 415.0
+      },
+      {
+        "ts": "2025-06-29 03:00:00",
+        "actual": 250,
+        "predicted": 273.117540567,
+        "baseline": 254.0
+      },
+      {
+        "ts": "2025-06-29 04:00:00",
+        "actual": 247,
+        "predicted": 259.775749779,
+        "baseline": 265.0
+      },
+      {
+        "ts": "2025-06-29 05:00:00",
+        "actual": 485,
+        "predicted": 482.9002329691,
+        "baseline": 547.0
+      },
+      {
+        "ts": "2025-06-29 06:00:00",
+        "actual": 912,
+        "predicted": 891.2845143254,
+        "baseline": 906.0
+      },
+      {
+        "ts": "2025-06-29 07:00:00",
+        "actual": 1308,
+        "predicted": 1739.3216593437,
+        "baseline": 1801.0
+      },
+      {
+        "ts": "2025-06-29 08:00:00",
+        "actual": 2755,
+        "predicted": 3266.2855424734,
+        "baseline": 3429.0
+      },
+      {
+        "ts": "2025-06-29 09:00:00",
+        "actual": 4536,
+        "predicted": 4590.0623480024,
+        "baseline": 5229.0
+      },
+      {
+        "ts": "2025-06-29 10:00:00",
+        "actual": 5640,
+        "predicted": 5550.7078598501,
+        "baseline": 6423.0
+      },
+      {
+        "ts": "2025-06-29 11:00:00",
+        "actual": 5708,
+        "predicted": 6265.3796421341,
+        "baseline": 6995.0
+      },
+      {
+        "ts": "2025-06-29 12:00:00",
+        "actual": 6482,
+        "predicted": 6092.7735386229,
+        "baseline": 6480.0
+      },
+      {
+        "ts": "2025-06-29 13:00:00",
+        "actual": 8064,
+        "predicted": 6442.7705430666,
+        "baseline": 7283.0
+      },
+      {
+        "ts": "2025-06-29 14:00:00",
+        "actual": 7741,
+        "predicted": 6305.0136167077,
+        "baseline": 6298.0
+      },
+      {
+        "ts": "2025-06-29 15:00:00",
+        "actual": 7080,
+        "predicted": 6167.4407092714,
+        "baseline": 6284.0
+      },
+      {
+        "ts": "2025-06-29 16:00:00",
+        "actual": 6106,
+        "predicted": 6208.665846842,
+        "baseline": 5865.0
+      },
+      {
+        "ts": "2025-06-29 17:00:00",
+        "actual": 5682,
+        "predicted": 5646.2746318935,
+        "baseline": 5519.0
+      },
+      {
+        "ts": "2025-06-29 18:00:00",
+        "actual": 5036,
+        "predicted": 5509.5507296703,
+        "baseline": 4745.0
+      },
+      {
+        "ts": "2025-06-29 19:00:00",
+        "actual": 4429,
+        "predicted": 4494.7631257811,
+        "baseline": 4681.0
+      },
+      {
+        "ts": "2025-06-29 20:00:00",
+        "actual": 2957,
+        "predicted": 3394.2139432555,
+        "baseline": 3878.0
+      },
+      {
+        "ts": "2025-06-29 21:00:00",
+        "actual": 2856,
+        "predicted": 3100.1291984261,
+        "baseline": 3547.0
+      },
+      {
+        "ts": "2025-06-29 22:00:00",
+        "actual": 2148,
+        "predicted": 2334.9450139408,
+        "baseline": 2679.0
+      },
+      {
+        "ts": "2025-06-29 23:00:00",
+        "actual": 1261,
+        "predicted": 1566.2288105741,
+        "baseline": 1642.0
+      }
+    ]
+  },
+  "routes": [
+    {
+      "route_id": "R10",
+      "route_short_name": "10",
+      "route_long_name": "Hauptbahnhof - Zentrum - Klinikum",
+      "trips_weekday": 70.0,
+      "trips_saturday": 38.0,
+      "trips_sunday": 27.0,
+      "n_stops": 11,
+      "span_hours": 18.1,
+      "avg_peak_headway_min": 10.9
+    },
+    {
+      "route_id": "R20",
+      "route_short_name": "20",
+      "route_long_name": "Hauptbahnhof - Audi - Nordwest",
+      "trips_weekday": 67.0,
+      "trips_saturday": 35.0,
+      "trips_sunday": 25.0,
+      "n_stops": 9,
+      "span_hours": 18.1,
+      "avg_peak_headway_min": 11.0
+    },
+    {
+      "route_id": "R44",
+      "route_short_name": "44",
+      "route_long_name": "Ringsee - Hauptbahnhof - Nordost",
+      "trips_weekday": 61.0,
+      "trips_saturday": 32.0,
+      "trips_sunday": 22.0,
+      "n_stops": 12,
+      "span_hours": 18.3,
+      "avg_peak_headway_min": 12.2
+    },
+    {
+      "route_id": "R15",
+      "route_short_name": "15",
+      "route_long_name": "Suedwest - Rathausplatz - Etting",
+      "trips_weekday": 58.0,
+      "trips_saturday": 31.0,
+      "trips_sunday": 22.0,
+      "n_stops": 8,
+      "span_hours": 18.3,
+      "avg_peak_headway_min": 13.4
+    },
+    {
+      "route_id": "R60",
+      "route_short_name": "60",
+      "route_long_name": "Friedrichshofen - Audi - Oberhaunstadt",
+      "trips_weekday": 52.0,
+      "trips_saturday": 28.0,
+      "trips_sunday": 20.0,
+      "n_stops": 12,
+      "span_hours": 18.0,
+      "avg_peak_headway_min": 14.6
+    },
+    {
+      "route_id": "R21",
+      "route_short_name": "21",
+      "route_long_name": "Unsernherrn - Zentrum - Nordost",
+      "trips_weekday": 50.0,
+      "trips_saturday": 27.0,
+      "trips_sunday": 19.0,
+      "n_stops": 8,
+      "span_hours": 18.3,
+      "avg_peak_headway_min": 15.7
+    },
+    {
+      "route_id": "R16",
+      "route_short_name": "16",
+      "route_long_name": "Ringsee - Zentrum - Oberhaunstadt",
+      "trips_weekday": 45.0,
+      "trips_saturday": 24.0,
+      "trips_sunday": 17.0,
+      "n_stops": 8,
+      "span_hours": 18.2,
+      "avg_peak_headway_min": 17.4
+    },
+    {
+      "route_id": "R40",
+      "route_short_name": "40",
+      "route_long_name": "Suedost - Klinikum - Etting",
+      "trips_weekday": 43.0,
+      "trips_saturday": 23.0,
+      "trips_sunday": 16.0,
+      "n_stops": 12,
+      "span_hours": 18.2,
+      "avg_peak_headway_min": 18.5
+    },
+    {
+      "route_id": "R11",
+      "route_short_name": "11",
+      "route_long_name": "Friedrichshofen - Zentrum - Nordost",
+      "trips_weekday": 41.0,
+      "trips_saturday": 22.0,
+      "trips_sunday": 15.0,
+      "n_stops": 11,
+      "span_hours": 18.2,
+      "avg_peak_headway_min": 19.6
+    }
+  ],
+  "district_scorecard": [
+    {
+      "district": "Ringsee",
+      "lat": 48.756626,
+      "lon": 11.407965,
+      "avg_daily_traffic": 27026.0,
+      "n_detectors": 3,
+      "n_stops": 5,
+      "weekday_departures": 558,
+      "n_charging_stations": 4,
+      "n_charging_points": 12.0,
+      "total_charging_kw": 582.0,
+      "charging_per_100k_traffic": 44.4
+    },
+    {
+      "district": "Nordwest",
+      "lat": 48.77906,
+      "lon": 11.404368,
+      "avg_daily_traffic": 22023.0,
+      "n_detectors": 2,
+      "n_stops": 6,
+      "weekday_departures": 803,
+      "n_charging_stations": 2,
+      "n_charging_points": 2.0,
+      "total_charging_kw": 100.0,
+      "charging_per_100k_traffic": 9.08
+    },
+    {
+      "district": "Suedwest",
+      "lat": 48.742501,
+      "lon": 11.398548,
+      "avg_daily_traffic": 18763.0,
+      "n_detectors": 2,
+      "n_stops": 5,
+      "weekday_departures": 281,
+      "n_charging_stations": 6,
+      "n_charging_points": 17.0,
+      "total_charging_kw": 1049.0,
+      "charging_per_100k_traffic": 90.6
+    },
+    {
+      "district": "Nordost",
+      "lat": 48.78902,
+      "lon": 11.453212,
+      "avg_daily_traffic": 17513.0,
+      "n_detectors": 1,
+      "n_stops": 6,
+      "weekday_departures": 480,
+      "n_charging_stations": 5,
+      "n_charging_points": 10.0,
+      "total_charging_kw": 326.0,
+      "charging_per_100k_traffic": 57.1
+    },
+    {
+      "district": "Oberhaunstadt",
+      "lat": 48.803039,
+      "lon": 11.458185,
+      "avg_daily_traffic": 17385.0,
+      "n_detectors": 1,
+      "n_stops": 4,
+      "weekday_departures": 153,
+      "n_charging_stations": 3,
+      "n_charging_points": 5.0,
+      "total_charging_kw": 155.0,
+      "charging_per_100k_traffic": 28.76
+    },
+    {
+      "district": "Suedost",
+      "lat": 48.745856,
+      "lon": 11.45549,
+      "avg_daily_traffic": 17044.0,
+      "n_detectors": 2,
+      "n_stops": 6,
+      "weekday_departures": 701,
+      "n_charging_stations": 6,
+      "n_charging_points": 14.0,
+      "total_charging_kw": 671.0,
+      "charging_per_100k_traffic": 82.14
+    },
+    {
+      "district": "Etting",
+      "lat": 48.800783,
+      "lon": 11.433491,
+      "avg_daily_traffic": 8572.0,
+      "n_detectors": 2,
+      "n_stops": 5,
+      "weekday_departures": 693,
+      "n_charging_stations": 5,
+      "n_charging_points": 13.0,
+      "total_charging_kw": 410.0,
+      "charging_per_100k_traffic": 151.66
+    },
+    {
+      "district": "Unsernherrn",
+      "lat": 48.736384,
+      "lon": 11.423881,
+      "avg_daily_traffic": 2140.0,
+      "n_detectors": 1,
+      "n_stops": 6,
+      "weekday_departures": 527,
+      "n_charging_stations": 4,
+      "n_charging_points": 8.0,
+      "total_charging_kw": 121.0,
+      "charging_per_100k_traffic": 373.85
+    },
+    {
+      "district": "Friedrichshofen",
+      "lat": 48.770627,
+      "lon": 11.381924,
+      "avg_daily_traffic": 0.0,
+      "n_detectors": 0,
+      "n_stops": 5,
+      "weekday_departures": 455,
+      "n_charging_stations": 4,
+      "n_charging_points": 10.0,
+      "total_charging_kw": 349.0,
+      "charging_per_100k_traffic": null
+    },
+    {
+      "district": "Mitte",
+      "lat": 48.76292,
+      "lon": 11.426688,
+      "avg_daily_traffic": 0.0,
+      "n_detectors": 0,
+      "n_stops": 4,
+      "weekday_departures": 269,
+      "n_charging_stations": 8,
+      "n_charging_points": 23.0,
+      "total_charging_kw": 253.0,
+      "charging_per_100k_traffic": null
+    }
+  ],
+  "detectors": [
+    {
+      "detector_id": "D001",
+      "detector_name": "Ringsee arterial #1",
+      "lat": 48.748148,
+      "lon": 11.410038,
+      "road_type": "arterial",
+      "district": "Ringsee"
+    },
+    {
+      "detector_id": "D002",
+      "detector_name": "Oberhaunstadt arterial #2",
+      "lat": 48.810599,
+      "lon": 11.460549,
+      "road_type": "arterial",
+      "district": "Oberhaunstadt"
+    },
+    {
+      "detector_id": "D003",
+      "detector_name": "Ringsee arterial #3",
+      "lat": 48.754659,
+      "lon": 11.408978,
+      "road_type": "arterial",
+      "district": "Ringsee"
+    },
+    {
+      "detector_id": "D004",
+      "detector_name": "Nordost arterial #4",
+      "lat": 48.782891,
+      "lon": 11.455994,
+      "road_type": "arterial",
+      "district": "Nordost"
+    },
+    {
+      "detector_id": "D005",
+      "detector_name": "Suedwest ring #5",
+      "lat": 48.744199,
+      "lon": 11.396283,
+      "road_type": "ring",
+      "district": "Suedwest"
+    },
+    {
+      "detector_id": "D006",
+      "detector_name": "Suedost ring #6",
+      "lat": 48.751613,
+      "lon": 11.445012,
+      "road_type": "ring",
+      "district": "Suedost"
+    },
+    {
+      "detector_id": "D007",
+      "detector_name": "Nordwest ring #7",
+      "lat": 48.769055,
+      "lon": 11.39303,
+      "road_type": "ring",
+      "district": "Nordwest"
+    },
+    {
+      "detector_id": "D008",
+      "detector_name": "Etting collector #8",
+      "lat": 48.796683,
+      "lon": 11.426985,
+      "road_type": "collector",
+      "district": "Etting"
+    },
+    {
+      "detector_id": "D009",
+      "detector_name": "Nordwest collector #9",
+      "lat": 48.777739,
+      "lon": 11.416522,
+      "road_type": "collector",
+      "district": "Nordwest"
+    },
+    {
+      "detector_id": "D010",
+      "detector_name": "Suedost collector #10",
+      "lat": 48.74879,
+      "lon": 11.446634,
+      "road_type": "collector",
+      "district": "Suedost"
+    },
+    {
+      "detector_id": "D011",
+      "detector_name": "Suedwest collector #11",
+      "lat": 48.742597,
+      "lon": 11.397483,
+      "road_type": "collector",
+      "district": "Suedwest"
+    },
+    {
+      "detector_id": "D012",
+      "detector_name": "Etting local #12",
+      "lat": 48.80501,
+      "lon": 11.43187,
+      "road_type": "local",
+      "district": "Etting"
+    },
+    {
+      "detector_id": "D013",
+      "detector_name": "Ringsee local #13",
+      "lat": 48.764774,
+      "lon": 11.404179,
+      "road_type": "local",
+      "district": "Ringsee"
+    },
+    {
+      "detector_id": "D014",
+      "detector_name": "Unsernherrn local #14",
+      "lat": 48.734852,
+      "lon": 11.431423,
+      "road_type": "local",
+      "district": "Unsernherrn"
+    }
+  ],
+  "charging_stations": [
+    {
+      "station_id": "CS001",
+      "station_name": "Ladepunkt Mitte 1",
+      "operator": "IFG Parken",
+      "lat": 48.762529,
+      "lon": 11.416711,
+      "num_points": 2,
+      "power_kw": 11,
+      "district": "Mitte"
+    },
+    {
+      "station_id": "CS002",
+      "station_name": "Ladepunkt Mitte 2",
+      "operator": "Stadtwerke Ingolstadt",
+      "lat": 48.757516,
+      "lon": 11.434685,
+      "num_points": 4,
+      "power_kw": 11,
+      "district": "Mitte"
+    },
+    {
+      "station_id": "CS003",
+      "station_name": "Ladepunkt Mitte 3",
+      "operator": "Stadtwerke Ingolstadt",
+      "lat": 48.761159,
+      "lon": 11.427208,
+      "num_points": 4,
+      "power_kw": 11,
+      "district": "Mitte"
+    },
+    {
+      "station_id": "CS004",
+      "station_name": "Ladepunkt Mitte 4",
+      "operator": "Stadtwerke Ingolstadt",
+      "lat": 48.766887,
+      "lon": 11.427674,
+      "num_points": 1,
+      "power_kw": 11,
+      "district": "Mitte"
+    },
+    {
+      "station_id": "CS005",
+      "station_name": "Ladepunkt Mitte 5",
+      "operator": "EnBW",
+      "lat": 48.756126,
+      "lon": 11.424309,
+      "num_points": 1,
+      "power_kw": 11,
+      "district": "Mitte"
+    },
+    {
+      "station_id": "CS006",
+      "station_name": "Ladepunkt Mitte 6",
+      "operator": "Stadtwerke Ingolstadt",
+      "lat": 48.765358,
+      "lon": 11.430564,
+      "num_points": 4,
+      "power_kw": 11,
+      "district": "Mitte"
+    },
+    {
+      "station_id": "CS007",
+      "station_name": "Ladepunkt Mitte 7",
+      "operator": "Audi Charging",
+      "lat": 48.763266,
+      "lon": 11.4255,
+      "num_points": 4,
+      "power_kw": 11,
+      "district": "Mitte"
+    },
+    {
+      "station_id": "CS008",
+      "station_name": "Ladepunkt Mitte 8",
+      "operator": "Stadtwerke Ingolstadt",
+      "lat": 48.77707,
+      "lon": 11.435966,
+      "num_points": 3,
+      "power_kw": 11,
+      "district": "Mitte"
+    },
+    {
+      "station_id": "CS009",
+      "station_name": "Ladepunkt Nordwest 9",
+      "operator": "Stadtwerke Ingolstadt",
+      "lat": 48.775438,
+      "lon": 11.407956,
+      "num_points": 1,
+      "power_kw": 50,
+      "district": "Nordwest"
+    },
+    {
+      "station_id": "CS010",
+      "station_name": "Ladepunkt Nordwest 10",
+      "operator": "Stadtwerke Ingolstadt",
+      "lat": 48.785637,
+      "lon": 11.404272,
+      "num_points": 1,
+      "power_kw": 50,
+      "district": "Nordwest"
+    },
+    {
+      "station_id": "CS011",
+      "station_name": "Ladepunkt Nordost 11",
+      "operator": "Audi Charging",
+      "lat": 48.78674,
+      "lon": 11.452763,
+      "num_points": 4,
+      "power_kw": 22,
+      "district": "Nordost"
+    },
+    {
+      "station_id": "CS012",
+      "station_name": "Ladepunkt Nordost 12",
+      "operator": "IFG Parken",
+      "lat": 48.788883,
+      "lon": 11.45348,
+      "num_points": 1,
+      "power_kw": 22,
+      "district": "Nordost"
+    },
+    {
+      "station_id": "CS013",
+      "station_name": "Ladepunkt Nordost 13",
+      "operator": "IFG Parken",
+      "lat": 48.78964,
+      "lon": 11.460637,
+      "num_points": 2,
+      "power_kw": 11,
+      "district": "Nordost"
+    },
+    {
+      "station_id": "CS014",
+      "station_name": "Ladepunkt Nordost 14",
+      "operator": "IFG Parken",
+      "lat": 48.787693,
+      "lon": 11.446736,
+      "num_points": 1,
+      "power_kw": 150,
+      "district": "Nordost"
+    },
+    {
+      "station_id": "CS015",
+      "station_name": "Ladepunkt Nordost 15",
+      "operator": "Audi Charging",
+      "lat": 48.790913,
+      "lon": 11.460662,
+      "num_points": 2,
+      "power_kw": 22,
+      "district": "Nordost"
+    },
+    {
+      "station_id": "CS016",
+      "station_name": "Ladepunkt Suedwest 16",
+      "operator": "Audi Charging",
+      "lat": 48.746948,
+      "lon": 11.392108,
+      "num_points": 3,
+      "power_kw": 50,
+      "district": "Suedwest"
+    },
+    {
+      "station_id": "CS017",
+      "station_name": "Ladepunkt Suedwest 17",
+      "operator": "EnBW",
+      "lat": 48.742352,
+      "lon": 11.403856,
+      "num_points": 1,
+      "power_kw": 22,
+      "district": "Suedwest"
+    },
+    {
+      "station_id": "CS018",
+      "station_name": "Ladepunkt Suedwest 18",
+      "operator": "Stadtwerke Ingolstadt",
+      "lat": 48.73414,
+      "lon": 11.397665,
+      "num_points": 4,
+      "power_kw": 50,
+      "district": "Suedwest"
+    },
+    {
+      "station_id": "CS019",
+      "station_name": "Ladepunkt Suedwest 19",
+      "operator": "Audi Charging",
+      "lat": 48.749556,
+      "lon": 11.401188,
+      "num_points": 4,
+      "power_kw": 150,
+      "district": "Suedwest"
+    },
+    {
+      "station_id": "CS020",
+      "station_name": "Ladepunkt Suedwest 20",
+      "operator": "IFG Parken",
+      "lat": 48.735917,
+      "lon": 11.394644,
+      "num_points": 3,
+      "power_kw": 11,
+      "district": "Suedwest"
+    },
+    {
+      "station_id": "CS021",
+      "station_name": "Ladepunkt Suedwest 21",
+      "operator": "IFG Parken",
+      "lat": 48.747777,
+      "lon": 11.401044,
+      "num_points": 2,
+      "power_kw": 22,
+      "district": "Suedwest"
+    },
+    {
+      "station_id": "CS022",
+      "station_name": "Ladepunkt Suedost 22",
+      "operator": "Audi Charging",
+      "lat": 48.738092,
+      "lon": 11.46338,
+      "num_points": 2,
+      "power_kw": 11,
+      "district": "Suedost"
+    },
+    {
+      "station_id": "CS023",
+      "station_name": "Ladepunkt Suedost 23",
+      "operator": "EnBW",
+      "lat": 48.743145,
+      "lon": 11.460069,
+      "num_points": 2,
+      "power_kw": 50,
+      "district": "Suedost"
+    },
+    {
+      "station_id": "CS024",
+      "station_name": "Ladepunkt Suedost 24",
+      "operator": "Audi Charging",
+      "lat": 48.747352,
+      "lon": 11.451683,
+      "num_points": 3,
+      "power_kw": 11,
+      "district": "Suedost"
+    },
+    {
+      "station_id": "CS025",
+      "station_name": "Ladepunkt Suedost 25",
+      "operator": "EnBW",
+      "lat": 48.747917,
+      "lon": 11.460999,
+      "num_points": 2,
+      "power_kw": 11,
+      "district": "Suedost"
+    },
+    {
+      "station_id": "CS026",
+      "station_name": "Ladepunkt Suedost 26",
+      "operator": "EnBW",
+      "lat": 48.742282,
+      "lon": 11.451889,
+      "num_points": 2,
+      "power_kw": 22,
+      "district": "Suedost"
+    },
+    {
+      "station_id": "CS027",
+      "station_name": "Ladepunkt Suedost 27",
+      "operator": "Stadtwerke Ingolstadt",
+      "lat": 48.746057,
+      "lon": 11.462645,
+      "num_points": 3,
+      "power_kw": 150,
+      "district": "Suedost"
+    },
+    {
+      "station_id": "CS028",
+      "station_name": "Ladepunkt Ringsee 28",
+      "operator": "Stadtwerke Ingolstadt",
+      "lat": 48.763021,
+      "lon": 11.407712,
+      "num_points": 3,
+      "power_kw": 22,
+      "district": "Ringsee"
+    },
+    {
+      "station_id": "CS029",
+      "station_name": "Ladepunkt Ringsee 29",
+      "operator": "Audi Charging",
+      "lat": 48.746989,
+      "lon": 11.403742,
+      "num_points": 2,
+      "power_kw": 11,
+      "district": "Ringsee"
+    },
+    {
+      "station_id": "CS030",
+      "station_name": "Ladepunkt Ringsee 30",
+      "operator": "IFG Parken",
+      "lat": 48.757621,
+      "lon": 11.411381,
+      "num_points": 3,
+      "power_kw": 150,
+      "district": "Ringsee"
+    },
+    {
+      "station_id": "CS031",
+      "station_name": "Ladepunkt Ringsee 31",
+      "operator": "Audi Charging",
+      "lat": 48.755272,
+      "lon": 11.407641,
+      "num_points": 4,
+      "power_kw": 11,
+      "district": "Ringsee"
+    },
+    {
+      "station_id": "CS032",
+      "station_name": "Ladepunkt Friedrichshofen 32",
+      "operator": "Audi Charging",
+      "lat": 48.773146,
+      "lon": 11.38465,
+      "num_points": 1,
+      "power_kw": 11,
+      "district": "Friedrichshofen"
+    },
+    {
+      "station_id": "CS033",
+      "station_name": "Ladepunkt Friedrichshofen 33",
+      "operator": "Stadtwerke Ingolstadt",
+      "lat": 48.772984,
+      "lon": 11.386103,
+      "num_points": 4,
+      "power_kw": 22,
+      "district": "Friedrichshofen"
+    },
+    {
+      "station_id": "CS034",
+      "station_name": "Ladepunkt Friedrichshofen 34",
+      "operator": "Stadtwerke Ingolstadt",
+      "lat": 48.771412,
+      "lon": 11.386148,
+      "num_points": 4,
+      "power_kw": 50,
+      "district": "Friedrichshofen"
+    },
+    {
+      "station_id": "CS035",
+      "station_name": "Ladepunkt Friedrichshofen 35",
+      "operator": "Stadtwerke Ingolstadt",
+      "lat": 48.764589,
+      "lon": 11.370332,
+      "num_points": 1,
+      "power_kw": 50,
+      "district": "Friedrichshofen"
+    },
+    {
+      "station_id": "CS036",
+      "station_name": "Ladepunkt Etting 36",
+      "operator": "Audi Charging",
+      "lat": 48.797153,
+      "lon": 11.442768,
+      "num_points": 3,
+      "power_kw": 50,
+      "district": "Etting"
+    },
+    {
+      "station_id": "CS037",
+      "station_name": "Ladepunkt Etting 37",
+      "operator": "Stadtwerke Ingolstadt",
+      "lat": 48.798028,
+      "lon": 11.428597,
+      "num_points": 1,
+      "power_kw": 11,
+      "district": "Etting"
+    },
+    {
+      "station_id": "CS038",
+      "station_name": "Ladepunkt Etting 38",
+      "operator": "EnBW",
+      "lat": 48.809604,
+      "lon": 11.429089,
+      "num_points": 3,
+      "power_kw": 22,
+      "district": "Etting"
+    },
+    {
+      "station_id": "CS039",
+      "station_name": "Ladepunkt Etting 39",
+      "operator": "IFG Parken",
+      "lat": 48.803373,
+      "lon": 11.435345,
+      "num_points": 3,
+      "power_kw": 11,
+      "district": "Etting"
+    },
+    {
+      "station_id": "CS040",
+      "station_name": "Ladepunkt Etting 40",
+      "operator": "Stadtwerke Ingolstadt",
+      "lat": 48.79833,
+      "lon": 11.430651,
+      "num_points": 3,
+      "power_kw": 50,
+      "district": "Etting"
+    },
+    {
+      "station_id": "CS041",
+      "station_name": "Ladepunkt Unsernherrn 41",
+      "operator": "IFG Parken",
+      "lat": 48.742603,
+      "lon": 11.421286,
+      "num_points": 3,
+      "power_kw": 22,
+      "district": "Unsernherrn"
+    },
+    {
+      "station_id": "CS042",
+      "station_name": "Ladepunkt Unsernherrn 42",
+      "operator": "EnBW",
+      "lat": 48.741573,
+      "lon": 11.424917,
+      "num_points": 2,
+      "power_kw": 11,
+      "district": "Unsernherrn"
+    },
+    {
+      "station_id": "CS043",
+      "station_name": "Ladepunkt Unsernherrn 43",
+      "operator": "Audi Charging",
+      "lat": 48.745755,
+      "lon": 11.433385,
+      "num_points": 1,
+      "power_kw": 11,
+      "district": "Unsernherrn"
+    },
+    {
+      "station_id": "CS044",
+      "station_name": "Ladepunkt Unsernherrn 44",
+      "operator": "IFG Parken",
+      "lat": 48.731772,
+      "lon": 11.424665,
+      "num_points": 2,
+      "power_kw": 11,
+      "district": "Unsernherrn"
+    },
+    {
+      "station_id": "CS045",
+      "station_name": "Ladepunkt Oberhaunstadt 45",
+      "operator": "Audi Charging",
+      "lat": 48.791635,
+      "lon": 11.454413,
+      "num_points": 1,
+      "power_kw": 11,
+      "district": "Oberhaunstadt"
+    },
+    {
+      "station_id": "CS046",
+      "station_name": "Ladepunkt Oberhaunstadt 46",
+      "operator": "IFG Parken",
+      "lat": 48.80753,
+      "lon": 11.45519,
+      "num_points": 2,
+      "power_kw": 22,
+      "district": "Oberhaunstadt"
+    },
+    {
+      "station_id": "CS047",
+      "station_name": "Ladepunkt Oberhaunstadt 47",
+      "operator": "EnBW",
+      "lat": 48.800578,
+      "lon": 11.460927,
+      "num_points": 2,
+      "power_kw": 50,
+      "district": "Oberhaunstadt"
+    }
+  ],
+  "stops": [
+    {
+      "stop_id": "S040",
+      "stop_name": "Etting Sued",
+      "district": "Etting",
+      "lat": 48.799548,
+      "lon": 11.434473,
+      "departures_weekday": 122,
+      "departures_sunday": 47
+    },
+    {
+      "stop_id": "S007",
+      "stop_name": "Nordwest Sued",
+      "district": "Nordwest",
+      "lat": 48.785509,
+      "lon": 11.40387,
+      "departures_weekday": 93,
+      "departures_sunday": 35
+    },
+    {
+      "stop_id": "S047",
+      "stop_name": "Unsernherrn West",
+      "district": "Unsernherrn",
+      "lat": 48.732011,
+      "lon": 11.424599,
+      "departures_weekday": 41,
+      "departures_sunday": 15
+    },
+    {
+      "stop_id": "S016",
+      "stop_name": "Nordost Platz",
+      "district": "Nordost",
+      "lat": 48.785951,
+      "lon": 11.448745,
+      "departures_weekday": 67,
+      "departures_sunday": 25
+    },
+    {
+      "stop_id": "S042",
+      "stop_name": "Etting West",
+      "district": "Etting",
+      "lat": 48.799122,
+      "lon": 11.43605,
+      "departures_weekday": 154,
+      "departures_sunday": 57
+    },
+    {
+      "stop_id": "S036",
+      "stop_name": "Friedrichshofen Ost",
+      "district": "Friedrichshofen",
+      "lat": 48.77257,
+      "lon": 11.384762,
+      "departures_weekday": 113,
+      "departures_sunday": 42
+    },
+    {
+      "stop_id": "S038",
+      "stop_name": "Etting Zentrum",
+      "district": "Etting",
+      "lat": 48.803502,
+      "lon": 11.434763,
+      "departures_weekday": 153,
+      "departures_sunday": 57
+    },
+    {
+      "stop_id": "S039",
+      "stop_name": "Etting Nord",
+      "district": "Etting",
+      "lat": 48.802827,
+      "lon": 11.433352,
+      "departures_weekday": 203,
+      "departures_sunday": 77
+    },
+    {
+      "stop_id": "S004",
+      "stop_name": "Mitte Ost",
+      "district": "Mitte",
+      "lat": 48.761735,
+      "lon": 11.425433,
+      "departures_weekday": 43,
+      "departures_sunday": 16
+    },
+    {
+      "stop_id": "S003",
+      "stop_name": "Mitte Sued",
+      "district": "Mitte",
+      "lat": 48.757791,
+      "lon": 11.426011,
+      "departures_weekday": 0,
+      "departures_sunday": 0
+    },
+    {
+      "stop_id": "S048",
+      "stop_name": "Unsernherrn Platz",
+      "district": "Unsernherrn",
+      "lat": 48.732378,
+      "lon": 11.421487,
+      "departures_weekday": 195,
+      "departures_sunday": 74
+    },
+    {
+      "stop_id": "S043",
+      "stop_name": "Unsernherrn Zentrum",
+      "district": "Unsernherrn",
+      "lat": 48.737786,
+      "lon": 11.425662,
+      "departures_weekday": 70,
+      "departures_sunday": 27
+    },
+    {
+      "stop_id": "S027",
+      "stop_name": "Suedost Platz",
+      "district": "Suedost",
+      "lat": 48.743444,
+      "lon": 11.454899,
+      "departures_weekday": 120,
+      "departures_sunday": 46
+    },
+    {
+      "stop_id": "S008",
+      "stop_name": "Nordwest Ost",
+      "district": "Nordwest",
+      "lat": 48.777563,
+      "lon": 11.403475,
+      "departures_weekday": 136,
+      "departures_sunday": 51
+    },
+    {
+      "stop_id": "S031",
+      "stop_name": "Ringsee Ost",
+      "district": "Ringsee",
+      "lat": 48.757345,
+      "lon": 11.412845,
+      "departures_weekday": 86,
+      "departures_sunday": 32
+    },
+    {
+      "stop_id": "S017",
+      "stop_name": "Suedwest Zentrum",
+      "district": "Suedwest",
+      "lat": 48.744464,
+      "lon": 11.402516,
+      "departures_weekday": 58,
+      "departures_sunday": 22
+    },
+    {
+      "stop_id": "S037",
+      "stop_name": "Friedrichshofen West",
+      "district": "Friedrichshofen",
+      "lat": 48.770291,
+      "lon": 11.382634,
+      "departures_weekday": 180,
+      "departures_sunday": 68
+    },
+    {
+      "stop_id": "S026",
+      "stop_name": "Suedost West",
+      "district": "Suedost",
+      "lat": 48.744721,
+      "lon": 11.454119,
+      "departures_weekday": 180,
+      "departures_sunday": 69
+    },
+    {
+      "stop_id": "S005",
+      "stop_name": "Nordwest Zentrum",
+      "district": "Nordwest",
+      "lat": 48.777588,
+      "lon": 11.405518,
+      "departures_weekday": 102,
+      "departures_sunday": 37
+    },
+    {
+      "stop_id": "S025",
+      "stop_name": "Suedost Ost",
+      "district": "Suedost",
+      "lat": 48.748525,
+      "lon": 11.450171,
+      "departures_weekday": 160,
+      "departures_sunday": 61
+    },
+    {
+      "stop_id": "S034",
+      "stop_name": "Friedrichshofen Nord",
+      "district": "Friedrichshofen",
+      "lat": 48.766897,
+      "lon": 11.377467,
+      "departures_weekday": 50,
+      "departures_sunday": 19
+    },
+    {
+      "stop_id": "S049",
+      "stop_name": "Oberhaunstadt Zentrum",
+      "district": "Oberhaunstadt",
+      "lat": 48.807197,
+      "lon": 11.458575,
+      "departures_weekday": 0,
+      "departures_sunday": 0
+    },
+    {
+      "stop_id": "S006",
+      "stop_name": "Nordwest Nord",
+      "district": "Nordwest",
+      "lat": 48.784111,
+      "lon": 11.402264,
+      "departures_weekday": 190,
+      "departures_sunday": 72
+    },
+    {
+      "stop_id": "S010",
+      "stop_name": "Nordwest Platz",
+      "district": "Nordwest",
+      "lat": 48.7808,
+      "lon": 11.401261,
+      "departures_weekday": 128,
+      "departures_sunday": 47
+    },
+    {
+      "stop_id": "S002",
+      "stop_name": "Mitte Nord",
+      "district": "Mitte",
+      "lat": 48.766762,
+      "lon": 11.417696,
+      "departures_weekday": 156,
+      "departures_sunday": 58
+    },
+    {
+      "stop_id": "S035",
+      "stop_name": "Friedrichshofen Sued",
+      "district": "Friedrichshofen",
+      "lat": 48.768322,
+      "lon": 11.383989,
+      "departures_weekday": 0,
+      "departures_sunday": 0
+    },
+    {
+      "stop_id": "S009",
+      "stop_name": "Nordwest West",
+      "district": "Nordwest",
+      "lat": 48.777164,
+      "lon": 11.405514,
+      "departures_weekday": 154,
+      "departures_sunday": 58
+    },
+    {
+      "stop_id": "S044",
+      "stop_name": "Unsernherrn Nord",
+      "district": "Unsernherrn",
+      "lat": 48.735606,
+      "lon": 11.421307,
+      "departures_weekday": 111,
+      "departures_sunday": 41
+    },
+    {
+      "stop_id": "S001",
+      "stop_name": "Mitte Zentrum",
+      "district": "Mitte",
+      "lat": 48.75884,
+      "lon": 11.428502,
+      "departures_weekday": 70,
+      "departures_sunday": 27
+    },
+    {
+      "stop_id": "S023",
+      "stop_name": "Suedost Nord",
+      "district": "Suedost",
+      "lat": 48.746894,
+      "lon": 11.458716,
+      "departures_weekday": 128,
+      "departures_sunday": 49
+    },
+    {
+      "stop_id": "S052",
+      "stop_name": "Oberhaunstadt Ost",
+      "district": "Oberhaunstadt",
+      "lat": 48.800644,
+      "lon": 11.463361,
+      "departures_weekday": 112,
+      "departures_sunday": 42
+    },
+    {
+      "stop_id": "S013",
+      "stop_name": "Nordost Sued",
+      "district": "Nordost",
+      "lat": 48.790129,
+      "lon": 11.453462,
+      "departures_weekday": 61,
+      "departures_sunday": 22
+    },
+    {
+      "stop_id": "S020",
+      "stop_name": "Suedwest Ost",
+      "district": "Suedwest",
+      "lat": 48.744973,
+      "lon": 11.400173,
+      "departures_weekday": 0,
+      "departures_sunday": 0
+    },
+    {
+      "stop_id": "S018",
+      "stop_name": "Suedwest Nord",
+      "district": "Suedwest",
+      "lat": 48.741544,
+      "lon": 11.394639,
+      "departures_weekday": 0,
+      "departures_sunday": 0
+    },
+    {
+      "stop_id": "S032",
+      "stop_name": "Ringsee West",
+      "district": "Ringsee",
+      "lat": 48.758173,
+      "lon": 11.408605,
+      "departures_weekday": 174,
+      "departures_sunday": 65
+    },
+    {
+      "stop_id": "S030",
+      "stop_name": "Ringsee Sued",
+      "district": "Ringsee",
+      "lat": 48.75366,
+      "lon": 11.410651,
+      "departures_weekday": 138,
+      "departures_sunday": 52
+    },
+    {
+      "stop_id": "S012",
+      "stop_name": "Nordost Nord",
+      "district": "Nordost",
+      "lat": 48.786287,
+      "lon": 11.450591,
+      "departures_weekday": 45,
+      "departures_sunday": 17
+    },
+    {
+      "stop_id": "S021",
+      "stop_name": "Suedwest West",
+      "district": "Suedwest",
+      "lat": 48.739338,
+      "lon": 11.398929,
+      "departures_weekday": 180,
+      "departures_sunday": 67
+    },
+    {
+      "stop_id": "S015",
+      "stop_name": "Nordost West",
+      "district": "Nordost",
+      "lat": 48.796567,
+      "lon": 11.450374,
+      "departures_weekday": 41,
+      "departures_sunday": 15
+    },
+    {
+      "stop_id": "S014",
+      "stop_name": "Nordost Ost",
+      "district": "Nordost",
+      "lat": 48.789651,
+      "lon": 11.453723,
+      "departures_weekday": 173,
+      "departures_sunday": 66
+    },
+    {
+      "stop_id": "S029",
+      "stop_name": "Ringsee Nord",
+      "district": "Ringsee",
+      "lat": 48.758873,
+      "lon": 11.403269,
+      "departures_weekday": 58,
+      "departures_sunday": 22
+    },
+    {
+      "stop_id": "S033",
+      "stop_name": "Friedrichshofen Zentrum",
+      "district": "Friedrichshofen",
+      "lat": 48.775432,
+      "lon": 11.381235,
+      "departures_weekday": 112,
+      "departures_sunday": 42
+    },
+    {
+      "stop_id": "S046",
+      "stop_name": "Unsernherrn Ost",
+      "district": "Unsernherrn",
+      "lat": 48.730212,
+      "lon": 11.417709,
+      "departures_weekday": 110,
+      "departures_sunday": 41
+    },
+    {
+      "stop_id": "S011",
+      "stop_name": "Nordost Zentrum",
+      "district": "Nordost",
+      "lat": 48.79289,
+      "lon": 11.451382,
+      "departures_weekday": 93,
+      "departures_sunday": 35
+    },
+    {
+      "stop_id": "S028",
+      "stop_name": "Ringsee Zentrum",
+      "district": "Ringsee",
+      "lat": 48.76098,
+      "lon": 11.406537,
+      "departures_weekday": 102,
+      "departures_sunday": 37
+    },
+    {
+      "stop_id": "S019",
+      "stop_name": "Suedwest Sued",
+      "district": "Suedwest",
+      "lat": 48.738702,
+      "lon": 11.400602,
+      "departures_weekday": 43,
+      "departures_sunday": 16
+    },
+    {
+      "stop_id": "S050",
+      "stop_name": "Oberhaunstadt Nord",
+      "district": "Oberhaunstadt",
+      "lat": 48.80495,
+      "lon": 11.456266,
+      "departures_weekday": 0,
+      "departures_sunday": 0
+    },
+    {
+      "stop_id": "S022",
+      "stop_name": "Suedost Zentrum",
+      "district": "Suedost",
+      "lat": 48.746875,
+      "lon": 11.459486,
+      "departures_weekday": 113,
+      "departures_sunday": 42
+    },
+    {
+      "stop_id": "S051",
+      "stop_name": "Oberhaunstadt Sued",
+      "district": "Oberhaunstadt",
+      "lat": 48.801178,
+      "lon": 11.4562,
+      "departures_weekday": 41,
+      "departures_sunday": 15
+    },
+    {
+      "stop_id": "S041",
+      "stop_name": "Etting Ost",
+      "district": "Etting",
+      "lat": 48.796217,
+      "lon": 11.437948,
+      "departures_weekday": 61,
+      "departures_sunday": 22
+    },
+    {
+      "stop_id": "S045",
+      "stop_name": "Unsernherrn Sued",
+      "district": "Unsernherrn",
+      "lat": 48.735681,
+      "lon": 11.416251,
+      "departures_weekday": 0,
+      "departures_sunday": 0
+    },
+    {
+      "stop_id": "S024",
+      "stop_name": "Suedost Sued",
+      "district": "Suedost",
+      "lat": 48.74627,
+      "lon": 11.457156,
+      "departures_weekday": 0,
+      "departures_sunday": 0
+    }
+  ],
+  "siting": {
+    "summary": {
+      "method": "heuristic gap score (normalised demand minus normalised supply)",
+      "caveats": [
+        "gap_score is ordinal, not a physical unit",
+        "grid capacity, land availability and cost are not modelled",
+        "OSM/demo charging inventory may be incomplete"
+      ],
+      "n_recommendations": 8,
+      "grid_cells": 324,
+      "params": {
+        "grid_n": 18,
+        "sigma_km": 1.3,
+        "transit_weight": 0.35,
+        "min_spacing_km": 1.2
+      },
+      "recommendations": [
+        {
+          "rank": 1,
+          "lat": 48.774706,
+          "lon": 11.402941,
+          "gap_score": 0.349,
+          "demand": 0.641,
+          "supply": 0.292,
+          "nearest_district": "Nordwest"
+        },
+        {
+          "rank": 2,
+          "lat": 48.813529,
+          "lon": 11.464706,
+          "gap_score": 0.325,
+          "demand": 0.405,
+          "supply": 0.08,
+          "nearest_district": "Oberhaunstadt"
+        },
+        {
+          "rank": 3,
+          "lat": 48.761765,
+          "lon": 11.394118,
+          "gap_score": 0.213,
+          "demand": 0.645,
+          "supply": 0.432,
+          "nearest_district": "Ringsee"
+        },
+        {
+          "rank": 4,
+          "lat": 48.787647,
+          "lon": 11.411765,
+          "gap_score": 0.211,
+          "demand": 0.299,
+          "supply": 0.088,
+          "nearest_district": "Nordwest"
+        },
+        {
+          "rank": 5,
+          "lat": 48.781176,
+          "lon": 11.455882,
+          "gap_score": 0.174,
+          "demand": 0.523,
+          "supply": 0.349,
+          "nearest_district": "Nordost"
+        },
+        {
+          "rank": 6,
+          "lat": 48.748824,
+          "lon": 11.402941,
+          "gap_score": 0.154,
+          "demand": 1.0,
+          "supply": 0.846,
+          "nearest_district": "Suedwest"
+        },
+        {
+          "rank": 7,
+          "lat": 48.813529,
+          "lon": 11.447059,
+          "gap_score": 0.148,
+          "demand": 0.309,
+          "supply": 0.161,
+          "nearest_district": "Oberhaunstadt"
+        },
+        {
+          "rank": 8,
+          "lat": 48.787647,
+          "lon": 11.394118,
+          "gap_score": 0.132,
+          "demand": 0.214,
+          "supply": 0.082,
+          "nearest_district": "Nordwest"
+        }
+      ]
+    },
+    "grid": [
+      {
+        "lat": 48.71,
+        "lon": 11.35,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7164705882,
+        "lon": 11.35,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7229411765,
+        "lon": 11.35,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7294117647,
+        "lon": 11.35,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7358823529,
+        "lon": 11.35,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7423529412,
+        "lon": 11.35,
+        "demand": 0.001,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7488235294,
+        "lon": 11.35,
+        "demand": 0.001,
+        "supply": 0.001,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7552941176,
+        "lon": 11.35,
+        "demand": 0.002,
+        "supply": 0.005,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7617647059,
+        "lon": 11.35,
+        "demand": 0.004,
+        "supply": 0.01,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7682352941,
+        "lon": 11.35,
+        "demand": 0.007,
+        "supply": 0.011,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7747058824,
+        "lon": 11.35,
+        "demand": 0.006,
+        "supply": 0.007,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7811764706,
+        "lon": 11.35,
+        "demand": 0.004,
+        "supply": 0.002,
+        "gap_score": 0.001
+      },
+      {
+        "lat": 48.7876470588,
+        "lon": 11.35,
+        "demand": 0.001,
+        "supply": 0.0,
+        "gap_score": 0.001
+      },
+      {
+        "lat": 48.7941176471,
+        "lon": 11.35,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.8005882353,
+        "lon": 11.35,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.8070588235,
+        "lon": 11.35,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.8135294118,
+        "lon": 11.35,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.82,
+        "lon": 11.35,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.71,
+        "lon": 11.3588235294,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7164705882,
+        "lon": 11.3588235294,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7229411765,
+        "lon": 11.3588235294,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7294117647,
+        "lon": 11.3588235294,
+        "demand": 0.001,
+        "supply": 0.001,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7358823529,
+        "lon": 11.3588235294,
+        "demand": 0.004,
+        "supply": 0.002,
+        "gap_score": 0.001
+      },
+      {
+        "lat": 48.7423529412,
+        "lon": 11.3588235294,
+        "demand": 0.006,
+        "supply": 0.003,
+        "gap_score": 0.002
+      },
+      {
+        "lat": 48.7488235294,
+        "lon": 11.3588235294,
+        "demand": 0.006,
+        "supply": 0.006,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7552941176,
+        "lon": 11.3588235294,
+        "demand": 0.01,
+        "supply": 0.017,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7617647059,
+        "lon": 11.3588235294,
+        "demand": 0.022,
+        "supply": 0.038,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7682352941,
+        "lon": 11.3588235294,
+        "demand": 0.035,
+        "supply": 0.048,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7747058824,
+        "lon": 11.3588235294,
+        "demand": 0.033,
+        "supply": 0.036,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7811764706,
+        "lon": 11.3588235294,
+        "demand": 0.018,
+        "supply": 0.015,
+        "gap_score": 0.003
+      },
+      {
+        "lat": 48.7876470588,
+        "lon": 11.3588235294,
+        "demand": 0.006,
+        "supply": 0.003,
+        "gap_score": 0.003
+      },
+      {
+        "lat": 48.7941176471,
+        "lon": 11.3588235294,
+        "demand": 0.001,
+        "supply": 0.0,
+        "gap_score": 0.001
+      },
+      {
+        "lat": 48.8005882353,
+        "lon": 11.3588235294,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.8070588235,
+        "lon": 11.3588235294,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.8135294118,
+        "lon": 11.3588235294,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.82,
+        "lon": 11.3588235294,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.71,
+        "lon": 11.3676470588,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7164705882,
+        "lon": 11.3676470588,
+        "demand": 0.0,
+        "supply": 0.001,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7229411765,
+        "lon": 11.3676470588,
+        "demand": 0.002,
+        "supply": 0.004,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7294117647,
+        "lon": 11.3676470588,
+        "demand": 0.009,
+        "supply": 0.012,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7358823529,
+        "lon": 11.3676470588,
+        "demand": 0.024,
+        "supply": 0.021,
+        "gap_score": 0.004
+      },
+      {
+        "lat": 48.7423529412,
+        "lon": 11.3676470588,
+        "demand": 0.037,
+        "supply": 0.025,
+        "gap_score": 0.012
+      },
+      {
+        "lat": 48.7488235294,
+        "lon": 11.3676470588,
+        "demand": 0.037,
+        "supply": 0.028,
+        "gap_score": 0.009
+      },
+      {
+        "lat": 48.7552941176,
+        "lon": 11.3676470588,
+        "demand": 0.043,
+        "supply": 0.043,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7617647059,
+        "lon": 11.3676470588,
+        "demand": 0.08,
+        "supply": 0.094,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7682352941,
+        "lon": 11.3676470588,
+        "demand": 0.123,
+        "supply": 0.149,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7747058824,
+        "lon": 11.3676470588,
+        "demand": 0.114,
+        "supply": 0.135,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7811764706,
+        "lon": 11.3676470588,
+        "demand": 0.063,
+        "supply": 0.065,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7876470588,
+        "lon": 11.3676470588,
+        "demand": 0.022,
+        "supply": 0.016,
+        "gap_score": 0.006
+      },
+      {
+        "lat": 48.7941176471,
+        "lon": 11.3676470588,
+        "demand": 0.005,
+        "supply": 0.002,
+        "gap_score": 0.003
+      },
+      {
+        "lat": 48.8005882353,
+        "lon": 11.3676470588,
+        "demand": 0.001,
+        "supply": 0.0,
+        "gap_score": 0.001
+      },
+      {
+        "lat": 48.8070588235,
+        "lon": 11.3676470588,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.8135294118,
+        "lon": 11.3676470588,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.82,
+        "lon": 11.3676470588,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.71,
+        "lon": 11.3764705882,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7164705882,
+        "lon": 11.3764705882,
+        "demand": 0.001,
+        "supply": 0.003,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7229411765,
+        "lon": 11.3764705882,
+        "demand": 0.008,
+        "supply": 0.021,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7294117647,
+        "lon": 11.3764705882,
+        "demand": 0.038,
+        "supply": 0.062,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7358823529,
+        "lon": 11.3764705882,
+        "demand": 0.101,
+        "supply": 0.104,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7423529412,
+        "lon": 11.3764705882,
+        "demand": 0.155,
+        "supply": 0.123,
+        "gap_score": 0.032
+      },
+      {
+        "lat": 48.7488235294,
+        "lon": 11.3764705882,
+        "demand": 0.15,
+        "supply": 0.117,
+        "gap_score": 0.033
+      },
+      {
+        "lat": 48.7552941176,
+        "lon": 11.3764705882,
+        "demand": 0.141,
+        "supply": 0.108,
+        "gap_score": 0.033
+      },
+      {
+        "lat": 48.7617647059,
+        "lon": 11.3764705882,
+        "demand": 0.213,
+        "supply": 0.181,
+        "gap_score": 0.031
+      },
+      {
+        "lat": 48.7682352941,
+        "lon": 11.3764705882,
+        "demand": 0.302,
+        "supply": 0.318,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7747058824,
+        "lon": 11.3764705882,
+        "demand": 0.276,
+        "supply": 0.321,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7811764706,
+        "lon": 11.3764705882,
+        "demand": 0.156,
+        "supply": 0.164,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7876470588,
+        "lon": 11.3764705882,
+        "demand": 0.058,
+        "supply": 0.042,
+        "gap_score": 0.016
+      },
+      {
+        "lat": 48.7941176471,
+        "lon": 11.3764705882,
+        "demand": 0.016,
+        "supply": 0.006,
+        "gap_score": 0.01
+      },
+      {
+        "lat": 48.8005882353,
+        "lon": 11.3764705882,
+        "demand": 0.003,
+        "supply": 0.001,
+        "gap_score": 0.002
+      },
+      {
+        "lat": 48.8070588235,
+        "lon": 11.3764705882,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.8135294118,
+        "lon": 11.3764705882,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.82,
+        "lon": 11.3764705882,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.71,
+        "lon": 11.3852941176,
+        "demand": 0.0,
+        "supply": 0.001,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7164705882,
+        "lon": 11.3852941176,
+        "demand": 0.003,
+        "supply": 0.01,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7229411765,
+        "lon": 11.3852941176,
+        "demand": 0.022,
+        "supply": 0.061,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7294117647,
+        "lon": 11.3852941176,
+        "demand": 0.098,
+        "supply": 0.18,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7358823529,
+        "lon": 11.3852941176,
+        "demand": 0.262,
+        "supply": 0.301,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7423529412,
+        "lon": 11.3852941176,
+        "demand": 0.411,
+        "supply": 0.359,
+        "gap_score": 0.052
+      },
+      {
+        "lat": 48.7488235294,
+        "lon": 11.3852941176,
+        "demand": 0.41,
+        "supply": 0.344,
+        "gap_score": 0.066
+      },
+      {
+        "lat": 48.7552941176,
+        "lon": 11.3852941176,
+        "demand": 0.354,
+        "supply": 0.266,
+        "gap_score": 0.088
+      },
+      {
+        "lat": 48.7617647059,
+        "lon": 11.3852941176,
+        "demand": 0.421,
+        "supply": 0.288,
+        "gap_score": 0.133
+      },
+      {
+        "lat": 48.7682352941,
+        "lon": 11.3852941176,
+        "demand": 0.532,
+        "supply": 0.446,
+        "gap_score": 0.086
+      },
+      {
+        "lat": 48.7747058824,
+        "lon": 11.3852941176,
+        "demand": 0.479,
+        "supply": 0.455,
+        "gap_score": 0.024
+      },
+      {
+        "lat": 48.7811764706,
+        "lon": 11.3852941176,
+        "demand": 0.289,
+        "supply": 0.241,
+        "gap_score": 0.048
+      },
+      {
+        "lat": 48.7876470588,
+        "lon": 11.3852941176,
+        "demand": 0.125,
+        "supply": 0.069,
+        "gap_score": 0.056
+      },
+      {
+        "lat": 48.7941176471,
+        "lon": 11.3852941176,
+        "demand": 0.04,
+        "supply": 0.013,
+        "gap_score": 0.027
+      },
+      {
+        "lat": 48.8005882353,
+        "lon": 11.3852941176,
+        "demand": 0.009,
+        "supply": 0.002,
+        "gap_score": 0.007
+      },
+      {
+        "lat": 48.8070588235,
+        "lon": 11.3852941176,
+        "demand": 0.002,
+        "supply": 0.0,
+        "gap_score": 0.001
+      },
+      {
+        "lat": 48.8135294118,
+        "lon": 11.3852941176,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.82,
+        "lon": 11.3852941176,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.71,
+        "lon": 11.3941176471,
+        "demand": 0.001,
+        "supply": 0.001,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7164705882,
+        "lon": 11.3941176471,
+        "demand": 0.007,
+        "supply": 0.017,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7229411765,
+        "lon": 11.3941176471,
+        "demand": 0.042,
+        "supply": 0.1,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7294117647,
+        "lon": 11.3941176471,
+        "demand": 0.17,
+        "supply": 0.294,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7358823529,
+        "lon": 11.3941176471,
+        "demand": 0.441,
+        "supply": 0.501,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7423529412,
+        "lon": 11.3941176471,
+        "demand": 0.716,
+        "supply": 0.633,
+        "gap_score": 0.083
+      },
+      {
+        "lat": 48.7488235294,
+        "lon": 11.3941176471,
+        "demand": 0.765,
+        "supply": 0.663,
+        "gap_score": 0.103
+      },
+      {
+        "lat": 48.7552941176,
+        "lon": 11.3941176471,
+        "demand": 0.663,
+        "supply": 0.54,
+        "gap_score": 0.123
+      },
+      {
+        "lat": 48.7617647059,
+        "lon": 11.3941176471,
+        "demand": 0.645,
+        "supply": 0.432,
+        "gap_score": 0.213
+      },
+      {
+        "lat": 48.7682352941,
+        "lon": 11.3941176471,
+        "demand": 0.697,
+        "supply": 0.448,
+        "gap_score": 0.249
+      },
+      {
+        "lat": 48.7747058824,
+        "lon": 11.3941176471,
+        "demand": 0.625,
+        "supply": 0.402,
+        "gap_score": 0.223
+      },
+      {
+        "lat": 48.7811764706,
+        "lon": 11.3941176471,
+        "demand": 0.421,
+        "supply": 0.224,
+        "gap_score": 0.197
+      },
+      {
+        "lat": 48.7876470588,
+        "lon": 11.3941176471,
+        "demand": 0.214,
+        "supply": 0.082,
+        "gap_score": 0.132
+      },
+      {
+        "lat": 48.7941176471,
+        "lon": 11.3941176471,
+        "demand": 0.081,
+        "supply": 0.025,
+        "gap_score": 0.056
+      },
+      {
+        "lat": 48.8005882353,
+        "lon": 11.3941176471,
+        "demand": 0.024,
+        "supply": 0.007,
+        "gap_score": 0.017
+      },
+      {
+        "lat": 48.8070588235,
+        "lon": 11.3941176471,
+        "demand": 0.006,
+        "supply": 0.003,
+        "gap_score": 0.004
+      },
+      {
+        "lat": 48.8135294118,
+        "lon": 11.3941176471,
+        "demand": 0.002,
+        "supply": 0.001,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.82,
+        "lon": 11.3941176471,
+        "demand": 0.0,
+        "supply": 0.001,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.71,
+        "lon": 11.4029411765,
+        "demand": 0.002,
+        "supply": 0.001,
+        "gap_score": 0.001
+      },
+      {
+        "lat": 48.7164705882,
+        "lon": 11.4029411765,
+        "demand": 0.014,
+        "supply": 0.017,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7229411765,
+        "lon": 11.4029411765,
+        "demand": 0.065,
+        "supply": 0.097,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7294117647,
+        "lon": 11.4029411765,
+        "demand": 0.216,
+        "supply": 0.288,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7358823529,
+        "lon": 11.4029411765,
+        "demand": 0.516,
+        "supply": 0.515,
+        "gap_score": 0.001
+      },
+      {
+        "lat": 48.7423529412,
+        "lon": 11.4029411765,
+        "demand": 0.857,
+        "supply": 0.715,
+        "gap_score": 0.141
+      },
+      {
+        "lat": 48.7488235294,
+        "lon": 11.4029411765,
+        "demand": 1.0,
+        "supply": 0.846,
+        "gap_score": 0.154
+      },
+      {
+        "lat": 48.7552941176,
+        "lon": 11.4029411765,
+        "demand": 0.908,
+        "supply": 0.808,
+        "gap_score": 0.1
+      },
+      {
+        "lat": 48.7617647059,
+        "lon": 11.4029411765,
+        "demand": 0.773,
+        "supply": 0.642,
+        "gap_score": 0.131
+      },
+      {
+        "lat": 48.7682352941,
+        "lon": 11.4029411765,
+        "demand": 0.709,
+        "supply": 0.452,
+        "gap_score": 0.257
+      },
+      {
+        "lat": 48.7747058824,
+        "lon": 11.4029411765,
+        "demand": 0.641,
+        "supply": 0.292,
+        "gap_score": 0.349
+      },
+      {
+        "lat": 48.7811764706,
+        "lon": 11.4029411765,
+        "demand": 0.485,
+        "supply": 0.165,
+        "gap_score": 0.32
+      },
+      {
+        "lat": 48.7876470588,
+        "lon": 11.4029411765,
+        "demand": 0.283,
+        "supply": 0.085,
+        "gap_score": 0.198
+      },
+      {
+        "lat": 48.7941176471,
+        "lon": 11.4029411765,
+        "demand": 0.131,
+        "supply": 0.043,
+        "gap_score": 0.088
+      },
+      {
+        "lat": 48.8005882353,
+        "lon": 11.4029411765,
+        "demand": 0.058,
+        "supply": 0.025,
+        "gap_score": 0.033
+      },
+      {
+        "lat": 48.8070588235,
+        "lon": 11.4029411765,
+        "demand": 0.026,
+        "supply": 0.019,
+        "gap_score": 0.008
+      },
+      {
+        "lat": 48.8135294118,
+        "lon": 11.4029411765,
+        "demand": 0.009,
+        "supply": 0.011,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.82,
+        "lon": 11.4029411765,
+        "demand": 0.002,
+        "supply": 0.004,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.71,
+        "lon": 11.4117647059,
+        "demand": 0.004,
+        "supply": 0.001,
+        "gap_score": 0.003
+      },
+      {
+        "lat": 48.7164705882,
+        "lon": 11.4117647059,
+        "demand": 0.024,
+        "supply": 0.014,
+        "gap_score": 0.01
+      },
+      {
+        "lat": 48.7229411765,
+        "lon": 11.4117647059,
+        "demand": 0.092,
+        "supply": 0.074,
+        "gap_score": 0.018
+      },
+      {
+        "lat": 48.7294117647,
+        "lon": 11.4117647059,
+        "demand": 0.237,
+        "supply": 0.217,
+        "gap_score": 0.02
+      },
+      {
+        "lat": 48.7358823529,
+        "lon": 11.4117647059,
+        "demand": 0.469,
+        "supply": 0.411,
+        "gap_score": 0.057
+      },
+      {
+        "lat": 48.7423529412,
+        "lon": 11.4117647059,
+        "demand": 0.747,
+        "supply": 0.608,
+        "gap_score": 0.139
+      },
+      {
+        "lat": 48.7488235294,
+        "lon": 11.4117647059,
+        "demand": 0.927,
+        "supply": 0.785,
+        "gap_score": 0.143
+      },
+      {
+        "lat": 48.7552941176,
+        "lon": 11.4117647059,
+        "demand": 0.886,
+        "supply": 0.911,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7617647059,
+        "lon": 11.4117647059,
+        "demand": 0.708,
+        "supply": 0.855,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7682352941,
+        "lon": 11.4117647059,
+        "demand": 0.581,
+        "supply": 0.563,
+        "gap_score": 0.019
+      },
+      {
+        "lat": 48.7747058824,
+        "lon": 11.4117647059,
+        "demand": 0.533,
+        "supply": 0.273,
+        "gap_score": 0.261
+      },
+      {
+        "lat": 48.7811764706,
+        "lon": 11.4117647059,
+        "demand": 0.444,
+        "supply": 0.133,
+        "gap_score": 0.312
+      },
+      {
+        "lat": 48.7876470588,
+        "lon": 11.4117647059,
+        "demand": 0.299,
+        "supply": 0.088,
+        "gap_score": 0.211
+      },
+      {
+        "lat": 48.7941176471,
+        "lon": 11.4117647059,
+        "demand": 0.198,
+        "supply": 0.088,
+        "gap_score": 0.11
+      },
+      {
+        "lat": 48.8005882353,
+        "lon": 11.4117647059,
+        "demand": 0.145,
+        "supply": 0.099,
+        "gap_score": 0.046
+      },
+      {
+        "lat": 48.8070588235,
+        "lon": 11.4117647059,
+        "demand": 0.087,
+        "supply": 0.088,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.8135294118,
+        "lon": 11.4117647059,
+        "demand": 0.035,
+        "supply": 0.054,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.82,
+        "lon": 11.4117647059,
+        "demand": 0.009,
+        "supply": 0.02,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.71,
+        "lon": 11.4205882353,
+        "demand": 0.005,
+        "supply": 0.002,
+        "gap_score": 0.003
+      },
+      {
+        "lat": 48.7164705882,
+        "lon": 11.4205882353,
+        "demand": 0.03,
+        "supply": 0.014,
+        "gap_score": 0.016
+      },
+      {
+        "lat": 48.7229411765,
+        "lon": 11.4205882353,
+        "demand": 0.107,
+        "supply": 0.067,
+        "gap_score": 0.039
+      },
+      {
+        "lat": 48.7294117647,
+        "lon": 11.4205882353,
+        "demand": 0.236,
+        "supply": 0.186,
+        "gap_score": 0.05
+      },
+      {
+        "lat": 48.7358823529,
+        "lon": 11.4205882353,
+        "demand": 0.378,
+        "supply": 0.349,
+        "gap_score": 0.029
+      },
+      {
+        "lat": 48.7423529412,
+        "lon": 11.4205882353,
+        "demand": 0.528,
+        "supply": 0.497,
+        "gap_score": 0.031
+      },
+      {
+        "lat": 48.7488235294,
+        "lon": 11.4205882353,
+        "demand": 0.651,
+        "supply": 0.643,
+        "gap_score": 0.008
+      },
+      {
+        "lat": 48.7552941176,
+        "lon": 11.4205882353,
+        "demand": 0.634,
+        "supply": 0.886,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7617647059,
+        "lon": 11.4205882353,
+        "demand": 0.493,
+        "supply": 1.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7682352941,
+        "lon": 11.4205882353,
+        "demand": 0.385,
+        "supply": 0.718,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7747058824,
+        "lon": 11.4205882353,
+        "demand": 0.362,
+        "supply": 0.34,
+        "gap_score": 0.022
+      },
+      {
+        "lat": 48.7811764706,
+        "lon": 11.4205882353,
+        "demand": 0.332,
+        "supply": 0.153,
+        "gap_score": 0.178
+      },
+      {
+        "lat": 48.7876470588,
+        "lon": 11.4205882353,
+        "demand": 0.288,
+        "supply": 0.129,
+        "gap_score": 0.16
+      },
+      {
+        "lat": 48.7941176471,
+        "lon": 11.4205882353,
+        "demand": 0.299,
+        "supply": 0.205,
+        "gap_score": 0.093
+      },
+      {
+        "lat": 48.8005882353,
+        "lon": 11.4205882353,
+        "demand": 0.294,
+        "supply": 0.274,
+        "gap_score": 0.02
+      },
+      {
+        "lat": 48.8070588235,
+        "lon": 11.4205882353,
+        "demand": 0.201,
+        "supply": 0.245,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.8135294118,
+        "lon": 11.4205882353,
+        "demand": 0.086,
+        "supply": 0.144,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.82,
+        "lon": 11.4205882353,
+        "demand": 0.022,
+        "supply": 0.051,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.71,
+        "lon": 11.4294117647,
+        "demand": 0.004,
+        "supply": 0.001,
+        "gap_score": 0.003
+      },
+      {
+        "lat": 48.7164705882,
+        "lon": 11.4294117647,
+        "demand": 0.025,
+        "supply": 0.012,
+        "gap_score": 0.013
+      },
+      {
+        "lat": 48.7229411765,
+        "lon": 11.4294117647,
+        "demand": 0.09,
+        "supply": 0.056,
+        "gap_score": 0.034
+      },
+      {
+        "lat": 48.7294117647,
+        "lon": 11.4294117647,
+        "demand": 0.195,
+        "supply": 0.153,
+        "gap_score": 0.043
+      },
+      {
+        "lat": 48.7358823529,
+        "lon": 11.4294117647,
+        "demand": 0.297,
+        "supply": 0.286,
+        "gap_score": 0.011
+      },
+      {
+        "lat": 48.7423529412,
+        "lon": 11.4294117647,
+        "demand": 0.396,
+        "supply": 0.405,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7488235294,
+        "lon": 11.4294117647,
+        "demand": 0.476,
+        "supply": 0.527,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7552941176,
+        "lon": 11.4294117647,
+        "demand": 0.441,
+        "supply": 0.785,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7617647059,
+        "lon": 11.4294117647,
+        "demand": 0.309,
+        "supply": 0.959,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7682352941,
+        "lon": 11.4294117647,
+        "demand": 0.219,
+        "supply": 0.742,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7747058824,
+        "lon": 11.4294117647,
+        "demand": 0.218,
+        "supply": 0.401,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7811764706,
+        "lon": 11.4294117647,
+        "demand": 0.247,
+        "supply": 0.229,
+        "gap_score": 0.018
+      },
+      {
+        "lat": 48.7876470588,
+        "lon": 11.4294117647,
+        "demand": 0.298,
+        "supply": 0.233,
+        "gap_score": 0.065
+      },
+      {
+        "lat": 48.7941176471,
+        "lon": 11.4294117647,
+        "demand": 0.396,
+        "supply": 0.371,
+        "gap_score": 0.025
+      },
+      {
+        "lat": 48.8005882353,
+        "lon": 11.4294117647,
+        "demand": 0.431,
+        "supply": 0.475,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.8070588235,
+        "lon": 11.4294117647,
+        "demand": 0.314,
+        "supply": 0.4,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.8135294118,
+        "lon": 11.4294117647,
+        "demand": 0.145,
+        "supply": 0.22,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.82,
+        "lon": 11.4294117647,
+        "demand": 0.043,
+        "supply": 0.073,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.71,
+        "lon": 11.4382352941,
+        "demand": 0.002,
+        "supply": 0.001,
+        "gap_score": 0.001
+      },
+      {
+        "lat": 48.7164705882,
+        "lon": 11.4382352941,
+        "demand": 0.014,
+        "supply": 0.007,
+        "gap_score": 0.008
+      },
+      {
+        "lat": 48.7229411765,
+        "lon": 11.4382352941,
+        "demand": 0.054,
+        "supply": 0.032,
+        "gap_score": 0.022
+      },
+      {
+        "lat": 48.7294117647,
+        "lon": 11.4382352941,
+        "demand": 0.132,
+        "supply": 0.099,
+        "gap_score": 0.033
+      },
+      {
+        "lat": 48.7358823529,
+        "lon": 11.4382352941,
+        "demand": 0.249,
+        "supply": 0.221,
+        "gap_score": 0.029
+      },
+      {
+        "lat": 48.7423529412,
+        "lon": 11.4382352941,
+        "demand": 0.412,
+        "supply": 0.354,
+        "gap_score": 0.058
+      },
+      {
+        "lat": 48.7488235294,
+        "lon": 11.4382352941,
+        "demand": 0.527,
+        "supply": 0.449,
+        "gap_score": 0.078
+      },
+      {
+        "lat": 48.7552941176,
+        "lon": 11.4382352941,
+        "demand": 0.445,
+        "supply": 0.576,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7617647059,
+        "lon": 11.4382352941,
+        "demand": 0.251,
+        "supply": 0.653,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7682352941,
+        "lon": 11.4382352941,
+        "demand": 0.148,
+        "supply": 0.523,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7747058824,
+        "lon": 11.4382352941,
+        "demand": 0.189,
+        "supply": 0.354,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7811764706,
+        "lon": 11.4382352941,
+        "demand": 0.291,
+        "supply": 0.314,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7876470588,
+        "lon": 11.4382352941,
+        "demand": 0.378,
+        "supply": 0.385,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7941176471,
+        "lon": 11.4382352941,
+        "demand": 0.45,
+        "supply": 0.506,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.8005882353,
+        "lon": 11.4382352941,
+        "demand": 0.47,
+        "supply": 0.547,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.8070588235,
+        "lon": 11.4382352941,
+        "demand": 0.373,
+        "supply": 0.417,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.8135294118,
+        "lon": 11.4382352941,
+        "demand": 0.207,
+        "supply": 0.211,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.82,
+        "lon": 11.4382352941,
+        "demand": 0.078,
+        "supply": 0.065,
+        "gap_score": 0.013
+      },
+      {
+        "lat": 48.71,
+        "lon": 11.4470588235,
+        "demand": 0.001,
+        "supply": 0.0,
+        "gap_score": 0.001
+      },
+      {
+        "lat": 48.7164705882,
+        "lon": 11.4470588235,
+        "demand": 0.006,
+        "supply": 0.003,
+        "gap_score": 0.003
+      },
+      {
+        "lat": 48.7229411765,
+        "lon": 11.4470588235,
+        "demand": 0.025,
+        "supply": 0.019,
+        "gap_score": 0.007
+      },
+      {
+        "lat": 48.7294117647,
+        "lon": 11.4470588235,
+        "demand": 0.084,
+        "supply": 0.085,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7358823529,
+        "lon": 11.4470588235,
+        "demand": 0.228,
+        "supply": 0.251,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7423529412,
+        "lon": 11.4470588235,
+        "demand": 0.461,
+        "supply": 0.443,
+        "gap_score": 0.018
+      },
+      {
+        "lat": 48.7488235294,
+        "lon": 11.4470588235,
+        "demand": 0.607,
+        "supply": 0.476,
+        "gap_score": 0.131
+      },
+      {
+        "lat": 48.7552941176,
+        "lon": 11.4470588235,
+        "demand": 0.482,
+        "supply": 0.385,
+        "gap_score": 0.097
+      },
+      {
+        "lat": 48.7617647059,
+        "lon": 11.4470588235,
+        "demand": 0.241,
+        "supply": 0.306,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7682352941,
+        "lon": 11.4470588235,
+        "demand": 0.146,
+        "supply": 0.237,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7747058824,
+        "lon": 11.4470588235,
+        "demand": 0.262,
+        "supply": 0.237,
+        "gap_score": 0.025
+      },
+      {
+        "lat": 48.7811764706,
+        "lon": 11.4470588235,
+        "demand": 0.447,
+        "supply": 0.37,
+        "gap_score": 0.077
+      },
+      {
+        "lat": 48.7876470588,
+        "lon": 11.4470588235,
+        "demand": 0.514,
+        "supply": 0.539,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7941176471,
+        "lon": 11.4470588235,
+        "demand": 0.477,
+        "supply": 0.586,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.8005882353,
+        "lon": 11.4470588235,
+        "demand": 0.455,
+        "supply": 0.503,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.8070588235,
+        "lon": 11.4470588235,
+        "demand": 0.425,
+        "supply": 0.34,
+        "gap_score": 0.085
+      },
+      {
+        "lat": 48.8135294118,
+        "lon": 11.4470588235,
+        "demand": 0.309,
+        "supply": 0.161,
+        "gap_score": 0.148
+      },
+      {
+        "lat": 48.82,
+        "lon": 11.4470588235,
+        "demand": 0.147,
+        "supply": 0.046,
+        "gap_score": 0.1
+      },
+      {
+        "lat": 48.71,
+        "lon": 11.4558823529,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7164705882,
+        "lon": 11.4558823529,
+        "demand": 0.002,
+        "supply": 0.002,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7229411765,
+        "lon": 11.4558823529,
+        "demand": 0.012,
+        "supply": 0.019,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7294117647,
+        "lon": 11.4558823529,
+        "demand": 0.056,
+        "supply": 0.105,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7358823529,
+        "lon": 11.4558823529,
+        "demand": 0.188,
+        "supply": 0.326,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7423529412,
+        "lon": 11.4558823529,
+        "demand": 0.401,
+        "supply": 0.565,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7488235294,
+        "lon": 11.4558823529,
+        "demand": 0.512,
+        "supply": 0.541,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7552941176,
+        "lon": 11.4558823529,
+        "demand": 0.386,
+        "supply": 0.3,
+        "gap_score": 0.086
+      },
+      {
+        "lat": 48.7617647059,
+        "lon": 11.4558823529,
+        "demand": 0.185,
+        "supply": 0.125,
+        "gap_score": 0.059
+      },
+      {
+        "lat": 48.7682352941,
+        "lon": 11.4558823529,
+        "demand": 0.14,
+        "supply": 0.077,
+        "gap_score": 0.063
+      },
+      {
+        "lat": 48.7747058824,
+        "lon": 11.4558823529,
+        "demand": 0.305,
+        "supply": 0.14,
+        "gap_score": 0.166
+      },
+      {
+        "lat": 48.7811764706,
+        "lon": 11.4558823529,
+        "demand": 0.523,
+        "supply": 0.349,
+        "gap_score": 0.174
+      },
+      {
+        "lat": 48.7876470588,
+        "lon": 11.4558823529,
+        "demand": 0.558,
+        "supply": 0.57,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7941176471,
+        "lon": 11.4558823529,
+        "demand": 0.453,
+        "supply": 0.573,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.8005882353,
+        "lon": 11.4558823529,
+        "demand": 0.432,
+        "supply": 0.423,
+        "gap_score": 0.008
+      },
+      {
+        "lat": 48.8070588235,
+        "lon": 11.4558823529,
+        "demand": 0.487,
+        "supply": 0.265,
+        "gap_score": 0.222
+      },
+      {
+        "lat": 48.8135294118,
+        "lon": 11.4558823529,
+        "demand": 0.42,
+        "supply": 0.124,
+        "gap_score": 0.297
+      },
+      {
+        "lat": 48.82,
+        "lon": 11.4558823529,
+        "demand": 0.22,
+        "supply": 0.035,
+        "gap_score": 0.185
+      },
+      {
+        "lat": 48.71,
+        "lon": 11.4647058824,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7164705882,
+        "lon": 11.4647058824,
+        "demand": 0.001,
+        "supply": 0.002,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7229411765,
+        "lon": 11.4647058824,
+        "demand": 0.006,
+        "supply": 0.019,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7294117647,
+        "lon": 11.4647058824,
+        "demand": 0.033,
+        "supply": 0.101,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7358823529,
+        "lon": 11.4647058824,
+        "demand": 0.116,
+        "supply": 0.299,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7423529412,
+        "lon": 11.4647058824,
+        "demand": 0.242,
+        "supply": 0.497,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7488235294,
+        "lon": 11.4647058824,
+        "demand": 0.295,
+        "supply": 0.455,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7552941176,
+        "lon": 11.4647058824,
+        "demand": 0.209,
+        "supply": 0.222,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7617647059,
+        "lon": 11.4647058824,
+        "demand": 0.098,
+        "supply": 0.061,
+        "gap_score": 0.037
+      },
+      {
+        "lat": 48.7682352941,
+        "lon": 11.4647058824,
+        "demand": 0.095,
+        "supply": 0.023,
+        "gap_score": 0.071
+      },
+      {
+        "lat": 48.7747058824,
+        "lon": 11.4647058824,
+        "demand": 0.231,
+        "supply": 0.072,
+        "gap_score": 0.159
+      },
+      {
+        "lat": 48.7811764706,
+        "lon": 11.4647058824,
+        "demand": 0.394,
+        "supply": 0.228,
+        "gap_score": 0.166
+      },
+      {
+        "lat": 48.7876470588,
+        "lon": 11.4647058824,
+        "demand": 0.408,
+        "supply": 0.401,
+        "gap_score": 0.007
+      },
+      {
+        "lat": 48.7941176471,
+        "lon": 11.4647058824,
+        "demand": 0.326,
+        "supply": 0.405,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.8005882353,
+        "lon": 11.4647058824,
+        "demand": 0.344,
+        "supply": 0.29,
+        "gap_score": 0.053
+      },
+      {
+        "lat": 48.8070588235,
+        "lon": 11.4647058824,
+        "demand": 0.44,
+        "supply": 0.176,
+        "gap_score": 0.265
+      },
+      {
+        "lat": 48.8135294118,
+        "lon": 11.4647058824,
+        "demand": 0.405,
+        "supply": 0.08,
+        "gap_score": 0.325
+      },
+      {
+        "lat": 48.82,
+        "lon": 11.4647058824,
+        "demand": 0.218,
+        "supply": 0.022,
+        "gap_score": 0.196
+      },
+      {
+        "lat": 48.71,
+        "lon": 11.4735294118,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7164705882,
+        "lon": 11.4735294118,
+        "demand": 0.0,
+        "supply": 0.001,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7229411765,
+        "lon": 11.4735294118,
+        "demand": 0.002,
+        "supply": 0.011,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7294117647,
+        "lon": 11.4735294118,
+        "demand": 0.014,
+        "supply": 0.058,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7358823529,
+        "lon": 11.4735294118,
+        "demand": 0.049,
+        "supply": 0.166,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7423529412,
+        "lon": 11.4735294118,
+        "demand": 0.099,
+        "supply": 0.266,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7488235294,
+        "lon": 11.4735294118,
+        "demand": 0.115,
+        "supply": 0.238,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7552941176,
+        "lon": 11.4735294118,
+        "demand": 0.077,
+        "supply": 0.113,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7617647059,
+        "lon": 11.4735294118,
+        "demand": 0.036,
+        "supply": 0.028,
+        "gap_score": 0.008
+      },
+      {
+        "lat": 48.7682352941,
+        "lon": 11.4735294118,
+        "demand": 0.042,
+        "supply": 0.007,
+        "gap_score": 0.035
+      },
+      {
+        "lat": 48.7747058824,
+        "lon": 11.4735294118,
+        "demand": 0.109,
+        "supply": 0.026,
+        "gap_score": 0.082
+      },
+      {
+        "lat": 48.7811764706,
+        "lon": 11.4735294118,
+        "demand": 0.184,
+        "supply": 0.094,
+        "gap_score": 0.09
+      },
+      {
+        "lat": 48.7876470588,
+        "lon": 11.4735294118,
+        "demand": 0.19,
+        "supply": 0.174,
+        "gap_score": 0.016
+      },
+      {
+        "lat": 48.7941176471,
+        "lon": 11.4735294118,
+        "demand": 0.16,
+        "supply": 0.183,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.8005882353,
+        "lon": 11.4735294118,
+        "demand": 0.192,
+        "supply": 0.132,
+        "gap_score": 0.06
+      },
+      {
+        "lat": 48.8070588235,
+        "lon": 11.4735294118,
+        "demand": 0.264,
+        "supply": 0.077,
+        "gap_score": 0.187
+      },
+      {
+        "lat": 48.8135294118,
+        "lon": 11.4735294118,
+        "demand": 0.248,
+        "supply": 0.033,
+        "gap_score": 0.215
+      },
+      {
+        "lat": 48.82,
+        "lon": 11.4735294118,
+        "demand": 0.134,
+        "supply": 0.009,
+        "gap_score": 0.126
+      },
+      {
+        "lat": 48.71,
+        "lon": 11.4823529412,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7164705882,
+        "lon": 11.4823529412,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7229411765,
+        "lon": 11.4823529412,
+        "demand": 0.001,
+        "supply": 0.004,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7294117647,
+        "lon": 11.4823529412,
+        "demand": 0.004,
+        "supply": 0.019,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7358823529,
+        "lon": 11.4823529412,
+        "demand": 0.014,
+        "supply": 0.053,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7423529412,
+        "lon": 11.4823529412,
+        "demand": 0.027,
+        "supply": 0.083,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7488235294,
+        "lon": 11.4823529412,
+        "demand": 0.03,
+        "supply": 0.073,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7552941176,
+        "lon": 11.4823529412,
+        "demand": 0.019,
+        "supply": 0.034,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7617647059,
+        "lon": 11.4823529412,
+        "demand": 0.009,
+        "supply": 0.008,
+        "gap_score": 0.001
+      },
+      {
+        "lat": 48.7682352941,
+        "lon": 11.4823529412,
+        "demand": 0.012,
+        "supply": 0.002,
+        "gap_score": 0.01
+      },
+      {
+        "lat": 48.7747058824,
+        "lon": 11.4823529412,
+        "demand": 0.031,
+        "supply": 0.006,
+        "gap_score": 0.025
+      },
+      {
+        "lat": 48.7811764706,
+        "lon": 11.4823529412,
+        "demand": 0.053,
+        "supply": 0.023,
+        "gap_score": 0.03
+      },
+      {
+        "lat": 48.7876470588,
+        "lon": 11.4823529412,
+        "demand": 0.055,
+        "supply": 0.045,
+        "gap_score": 0.011
+      },
+      {
+        "lat": 48.7941176471,
+        "lon": 11.4823529412,
+        "demand": 0.051,
+        "supply": 0.049,
+        "gap_score": 0.002
+      },
+      {
+        "lat": 48.8005882353,
+        "lon": 11.4823529412,
+        "demand": 0.069,
+        "supply": 0.036,
+        "gap_score": 0.033
+      },
+      {
+        "lat": 48.8070588235,
+        "lon": 11.4823529412,
+        "demand": 0.099,
+        "supply": 0.02,
+        "gap_score": 0.079
+      },
+      {
+        "lat": 48.8135294118,
+        "lon": 11.4823529412,
+        "demand": 0.094,
+        "supply": 0.008,
+        "gap_score": 0.086
+      },
+      {
+        "lat": 48.82,
+        "lon": 11.4823529412,
+        "demand": 0.051,
+        "supply": 0.002,
+        "gap_score": 0.049
+      },
+      {
+        "lat": 48.71,
+        "lon": 11.4911764706,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7164705882,
+        "lon": 11.4911764706,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7229411765,
+        "lon": 11.4911764706,
+        "demand": 0.0,
+        "supply": 0.001,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7294117647,
+        "lon": 11.4911764706,
+        "demand": 0.001,
+        "supply": 0.004,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7358823529,
+        "lon": 11.4911764706,
+        "demand": 0.002,
+        "supply": 0.01,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7423529412,
+        "lon": 11.4911764706,
+        "demand": 0.005,
+        "supply": 0.015,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7488235294,
+        "lon": 11.4911764706,
+        "demand": 0.005,
+        "supply": 0.013,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7552941176,
+        "lon": 11.4911764706,
+        "demand": 0.003,
+        "supply": 0.006,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7617647059,
+        "lon": 11.4911764706,
+        "demand": 0.001,
+        "supply": 0.001,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7682352941,
+        "lon": 11.4911764706,
+        "demand": 0.002,
+        "supply": 0.0,
+        "gap_score": 0.002
+      },
+      {
+        "lat": 48.7747058824,
+        "lon": 11.4911764706,
+        "demand": 0.006,
+        "supply": 0.001,
+        "gap_score": 0.005
+      },
+      {
+        "lat": 48.7811764706,
+        "lon": 11.4911764706,
+        "demand": 0.009,
+        "supply": 0.003,
+        "gap_score": 0.006
+      },
+      {
+        "lat": 48.7876470588,
+        "lon": 11.4911764706,
+        "demand": 0.01,
+        "supply": 0.007,
+        "gap_score": 0.003
+      },
+      {
+        "lat": 48.7941176471,
+        "lon": 11.4911764706,
+        "demand": 0.01,
+        "supply": 0.007,
+        "gap_score": 0.003
+      },
+      {
+        "lat": 48.8005882353,
+        "lon": 11.4911764706,
+        "demand": 0.016,
+        "supply": 0.006,
+        "gap_score": 0.01
+      },
+      {
+        "lat": 48.8070588235,
+        "lon": 11.4911764706,
+        "demand": 0.023,
+        "supply": 0.003,
+        "gap_score": 0.02
+      },
+      {
+        "lat": 48.8135294118,
+        "lon": 11.4911764706,
+        "demand": 0.022,
+        "supply": 0.001,
+        "gap_score": 0.021
+      },
+      {
+        "lat": 48.82,
+        "lon": 11.4911764706,
+        "demand": 0.012,
+        "supply": 0.0,
+        "gap_score": 0.012
+      },
+      {
+        "lat": 48.71,
+        "lon": 11.5,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7164705882,
+        "lon": 11.5,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7229411765,
+        "lon": 11.5,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7294117647,
+        "lon": 11.5,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7358823529,
+        "lon": 11.5,
+        "demand": 0.0,
+        "supply": 0.001,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7423529412,
+        "lon": 11.5,
+        "demand": 0.001,
+        "supply": 0.001,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7488235294,
+        "lon": 11.5,
+        "demand": 0.001,
+        "supply": 0.001,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7552941176,
+        "lon": 11.5,
+        "demand": 0.0,
+        "supply": 0.001,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7617647059,
+        "lon": 11.5,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7682352941,
+        "lon": 11.5,
+        "demand": 0.0,
+        "supply": 0.0,
+        "gap_score": 0.0
+      },
+      {
+        "lat": 48.7747058824,
+        "lon": 11.5,
+        "demand": 0.001,
+        "supply": 0.0,
+        "gap_score": 0.001
+      },
+      {
+        "lat": 48.7811764706,
+        "lon": 11.5,
+        "demand": 0.001,
+        "supply": 0.0,
+        "gap_score": 0.001
+      },
+      {
+        "lat": 48.7876470588,
+        "lon": 11.5,
+        "demand": 0.001,
+        "supply": 0.001,
+        "gap_score": 0.001
+      },
+      {
+        "lat": 48.7941176471,
+        "lon": 11.5,
+        "demand": 0.001,
+        "supply": 0.001,
+        "gap_score": 0.001
+      },
+      {
+        "lat": 48.8005882353,
+        "lon": 11.5,
+        "demand": 0.002,
+        "supply": 0.0,
+        "gap_score": 0.002
+      },
+      {
+        "lat": 48.8070588235,
+        "lon": 11.5,
+        "demand": 0.003,
+        "supply": 0.0,
+        "gap_score": 0.003
+      },
+      {
+        "lat": 48.8135294118,
+        "lon": 11.5,
+        "demand": 0.003,
+        "supply": 0.0,
+        "gap_score": 0.003
+      },
+      {
+        "lat": 48.82,
+        "lon": 11.5,
+        "demand": 0.002,
+        "supply": 0.0,
+        "gap_score": 0.002
+      }
+    ]
+  }
+}

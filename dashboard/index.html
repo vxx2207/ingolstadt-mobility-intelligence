@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IngoMobility · Ingolstadt Open Mobility Intelligence</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+  :root{
+    --bg:#0d1425; --panel:#131e35; --card:#16233f; --card2:#1b2a49; --line:#26364f;
+    --ink:#e9eefb; --muted:#93a4c4; --dim:#6d7f9e;
+    --blue:#3b82f6; --green:#10b981; --red:#ef4444; --amber:#f59e0b; --violet:#8b5cf6;
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       background:var(--bg);color:var(--ink);line-height:1.5;font-size:15px}
+
+  /* ---------- header ---------- */
+  header{padding:20px 24px 16px;border-bottom:1px solid var(--line);background:var(--panel)}
+  .hrow{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;
+        max-width:1280px;margin:0 auto}
+  .brand{font-size:21px;font-weight:700;letter-spacing:.2px;margin:0}
+  .brand span{color:var(--blue)}
+  .tagline{color:var(--muted);font-size:13.5px;margin-top:3px;max-width:620px}
+  .provenance{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px;
+              max-width:1280px;margin-left:auto;margin-right:auto}
+  .chip{display:inline-flex;align-items:center;gap:6px;background:var(--card);
+        border:1px solid var(--line);border-radius:999px;padding:4px 11px;font-size:12px;
+        color:var(--muted);white-space:nowrap}
+  .chip b{color:var(--ink);font-weight:600}
+  .chip.warn{border-color:#7a5a1e;background:#2b2110;color:#f5d9a4}
+  .chip.good{border-color:#1c5741;background:#10241c;color:#9ae6c4}
+
+  .wrap{padding:20px 24px 40px;max-width:1280px;margin:0 auto}
+
+  /* ---------- KPIs ---------- */
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:12px}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+       padding:13px 15px;position:relative}
+  .kpi .v{font-size:25px;font-weight:700;line-height:1.15}
+  .kpi .v small{font-size:14px;font-weight:600;color:var(--muted)}
+  .kpi .l{color:var(--muted);font-size:12px;margin-top:3px;display:flex;align-items:center;gap:5px}
+  .kpi .v.blue{color:#7fb0ff}.kpi .v.green{color:#5fd6a8}.kpi .v.amber{color:#f7c069}
+  .info{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;
+        border-radius:50%;border:1px solid var(--dim);color:var(--dim);font-size:9.5px;
+        cursor:help;flex:0 0 auto;font-weight:700}
+  .kpi:hover .info{border-color:var(--blue);color:var(--blue)}
+  [data-tip]{position:relative}
+  [data-tip]:hover::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);left:0;
+      background:#0a1120;color:var(--ink);border:1px solid var(--line);border-radius:9px;
+      padding:9px 11px;font-size:12px;line-height:1.45;width:265px;z-index:60;
+      box-shadow:0 10px 26px rgba(0,0,0,.5);white-space:normal;font-weight:400}
+
+  /* ---------- tabs + filters ---------- */
+  nav.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:22px 0 12px;border-bottom:1px solid var(--line);
+           padding-bottom:12px}
+  nav.tabs button{background:var(--card);color:var(--muted);border:1px solid var(--line);
+      padding:8px 15px;border-radius:9px;cursor:pointer;font-size:13.5px;font-weight:600;
+      font-family:inherit}
+  nav.tabs button:hover{color:var(--ink);border-color:var(--dim)}
+  nav.tabs button.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+  .filters{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;background:var(--card);
+           border:1px solid var(--line);border-radius:var(--radius);padding:12px 15px;margin-bottom:16px}
+  .fgroup{display:flex;flex-direction:column;gap:5px}
+  .fgroup label{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;
+                font-weight:600}
+  select,button.ghost{background:var(--card2);color:var(--ink);border:1px solid var(--line);
+      border-radius:8px;padding:7px 11px;font-size:13.5px;font-family:inherit;cursor:pointer}
+  select:focus{outline:2px solid var(--blue);outline-offset:1px}
+  button.ghost:hover{border-color:var(--blue);color:#7fb0ff}
+  .fnote{color:var(--dim);font-size:12px;margin-left:auto;max-width:340px}
+
+  /* ---------- cards ---------- */
+  .panel{display:none}.panel.active{display:block}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .chart-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+              padding:14px 15px 8px;margin-bottom:16px}
+  .chart-card h3{margin:0 0 3px;font-size:15px;font-weight:650}
+  .chart-card .sub{margin:0 0 10px;color:var(--muted);font-size:12.5px}
+  .chart{width:100%;height:330px}
+  .chart.tall{height:430px}
+  .lead{background:linear-gradient(135deg,#16233f,#1a2c50);border-left:3px solid var(--blue)}
+
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:right}
+  th:first-child,td:first-child{text-align:left}
+  th{color:var(--muted);font-weight:600;position:sticky;top:0;background:var(--card2);
+     font-size:11.5px;text-transform:uppercase;letter-spacing:.4px}
+  tbody tr:hover{background:var(--card2)}
+  .tbl-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+            padding:6px 4px;max-height:430px;overflow:auto;margin-bottom:16px}
+
+  /* ---------- states ---------- */
+  .state{border:1px dashed var(--line);border-radius:var(--radius);padding:34px 22px;
+         text-align:center;color:var(--muted);background:var(--card)}
+  .state h4{margin:0 0 6px;color:var(--ink);font-size:15px}
+  .state code{background:#0a1120;padding:2px 7px;border-radius:6px;font-size:12.5px;color:#9fc4ff}
+  .spinner{width:26px;height:26px;border:3px solid var(--line);border-top-color:var(--blue);
+           border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 12px}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .empty{padding:26px;text-align:center;color:var(--dim);font-size:13.5px}
+  #errorState{display:none}
+
+  footer{color:var(--dim);font-size:12px;padding:16px 24px 30px;border-top:1px solid var(--line);
+         max-width:1280px;margin:0 auto}
+  footer a{color:var(--blue)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:12px;background:var(--blue);color:#fff;padding:8px 12px;border-radius:8px;z-index:99}
+
+  @media(max-width:900px){
+    .grid2{grid-template-columns:1fr}
+    .chart{height:280px}.chart.tall{height:340px}
+    .wrap,header{padding-left:14px;padding-right:14px}
+    .fnote{margin-left:0}
+    [data-tip]:hover::after{width:210px}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <div class="hrow">
+    <div>
+      <h1 class="brand">Ingo<span>Mobility</span></h1>
+      <div class="tagline">Where should Ingolstadt add charging points, which bus lines are
+        under-served, and how much traffic is coming tomorrow? One open-data pipeline, three answers.</div>
+    </div>
+  </div>
+  <div class="provenance" id="provenance"></div>
+</header>
+
+<div class="wrap" id="main">
+  <div id="loadingState" class="state">
+    <div class="spinner"></div>
+    <h4>Loading dashboard data…</h4>
+    <div>Reading <code>data.json</code></div>
+  </div>
+
+  <div id="errorState" class="state">
+    <h4>Dashboard data could not be loaded</h4>
+    <p>This page needs <code>data.json</code>, which the pipeline generates.</p>
+    <p style="text-align:left;max-width:520px;margin:14px auto;">
+      1. Generate it: <code>ingomob run-all</code><br/>
+      2. Serve this folder over HTTP: <code>ingomob serve</code><br/>
+      3. Open <code>http://localhost:8000</code>
+    </p>
+    <p class="empty">Opening this file directly from disk (<code>file://</code>) will not work,
+       because browsers block local <code>fetch()</code> requests.</p>
+    <button class="ghost" onclick="boot()">Retry</button>
+  </div>
+
+  <div id="app" style="display:none">
+    <div class="kpis" id="kpis"></div>
+
+    <nav class="tabs" id="tabs" role="tablist">
+      <button data-tab="overview" class="active">Overview</button>
+      <button data-tab="traffic">Traffic</button>
+      <button data-tab="forecast">Demand forecast</button>
+      <button data-tab="transit">Public transport</button>
+      <button data-tab="charging">Charging &amp; siting</button>
+    </nav>
+
+    <div class="filters" id="filters">
+      <div class="fgroup">
+        <label for="fDistrict">District</label>
+        <select id="fDistrict"><option value="">All districts</option></select>
+      </div>
+      <div class="fgroup">
+        <label for="fRoad">Road type</label>
+        <select id="fRoad"><option value="">All road types</option></select>
+      </div>
+      <div class="fgroup">
+        <label for="fDay">Day type</label>
+        <select id="fDay">
+          <option value="">All days</option>
+          <option value="weekday">Weekdays only</option>
+          <option value="weekend">Weekends only</option>
+        </select>
+      </div>
+      <button class="ghost" id="fReset">Reset filters</button>
+      <div class="fnote" id="filterNote"></div>
+    </div>
+
+    <section class="panel active" id="tab-overview" role="tabpanel">
+      <div class="chart-card lead">
+        <h3>What this dashboard answers</h3>
+        <p class="sub">Three decisions, each backed by a separate model. Numbers update with the
+          filters above where applicable.</p>
+        <div class="grid2">
+          <div class="chart-card" style="margin:0">
+            <h3>Traffic demand, next day</h3>
+            <p class="sub" id="ovForecast"></p>
+          </div>
+          <div class="chart-card" style="margin:0">
+            <h3>Service gaps in the bus network</h3>
+            <p class="sub" id="ovTransit"></p>
+          </div>
+        </div>
+        <div class="chart-card" style="margin:16px 0 0">
+          <h3>Where charging capacity is missing</h3>
+          <p class="sub" id="ovSiting"></p>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3>Model quality vs. simpler alternatives</h3>
+        <p class="sub">A model is only as good as the baseline it beats. Lower bars are better;
+          whiskers show variation across cross-validation folds.</p>
+        <div class="chart" id="c_ladder"></div>
+      </div>
+    </section>
+
+    <section class="panel" id="tab-traffic" role="tabpanel">
+      <div class="chart-card">
+        <h3>When is the city busy?</h3>
+        <p class="sub">Average vehicles per hour across the selected detectors. Workdays show two
+          commute peaks; weekends a single midday plateau.</p>
+        <div class="chart" id="c_hourly"></div>
+      </div>
+      <div class="grid2">
+        <div class="chart-card">
+          <h3>Which roads carry the load</h3>
+          <p class="sub">Weekday profile split by road classification.</p>
+          <div class="chart" id="c_roadtype"></div>
+        </div>
+        <div class="chart-card">
+          <h3>Daily volume over the period</h3>
+          <p class="sub">Red markers are Bavarian public holidays — the clearest demand signal in
+            the data.</p>
+          <div class="chart" id="c_daily"></div>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3>Traffic by district</h3>
+        <p class="sub">Mean vehicles counted per day, per district.</p>
+        <div class="chart" id="c_district"></div>
+      </div>
+    </section>
+
+    <section class="panel" id="tab-forecast" role="tabpanel">
+      <div class="kpis" id="fc_kpis" style="margin-bottom:16px"></div>
+      <div class="chart-card">
+        <h3>Predicted vs. actual demand</h3>
+        <p class="sub">Most recent cross-validation fold. The dotted line is the naive
+          "same hour last week" guess — the gaps show where it fails and the model does not.</p>
+        <div class="chart tall" id="c_forecast"></div>
+      </div>
+      <div class="grid2">
+        <div class="chart-card">
+          <h3>What drives the prediction</h3>
+          <p class="sub">How much accuracy is lost when a feature is shuffled. Bigger = more important.</p>
+          <div class="chart" id="c_importance"></div>
+        </div>
+        <div class="chart-card">
+          <h3>Error across folds</h3>
+          <p class="sub">Stability matters more than a single lucky split.</p>
+          <div class="chart" id="c_folds"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="tab-transit" role="tabpanel">
+      <div class="grid2">
+        <div class="chart-card">
+          <h3>How long you wait at peak</h3>
+          <p class="sub">Mean minutes between departures, 07–09 and 16–18. Lower is better.</p>
+          <div class="chart" id="c_headway"></div>
+        </div>
+        <div class="chart-card">
+          <h3>Service by day type</h3>
+          <p class="sub">Trips per line. Sunday service is the weakest link across the network.</p>
+          <div class="chart" id="c_trips"></div>
+        </div>
+      </div>
+      <h3 style="font-size:15px;margin:4px 0 8px">Line detail</h3>
+      <div class="tbl-card"><table id="t_routes"></table></div>
+      <h3 style="font-size:15px;margin:4px 0 8px">Stops with the weakest service</h3>
+      <div class="tbl-card"><table id="t_stops"></table></div>
+    </section>
+
+    <section class="panel" id="tab-charging" role="tabpanel">
+      <div class="chart-card">
+        <h3>Recommended locations for new charging points</h3>
+        <p class="sub">Red stars mark the highest unmet demand: places with heavy mobility activity
+          but little nearby charging. This is a screening heuristic, not a siting decision.</p>
+        <div class="chart tall" id="c_map"></div>
+      </div>
+      <h3 style="font-size:15px;margin:4px 0 8px">Ranked candidates</h3>
+      <div class="tbl-card"><table id="t_siting"></table></div>
+      <h3 style="font-size:15px;margin:4px 0 8px">District scorecard</h3>
+      <div class="tbl-card"><table id="t_district"></table></div>
+    </section>
+  </div>
+</div>
+
+<footer id="footer"></footer>
+
+<script>
+"use strict";
+const FMT = new Intl.NumberFormat('en-US');
+const AXIS = {gridcolor:'#26364f', zerolinecolor:'#26364f', color:'#93a4c4',
+              tickfont:{size:11}, titlefont:{size:12}};
+const LAYOUT = {paper_bgcolor:'rgba(0,0,0,0)', plot_bgcolor:'rgba(0,0,0,0)',
+  font:{color:'#e9eefb', size:12, family:'-apple-system,Segoe UI,Roboto,sans-serif'},
+  margin:{l:56,r:16,t:12,b:42}, hovermode:'closest',
+  legend:{orientation:'h', y:1.16, x:0, font:{size:11}}, xaxis:{...AXIS}, yaxis:{...AXIS}};
+const CFG = {responsive:true, displayModeBar:false};
+const ROAD_COLORS = {arterial:'#3b82f6', ring:'#8b5cf6', collector:'#10b981', local:'#f59e0b'};
+
+let DATA = null;
+const state = {tab:'overview', district:'', road:'', day:''};
+const drawn = {};
+
+/* ---------- helpers ---------- */
+const g = id => document.getElementById(id);
+const num = v => (v===null||v===undefined||Number.isNaN(v)) ? '–' : FMT.format(v);
+function tip(key){
+  const t = (DATA.glossary||{})[key];
+  return t ? `<span class="info" data-tip="${t.replace(/"/g,'&quot;')}">i</span>` : '';
+}
+function kpi(value, label, cls, key){
+  return `<div class="kpi"><div class="v ${cls||''}">${value}</div>
+          <div class="l">${label}${tip(key)}</div></div>`;
+}
+function emptyInto(id, msg){
+  const el = g(id);
+  if(el) el.innerHTML = `<div class="empty">${msg}</div>`;
+}
+function table(id, head, rows, emptyMsg){
+  const el = g(id);
+  if(!rows.length){ el.innerHTML = `<tr><td class="empty">${emptyMsg||'No rows match the current filters.'}</td></tr>`; return; }
+  el.innerHTML = '<thead><tr>' + head.map(c=>`<th>${c}</th>`).join('') + '</tr></thead><tbody>'
+    + rows.map(r=>'<tr>'+r.map(c=>`<td>${c}</td>`).join('')+'</tr>').join('') + '</tbody>';
+}
+function plot(id, traces, layout){
+  if(!traces.length || traces.every(t => !(t.x||t.lat||[]).length)){
+    emptyInto(id, 'No data for the current filter combination.');
+    return;
+  }
+  Plotly.newPlot(id, traces, {...LAYOUT, ...layout}, CFG);
+}
+
+/* ---------- filtering ---------- */
+function detectorIds(){
+  return new Set(DATA.detectors
+    .filter(d => (!state.district || d.district===state.district) &&
+                 (!state.road || d.road_type===state.road))
+    .map(d => d.detector_id));
+}
+function filteredStops(){
+  return DATA.stops.filter(s => !state.district || s.district===state.district);
+}
+function filteredDaily(){
+  return DATA.daily_traffic.filter(r =>
+    !state.day || (state.day==='weekend' ? r.is_weekend : !r.is_weekend));
+}
+function filterActive(){ return !!(state.district||state.road||state.day); }
+function updateFilterNote(){
+  const n = detectorIds().size;
+  g('filterNote').innerHTML = filterActive()
+    ? `Filtered to <b>${n}</b> of ${DATA.detectors.length} detectors. Model metrics are computed
+       citywide and do not change with filters.`
+    : 'Filters apply to the traffic, transport and charging views.';
+}
+
+/* ---------- renderers ---------- */
+function renderProvenance(){
+  const m = DATA.meta, dq = m.data_quality||{};
+  const mode = m.source_mode==='demo'
+    ? `<span class="chip warn" data-tip="${m.source_detail}">⚠ <b>${m.source_label}</b></span>`
+    : `<span class="chip good" data-tip="${m.source_detail}">● <b>${m.source_label}</b></span>`;
+  g('provenance').innerHTML = mode
+    + `<span class="chip">Period <b>${m.window.start||'–'} → ${m.window.end||'–'}</b></span>`
+    + `<span class="chip">Generated <b>${(m.generated_at||'').replace('T',' ')}</b></span>`
+    + `<span class="chip ${dq.all_passed?'good':'warn'}">Data quality
+        <b>${dq.all_passed?'all rules passed':'failures'}</b> · ${num(dq.rows_checked)} rows</span>`;
+}
+function renderKpis(){
+  const k = DATA.kpis;
+  g('kpis').innerHTML = [
+    kpi(num(k.avg_daily_traffic_citywide),'Vehicles per day','blue','avg_daily_traffic_citywide'),
+    kpi(`${k.forecast_mae ?? '–'} <small>± ${k.forecast_mae_std ?? '–'}</small>`,
+        'Forecast error (MAE)','green','forecast_mae'),
+    kpi(`${k.lift_over_calendar_pct ?? '–'}%`,'Better than calendar-only','green','lift_over_calendar_pct'),
+    kpi(`${k.avg_peak_headway_min} min`,'Average peak wait','','avg_peak_headway_min'),
+    kpi(num(k.n_underserved_stops),'Under-served stops','amber','n_underserved_stops'),
+    kpi(num(k.n_charging_points),'Charging points','','n_charging_points')
+  ].join('');
+}
+function renderOverview(){
+  const k = DATA.kpis, t = DATA.forecast.metrics, s = DATA.siting.summary||{};
+  const cv = (t.cv||{});
+  g('ovForecast').innerHTML = `Across ${cv.n_folds||'–'} rolling-origin folds the model predicts
+    hourly traffic with an average error of <b>${k.forecast_mae}</b> vehicles/hour
+    (R² ${k.forecast_r2}). It beats a calendar-only model by <b>${k.lift_over_calendar_pct}%</b> —
+    the honest comparison — and a naive "same hour last week" guess by far more.`;
+  g('ovTransit').innerHTML = `Across ${k.n_routes} lines the average peak wait is
+    <b>${k.avg_peak_headway_min} minutes</b>, but <b>${k.n_underserved_stops} stops</b> sit in the
+    weakest service quintile and <b>${k.n_stops_without_sunday_service}</b> have no Sunday service.`;
+  g('ovSiting').innerHTML = `The siting model scores the city on a grid and ranks
+    <b>${(s.recommendations||[]).length} candidate locations</b> where mobility demand is high but
+    charging supply is thin. ${(s.caveats||[]).length ? 'Caveats: ' + s.caveats.join('; ') + '.' : ''}`;
+
+  const summ = (t.cv&&t.cv.summary)||{};
+  const order = [['last_value','Last value (24h ago)'],['seasonal_naive','Same hour last week'],
+                 ['calendar_only','Calendar + weather only'],['model','Full model']];
+  const avail = order.filter(([k2])=>summ[k2]);
+  plot('c_ladder',[{type:'bar',orientation:'h',
+    x:avail.map(([k2])=>summ[k2].mae.mean), y:avail.map(([,l])=>l),
+    error_x:{type:'data',array:avail.map(([k2])=>summ[k2].mae.std),color:'#93a4c4',thickness:1.4},
+    marker:{color:['#6d7f9e','#ef4444','#f59e0b','#3b82f6'].slice(0,avail.length)},
+    hovertemplate:'%{y}<br>MAE %{x:.1f}<extra></extra>'}],
+    {margin:{l:170,r:20,t:10,b:44},
+     xaxis:{...AXIS,title:'Mean absolute error (vehicles/hour) — lower is better'},
+     yaxis:{...AXIS,automargin:true}});
+}
+function renderTraffic(){
+  const ids = detectorIds();
+  const hp = DATA.hourly_profile;
+  const showWd = state.day!=='weekend', showWe = state.day!=='weekday';
+  const traces=[];
+  if(showWd){const d=hp.filter(r=>!r.is_weekend);
+    traces.push({x:d.map(r=>r.hour),y:d.map(r=>r.avg_count),name:'Weekday',mode:'lines',
+      line:{color:'#3b82f6',width:3},hovertemplate:'%{x}:00 · %{y:.0f} veh/h<extra>Weekday</extra>'});}
+  if(showWe){const d=hp.filter(r=>r.is_weekend);
+    traces.push({x:d.map(r=>r.hour),y:d.map(r=>r.avg_count),name:'Weekend',mode:'lines',
+      line:{color:'#f59e0b',width:3},hovertemplate:'%{x}:00 · %{y:.0f} veh/h<extra>Weekend</extra>'});}
+  plot('c_hourly',traces,{xaxis:{...AXIS,title:'Hour of day',dtick:2},
+    yaxis:{...AXIS,title:'Vehicles per hour'}});
+
+  const rt = DATA.hourly_by_roadtype.filter(r=>!state.road || r.road_type===state.road);
+  const types=[...new Set(rt.map(r=>r.road_type))];
+  plot('c_roadtype', types.map(t=>{const rows=rt.filter(r=>r.road_type===t);
+    return {x:rows.map(r=>r.hour),y:rows.map(r=>r.avg_count),name:t,mode:'lines',
+      line:{color:ROAD_COLORS[t]||'#93a4c4',width:2.5},
+      hovertemplate:'%{x}:00 · %{y:.0f} veh/h<extra>'+t+'</extra>'};}),
+    {xaxis:{...AXIS,title:'Hour',dtick:3},yaxis:{...AXIS,title:'Vehicles per hour'}});
+
+  const d=filteredDaily(), hol=d.filter(r=>r.is_holiday);
+  plot('c_daily',[
+    {x:d.map(r=>r.date),y:d.map(r=>r.total_count),mode:'lines',name:'Daily total',
+     line:{color:'#10b981',width:1.8},hovertemplate:'%{x}<br>%{y:,} vehicles<extra></extra>'},
+    {x:hol.map(r=>r.date),y:hol.map(r=>r.total_count),mode:'markers',name:'Public holiday',
+     marker:{color:'#ef4444',size:9},text:hol.map(r=>r.holiday_name),
+     hovertemplate:'<b>%{text}</b><br>%{y:,} vehicles<extra></extra>'}],
+    {yaxis:{...AXIS,title:'Vehicles per day'}});
+
+  let ds=[...DATA.district_scorecard].sort((a,b)=>b.avg_daily_traffic-a.avg_daily_traffic);
+  if(state.district) ds=ds.filter(r=>r.district===state.district);
+  plot('c_district',[{type:'bar',x:ds.map(x=>x.district),y:ds.map(x=>x.avg_daily_traffic),
+    marker:{color:'#3b82f6'},hovertemplate:'%{x}<br>%{y:,} vehicles/day<extra></extra>'}],
+    {yaxis:{...AXIS,title:'Vehicles per day'},xaxis:{...AXIS,automargin:true}});
+
+  const dsRows=ds.map(x=>[x.district,num(x.avg_daily_traffic),x.n_detectors,x.n_stops,
+    num(x.weekday_departures),x.n_charging_points,num(x.total_charging_kw)]);
+  table('t_district',['District','Vehicles/day','Detectors','Stops','Weekday departures',
+    'Charge points','Total kW'],dsRows);
+  void ids;
+}
+function renderForecast(){
+  const m=DATA.forecast.metrics, cv=m.cv||{}, summ=cv.summary||{}, h=m.holdout||{};
+  g('fc_kpis').innerHTML=[
+    kpi(summ.model? `${summ.model.mae.mean} <small>± ${summ.model.mae.std}</small>`:'–',
+        'Model MAE (CV)','green','forecast_mae'),
+    kpi(summ.calendar_only? summ.calendar_only.mae.mean:'–','Calendar-only MAE','amber','calendar_only_mae'),
+    kpi(summ.seasonal_naive? summ.seasonal_naive.mae.mean:'–','Seasonal-naive MAE','','baseline_mae'),
+    kpi(summ.model? summ.model.r2.mean:'–','R² (CV)','green','forecast_r2'),
+    kpi(num(h.n_train),'Training rows'),
+    kpi(num(h.n_test),'Test rows')
+  ].join('');
+
+  const ts=DATA.forecast.timeseries||[];
+  plot('c_forecast',[
+    {x:ts.map(r=>r.ts),y:ts.map(r=>r.baseline),name:'Same hour last week',mode:'lines',
+     line:{color:'#ef4444',width:1,dash:'dot'}},
+    {x:ts.map(r=>r.ts),y:ts.map(r=>r.actual),name:'Actual',mode:'lines',line:{color:'#93a4c4',width:2}},
+    {x:ts.map(r=>r.ts),y:ts.map(r=>r.predicted),name:'Model',mode:'lines',line:{color:'#3b82f6',width:2}}
+  ],{yaxis:{...AXIS,title:'Citywide vehicles per hour'}});
+
+  const fi=(m.top_features||[]).slice(0,10).reverse();
+  plot('c_importance',[{type:'bar',orientation:'h',x:fi.map(f=>f.importance),y:fi.map(f=>f.feature),
+    marker:{color:'#8b5cf6'},hovertemplate:'%{y}<br>+%{x:.1f} MAE when shuffled<extra></extra>'}],
+    {margin:{l:135,r:18,t:10,b:42},xaxis:{...AXIS,title:'Accuracy lost when shuffled'},
+     yaxis:{...AXIS,automargin:true}});
+
+  const per=(cv.per_fold)||{};
+  const labels=(per.model||[]).map((_,i)=>'Fold '+(i+1));
+  plot('c_folds',[
+    {type:'bar',name:'Model',x:labels,y:(per.model||[]).map(f=>f.mae),marker:{color:'#3b82f6'}},
+    {type:'bar',name:'Calendar-only',x:labels,y:(per.calendar_only||[]).map(f=>f.mae),marker:{color:'#f59e0b'}},
+    {type:'bar',name:'Seasonal-naive',x:labels,y:(per.seasonal_naive||[]).map(f=>f.mae),marker:{color:'#ef4444'}}
+  ],{barmode:'group',yaxis:{...AXIS,title:'MAE'}});
+}
+function renderTransit(){
+  const stopIds=new Set(filteredStops().map(s=>s.stop_id));
+  const r=DATA.routes;
+  plot('c_headway',[{type:'bar',x:r.map(x=>'L'+x.route_short_name),
+    y:r.map(x=>x.avg_peak_headway_min),marker:{color:'#3b82f6'},
+    hovertemplate:'Line %{x}<br>%{y} min between departures<extra></extra>'}],
+    {xaxis:{...AXIS,title:'Line'},yaxis:{...AXIS,title:'Minutes'}});
+  plot('c_trips',[
+    {type:'bar',name:'Weekday',x:r.map(x=>'L'+x.route_short_name),y:r.map(x=>x.trips_weekday),marker:{color:'#3b82f6'}},
+    {type:'bar',name:'Saturday',x:r.map(x=>'L'+x.route_short_name),y:r.map(x=>x.trips_saturday),marker:{color:'#10b981'}},
+    {type:'bar',name:'Sunday',x:r.map(x=>'L'+x.route_short_name),y:r.map(x=>x.trips_sunday),marker:{color:'#f59e0b'}}
+  ],{barmode:'group',xaxis:{...AXIS,title:'Line'},yaxis:{...AXIS,title:'Trips per day'}});
+
+  table('t_routes',['Line','Route','Stops','Weekday','Sat','Sun','Peak wait','Service span'],
+    r.map(x=>[`L${x.route_short_name}`,x.route_long_name,x.n_stops,x.trips_weekday,
+      x.trips_saturday,x.trips_sunday,x.avg_peak_headway_min+' min',x.span_hours+' h']));
+
+  const weak=filteredStops().filter(s=>s.departures_weekday>0)
+    .sort((a,b)=>a.departures_weekday-b.departures_weekday).slice(0,12);
+  table('t_stops',['Stop','District','Weekday departures','Sunday departures'],
+    weak.map(s=>[s.stop_name,s.district,s.departures_weekday,
+      s.departures_sunday===0?'<span style="color:#f7c069">none</span>':s.departures_sunday]),
+    'No stops match the selected district.');
+  void stopIds;
+}
+function renderCharging(){
+  const det=DATA.detectors.filter(d=>(!state.district||d.district===state.district)&&
+                                     (!state.road||d.road_type===state.road));
+  const ch=DATA.charging_stations.filter(c=>!state.district||c.district===state.district);
+  const rec=(DATA.siting.summary&&DATA.siting.summary.recommendations)||[];
+  const recF=rec.filter(r=>!state.district||r.nearest_district===state.district);
+  const traces=[];
+  [...new Set(det.map(d=>d.road_type))].forEach(t=>{
+    const rows=det.filter(d=>d.road_type===t);
+    traces.push({type:'scattermapbox',lat:rows.map(d=>d.lat),lon:rows.map(d=>d.lon),
+      name:'Detector · '+t,mode:'markers',marker:{size:9,color:ROAD_COLORS[t]||'#93a4c4'},
+      text:rows.map(d=>d.detector_name),hovertemplate:'%{text}<extra>Traffic detector</extra>'});});
+  traces.push({type:'scattermapbox',lat:ch.map(d=>d.lat),lon:ch.map(d=>d.lon),name:'Existing charging',
+    mode:'markers',marker:{size:8,color:'#10b981'},
+    text:ch.map(d=>`${d.station_name} · ${d.num_points}× ${d.power_kw} kW`),
+    hovertemplate:'%{text}<extra>Charging station</extra>'});
+  traces.push({type:'scattermapbox',lat:recF.map(d=>d.lat),lon:recF.map(d=>d.lon),
+    name:'Recommended site',mode:'markers',marker:{size:17,color:'#ef4444',symbol:'star'},
+    text:recF.map(d=>`Rank ${d.rank} · ${d.nearest_district} · unmet demand ${d.gap_score}`),
+    hovertemplate:'%{text}<extra>Recommendation</extra>'});
+  plot('c_map',traces,{margin:{l:0,r:0,t:0,b:0},
+    mapbox:{style:'open-street-map',center:{lat:48.7665,lon:11.4258},zoom:11.1},
+    legend:{bgcolor:'rgba(19,30,53,.85)',bordercolor:'#26364f',borderwidth:1,
+            y:0.98,x:0.01,orientation:'v',font:{size:11}}});
+
+  table('t_siting',['Rank','Nearest district','Unmet demand','Demand','Existing supply','Coordinates'],
+    recF.map(d=>[d.rank,d.nearest_district,d.gap_score,d.demand,d.supply,
+      `${d.lat.toFixed(4)}, ${d.lon.toFixed(4)}`]),
+    'No recommended sites in the selected district.');
+}
+
+const RENDER={overview:renderOverview,traffic:renderTraffic,forecast:renderForecast,
+              transit:renderTransit,charging:renderCharging};
+
+function show(tab){
+  state.tab=tab;
+  document.querySelectorAll('nav.tabs button').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id==='tab-'+tab));
+  g('filters').style.display = (tab==='forecast'||tab==='overview') ? 'none' : 'flex';
+  RENDER[tab]();
+  drawn[tab]=true;
+  document.querySelectorAll('#tab-'+tab+' .chart').forEach(c=>{
+    if(c.data) Plotly.Plots.resize(c);
+  });
+}
+function refresh(){ updateFilterNote(); Object.keys(drawn).forEach(t=>{ if(t===state.tab) RENDER[t](); }); }
+
+function initFilters(){
+  const f=DATA.filters||{districts:[],road_types:[]};
+  f.districts.forEach(d=>g('fDistrict').insertAdjacentHTML('beforeend',`<option>${d}</option>`));
+  f.road_types.forEach(d=>g('fRoad').insertAdjacentHTML('beforeend',`<option>${d}</option>`));
+  g('fDistrict').onchange=e=>{state.district=e.target.value;refresh();};
+  g('fRoad').onchange=e=>{state.road=e.target.value;refresh();};
+  g('fDay').onchange=e=>{state.day=e.target.value;refresh();};
+  g('fReset').onclick=()=>{state.district=state.road=state.day='';
+    g('fDistrict').value='';g('fRoad').value='';g('fDay').value='';refresh();};
+}
+
+async function boot(){
+  g('loadingState').style.display='block';
+  g('errorState').style.display='none';
+  g('app').style.display='none';
+  try{
+    const res=await fetch('./data.json',{cache:'no-store'});
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    DATA=await res.json();
+    if(!DATA || !DATA.kpis) throw new Error('malformed payload');
+  }catch(e){
+    g('loadingState').style.display='none';
+    g('errorState').style.display='block';
+    return;
+  }
+  g('loadingState').style.display='none';
+  g('app').style.display='block';
+  renderProvenance(); renderKpis(); initFilters(); updateFilterNote();
+  g('tabs').addEventListener('click',e=>{ if(e.target.dataset.tab) show(e.target.dataset.tab); });
+  const m=DATA.meta;
+  g('footer').innerHTML = `${m.source_detail} · Open data portal:
+    <a href="https://ingolstadt.bydata.de" target="_blank" rel="noopener">ingolstadt.bydata.de</a>
+    · Weather: <a href="https://opendata.dwd.de" target="_blank" rel="noopener">DWD Open Data</a>
+    · Transit: <a href="https://www.vgi.de" target="_blank" rel="noopener">VGI</a>`;
+  show('overview');
+  window.addEventListener('resize',()=>{
+    document.querySelectorAll('.panel.active .chart').forEach(c=>{ if(c.data) Plotly.Plots.resize(c); });
+  });
+}
+boot();
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: ${{ matrix.os }} · py${{ matrix.python-version }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        # Cross-platform is claimed in the README, so it is proven here.
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+          pip install -e .
+
+      - name: Lint
+        run: ruff check src tests
+
+      - name: Full pipeline (demo source, Java DQ engine)
+        run: python -m ingomob.cli run-all
+
+      - name: Tests
+        run: pytest
+
+      - name: Upload artefacts
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.12'
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-output
+          path: |
+            dashboard/data.json
+            reports/
+            data/processed/data_quality_report.json
+
+  live-smoke:
+    # Hits real public endpoints, so it is manual/scheduled only - never blocking.
+    name: Live sources (real network)
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - run: |
+          pip install -r requirements.txt
+          pip install -e .
+      - name: Fetch and parse official open data
+        run: |
+          python - <<'PY'
+          from ingomob.config import load_settings
+          from ingomob.sources.live import LiveSource
+          s = load_settings()
+          src = LiveSource(s)
+          w = src.weather();  print("DWD rows:", len(w))
+          c = src.charging(); print("OSM charging stations:", len(c))
+          PY
