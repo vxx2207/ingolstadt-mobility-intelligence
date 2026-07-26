@@ -1,7 +1,7 @@
 {
   "meta": {
     "city": "Ingolstadt",
-    "generated_at": "2026-07-26T23:55:50",
+    "generated_at": "2026-07-27T01:52:14",
     "source_mode": "demo",
     "source_label": "Demo (synthetic, seeded)",
     "source_detail": "Generated locally to the real Ingolstadt/VGI schemas. Figures are illustrative and must not be read as official statistics.",
@@ -37,7 +37,7 @@
   },
   "glossary": {
     "avg_daily_traffic_citywide": "Mean vehicles counted per day across all loop detectors.",
-    "forecast_mae": "Mean absolute error of the demand model, averaged over 4 rolling-origin CV folds (� is the spread across folds). Lower is better.",
+    "forecast_mae": "Mean absolute error of the demand model, averaged over 4 rolling-origin CV folds (± is the spread across folds). Lower is better.",
     "forecast_r2": "Share of hourly variance explained by the model (0-1), mean across folds.",
     "baseline_mae": "Seasonal-naive baseline: predict the same hour one week earlier.",
     "calendar_only_mae": "A model using only calendar and weather features - the honest benchmark to beat.",
@@ -56,8 +56,8 @@
       "Nordwest",
       "Oberhaunstadt",
       "Ringsee",
-      "Suedost",
-      "Suedwest",
+      "Südost",
+      "Südwest",
       "Unsernherrn"
     ],
     "road_types": [
@@ -70,13 +70,13 @@
   "hourly_profile": [
     {
       "hour": 0,
-      "is_weekend": false,
-      "avg_count": 44.9
+      "is_weekend": true,
+      "avg_count": 65.3
     },
     {
       "hour": 0,
-      "is_weekend": true,
-      "avg_count": 65.3
+      "is_weekend": false,
+      "avg_count": 44.9
     },
     {
       "hour": 1,
@@ -90,23 +90,23 @@
     },
     {
       "hour": 2,
-      "is_weekend": false,
-      "avg_count": 17.8
-    },
-    {
-      "hour": 2,
       "is_weekend": true,
       "avg_count": 32.7
     },
     {
-      "hour": 3,
+      "hour": 2,
       "is_weekend": false,
-      "avg_count": 17.6
+      "avg_count": 17.8
     },
     {
       "hour": 3,
       "is_weekend": true,
       "avg_count": 19.5
+    },
+    {
+      "hour": 3,
+      "is_weekend": false,
+      "avg_count": 17.6
     },
     {
       "hour": 4,
@@ -150,13 +150,13 @@
     },
     {
       "hour": 8,
-      "is_weekend": true,
-      "avg_count": 226.2
+      "is_weekend": false,
+      "avg_count": 871.2
     },
     {
       "hour": 8,
-      "is_weekend": false,
-      "avg_count": 871.2
+      "is_weekend": true,
+      "avg_count": 226.2
     },
     {
       "hour": 9,
@@ -180,13 +180,13 @@
     },
     {
       "hour": 11,
-      "is_weekend": false,
-      "avg_count": 545.5
+      "is_weekend": true,
+      "avg_count": 536.5
     },
     {
       "hour": 11,
-      "is_weekend": true,
-      "avg_count": 536.5
+      "is_weekend": false,
+      "avg_count": 545.5
     },
     {
       "hour": 12,
@@ -200,23 +200,23 @@
     },
     {
       "hour": 13,
-      "is_weekend": true,
-      "avg_count": 574.4
-    },
-    {
-      "hour": 13,
       "is_weekend": false,
       "avg_count": 563.2
     },
     {
-      "hour": 14,
-      "is_weekend": false,
-      "avg_count": 591.8
+      "hour": 13,
+      "is_weekend": true,
+      "avg_count": 574.4
     },
     {
       "hour": 14,
       "is_weekend": true,
       "avg_count": 545.0
+    },
+    {
+      "hour": 14,
+      "is_weekend": false,
+      "avg_count": 591.8
     },
     {
       "hour": 15,
@@ -260,23 +260,23 @@
     },
     {
       "hour": 19,
-      "is_weekend": false,
-      "avg_count": 527.9
-    },
-    {
-      "hour": 19,
       "is_weekend": true,
       "avg_count": 365.7
     },
     {
-      "hour": 20,
+      "hour": 19,
       "is_weekend": false,
-      "avg_count": 396.1
+      "avg_count": 527.9
     },
     {
       "hour": 20,
       "is_weekend": true,
       "avg_count": 296.5
+    },
+    {
+      "hour": 20,
+      "is_weekend": false,
+      "avg_count": 396.1
     },
     {
       "hour": 21,
@@ -300,13 +300,13 @@
     },
     {
       "hour": 23,
-      "is_weekend": true,
-      "avg_count": 119.5
+      "is_weekend": false,
+      "avg_count": 88.7
     },
     {
       "hour": 23,
-      "is_weekend": false,
-      "avg_count": 88.7
+      "is_weekend": true,
+      "avg_count": 119.5
     }
   ],
   "hourly_by_roadtype": [
@@ -4414,7 +4414,7 @@
     {
       "route_id": "R15",
       "route_short_name": "15",
-      "route_long_name": "Suedwest - Rathausplatz - Etting",
+      "route_long_name": "Südwest - Rathausplatz - Etting",
       "trips_weekday": 58.0,
       "trips_saturday": 31.0,
       "trips_sunday": 22.0,
@@ -4458,7 +4458,7 @@
     {
       "route_id": "R40",
       "route_short_name": "40",
-      "route_long_name": "Suedost - Klinikum - Etting",
+      "route_long_name": "Südost - Klinikum - Etting",
       "trips_weekday": 43.0,
       "trips_saturday": 23.0,
       "trips_sunday": 16.0,
@@ -4506,7 +4506,7 @@
       "charging_per_100k_traffic": 9.08
     },
     {
-      "district": "Suedwest",
+      "district": "Südwest",
       "lat": 48.742501,
       "lon": 11.398548,
       "avg_daily_traffic": 18763.0,
@@ -4545,7 +4545,7 @@
       "charging_per_100k_traffic": 28.76
     },
     {
-      "district": "Suedost",
+      "district": "Südost",
       "lat": 48.745856,
       "lon": 11.45549,
       "avg_daily_traffic": 17044.0,
@@ -4645,19 +4645,19 @@
     },
     {
       "detector_id": "D005",
-      "detector_name": "Suedwest ring #5",
+      "detector_name": "Südwest ring #5",
       "lat": 48.744199,
       "lon": 11.396283,
       "road_type": "ring",
-      "district": "Suedwest"
+      "district": "Südwest"
     },
     {
       "detector_id": "D006",
-      "detector_name": "Suedost ring #6",
+      "detector_name": "Südost ring #6",
       "lat": 48.751613,
       "lon": 11.445012,
       "road_type": "ring",
-      "district": "Suedost"
+      "district": "Südost"
     },
     {
       "detector_id": "D007",
@@ -4685,19 +4685,19 @@
     },
     {
       "detector_id": "D010",
-      "detector_name": "Suedost collector #10",
+      "detector_name": "Südost collector #10",
       "lat": 48.74879,
       "lon": 11.446634,
       "road_type": "collector",
-      "district": "Suedost"
+      "district": "Südost"
     },
     {
       "detector_id": "D011",
-      "detector_name": "Suedwest collector #11",
+      "detector_name": "Südwest collector #11",
       "lat": 48.742597,
       "lon": 11.397483,
       "road_type": "collector",
-      "district": "Suedwest"
+      "district": "Südwest"
     },
     {
       "detector_id": "D012",
@@ -4877,123 +4877,123 @@
     },
     {
       "station_id": "CS016",
-      "station_name": "Ladepunkt Suedwest 16",
+      "station_name": "Ladepunkt Südwest 16",
       "operator": "Audi Charging",
       "lat": 48.746948,
       "lon": 11.392108,
       "num_points": 3,
       "power_kw": 50,
-      "district": "Suedwest"
+      "district": "Südwest"
     },
     {
       "station_id": "CS017",
-      "station_name": "Ladepunkt Suedwest 17",
+      "station_name": "Ladepunkt Südwest 17",
       "operator": "EnBW",
       "lat": 48.742352,
       "lon": 11.403856,
       "num_points": 1,
       "power_kw": 22,
-      "district": "Suedwest"
+      "district": "Südwest"
     },
     {
       "station_id": "CS018",
-      "station_name": "Ladepunkt Suedwest 18",
+      "station_name": "Ladepunkt Südwest 18",
       "operator": "Stadtwerke Ingolstadt",
       "lat": 48.73414,
       "lon": 11.397665,
       "num_points": 4,
       "power_kw": 50,
-      "district": "Suedwest"
+      "district": "Südwest"
     },
     {
       "station_id": "CS019",
-      "station_name": "Ladepunkt Suedwest 19",
+      "station_name": "Ladepunkt Südwest 19",
       "operator": "Audi Charging",
       "lat": 48.749556,
       "lon": 11.401188,
       "num_points": 4,
       "power_kw": 150,
-      "district": "Suedwest"
+      "district": "Südwest"
     },
     {
       "station_id": "CS020",
-      "station_name": "Ladepunkt Suedwest 20",
+      "station_name": "Ladepunkt Südwest 20",
       "operator": "IFG Parken",
       "lat": 48.735917,
       "lon": 11.394644,
       "num_points": 3,
       "power_kw": 11,
-      "district": "Suedwest"
+      "district": "Südwest"
     },
     {
       "station_id": "CS021",
-      "station_name": "Ladepunkt Suedwest 21",
+      "station_name": "Ladepunkt Südwest 21",
       "operator": "IFG Parken",
       "lat": 48.747777,
       "lon": 11.401044,
       "num_points": 2,
       "power_kw": 22,
-      "district": "Suedwest"
+      "district": "Südwest"
     },
     {
       "station_id": "CS022",
-      "station_name": "Ladepunkt Suedost 22",
+      "station_name": "Ladepunkt Südost 22",
       "operator": "Audi Charging",
       "lat": 48.738092,
       "lon": 11.46338,
       "num_points": 2,
       "power_kw": 11,
-      "district": "Suedost"
+      "district": "Südost"
     },
     {
       "station_id": "CS023",
-      "station_name": "Ladepunkt Suedost 23",
+      "station_name": "Ladepunkt Südost 23",
       "operator": "EnBW",
       "lat": 48.743145,
       "lon": 11.460069,
       "num_points": 2,
       "power_kw": 50,
-      "district": "Suedost"
+      "district": "Südost"
     },
     {
       "station_id": "CS024",
-      "station_name": "Ladepunkt Suedost 24",
+      "station_name": "Ladepunkt Südost 24",
       "operator": "Audi Charging",
       "lat": 48.747352,
       "lon": 11.451683,
       "num_points": 3,
       "power_kw": 11,
-      "district": "Suedost"
+      "district": "Südost"
     },
     {
       "station_id": "CS025",
-      "station_name": "Ladepunkt Suedost 25",
+      "station_name": "Ladepunkt Südost 25",
       "operator": "EnBW",
       "lat": 48.747917,
       "lon": 11.460999,
       "num_points": 2,
       "power_kw": 11,
-      "district": "Suedost"
+      "district": "Südost"
     },
     {
       "station_id": "CS026",
-      "station_name": "Ladepunkt Suedost 26",
+      "station_name": "Ladepunkt Südost 26",
       "operator": "EnBW",
       "lat": 48.742282,
       "lon": 11.451889,
       "num_points": 2,
       "power_kw": 22,
-      "district": "Suedost"
+      "district": "Südost"
     },
     {
       "station_id": "CS027",
-      "station_name": "Ladepunkt Suedost 27",
+      "station_name": "Ladepunkt Südost 27",
       "operator": "Stadtwerke Ingolstadt",
       "lat": 48.746057,
       "lon": 11.462645,
       "num_points": 3,
       "power_kw": 150,
-      "district": "Suedost"
+      "district": "Südost"
     },
     {
       "station_id": "CS028",
@@ -5225,6 +5225,15 @@
       "departures_sunday": 15
     },
     {
+      "stop_id": "S025",
+      "stop_name": "Südost Ost",
+      "district": "Südost",
+      "lat": 48.748525,
+      "lon": 11.450171,
+      "departures_weekday": 160,
+      "departures_sunday": 61
+    },
+    {
       "stop_id": "S016",
       "stop_name": "Nordost Platz",
       "district": "Nordost",
@@ -5243,6 +5252,15 @@
       "departures_sunday": 57
     },
     {
+      "stop_id": "S019",
+      "stop_name": "Südwest Sued",
+      "district": "Südwest",
+      "lat": 48.738702,
+      "lon": 11.400602,
+      "departures_weekday": 43,
+      "departures_sunday": 16
+    },
+    {
       "stop_id": "S036",
       "stop_name": "Friedrichshofen Ost",
       "district": "Friedrichshofen",
@@ -5252,6 +5270,60 @@
       "departures_sunday": 42
     },
     {
+      "stop_id": "S020",
+      "stop_name": "Südwest Ost",
+      "district": "Südwest",
+      "lat": 48.744973,
+      "lon": 11.400173,
+      "departures_weekday": 0,
+      "departures_sunday": 0
+    },
+    {
+      "stop_id": "S032",
+      "stop_name": "Ringsee West",
+      "district": "Ringsee",
+      "lat": 48.758173,
+      "lon": 11.408605,
+      "departures_weekday": 174,
+      "departures_sunday": 65
+    },
+    {
+      "stop_id": "S030",
+      "stop_name": "Ringsee Sued",
+      "district": "Ringsee",
+      "lat": 48.75366,
+      "lon": 11.410651,
+      "departures_weekday": 138,
+      "departures_sunday": 52
+    },
+    {
+      "stop_id": "S012",
+      "stop_name": "Nordost Nord",
+      "district": "Nordost",
+      "lat": 48.786287,
+      "lon": 11.450591,
+      "departures_weekday": 45,
+      "departures_sunday": 17
+    },
+    {
+      "stop_id": "S022",
+      "stop_name": "Südost Zentrum",
+      "district": "Südost",
+      "lat": 48.746875,
+      "lon": 11.459486,
+      "departures_weekday": 113,
+      "departures_sunday": 42
+    },
+    {
+      "stop_id": "S018",
+      "stop_name": "Südwest Nord",
+      "district": "Südwest",
+      "lat": 48.741544,
+      "lon": 11.394639,
+      "departures_weekday": 0,
+      "departures_sunday": 0
+    },
+    {
       "stop_id": "S038",
       "stop_name": "Etting Zentrum",
       "district": "Etting",
@@ -5259,6 +5331,15 @@
       "lon": 11.434763,
       "departures_weekday": 153,
       "departures_sunday": 57
+    },
+    {
+      "stop_id": "S017",
+      "stop_name": "Südwest Zentrum",
+      "district": "Südwest",
+      "lat": 48.744464,
+      "lon": 11.402516,
+      "departures_weekday": 58,
+      "departures_sunday": 22
     },
     {
       "stop_id": "S039",
@@ -5288,15 +5369,6 @@
       "departures_sunday": 0
     },
     {
-      "stop_id": "S048",
-      "stop_name": "Unsernherrn Platz",
-      "district": "Unsernherrn",
-      "lat": 48.732378,
-      "lon": 11.421487,
-      "departures_weekday": 195,
-      "departures_sunday": 74
-    },
-    {
       "stop_id": "S043",
       "stop_name": "Unsernherrn Zentrum",
       "district": "Unsernherrn",
@@ -5306,13 +5378,13 @@
       "departures_sunday": 27
     },
     {
-      "stop_id": "S027",
-      "stop_name": "Suedost Platz",
-      "district": "Suedost",
-      "lat": 48.743444,
-      "lon": 11.454899,
-      "departures_weekday": 120,
-      "departures_sunday": 46
+      "stop_id": "S023",
+      "stop_name": "Südost Nord",
+      "district": "Südost",
+      "lat": 48.746894,
+      "lon": 11.458716,
+      "departures_weekday": 128,
+      "departures_sunday": 49
     },
     {
       "stop_id": "S008",
@@ -5333,13 +5405,157 @@
       "departures_sunday": 32
     },
     {
-      "stop_id": "S017",
-      "stop_name": "Suedwest Zentrum",
-      "district": "Suedwest",
-      "lat": 48.744464,
-      "lon": 11.402516,
+      "stop_id": "S028",
+      "stop_name": "Ringsee Zentrum",
+      "district": "Ringsee",
+      "lat": 48.76098,
+      "lon": 11.406537,
+      "departures_weekday": 102,
+      "departures_sunday": 37
+    },
+    {
+      "stop_id": "S050",
+      "stop_name": "Oberhaunstadt Nord",
+      "district": "Oberhaunstadt",
+      "lat": 48.80495,
+      "lon": 11.456266,
+      "departures_weekday": 0,
+      "departures_sunday": 0
+    },
+    {
+      "stop_id": "S051",
+      "stop_name": "Oberhaunstadt Sued",
+      "district": "Oberhaunstadt",
+      "lat": 48.801178,
+      "lon": 11.4562,
+      "departures_weekday": 41,
+      "departures_sunday": 15
+    },
+    {
+      "stop_id": "S041",
+      "stop_name": "Etting Ost",
+      "district": "Etting",
+      "lat": 48.796217,
+      "lon": 11.437948,
+      "departures_weekday": 61,
+      "departures_sunday": 22
+    },
+    {
+      "stop_id": "S045",
+      "stop_name": "Unsernherrn Sued",
+      "district": "Unsernherrn",
+      "lat": 48.735681,
+      "lon": 11.416251,
+      "departures_weekday": 0,
+      "departures_sunday": 0
+    },
+    {
+      "stop_id": "S001",
+      "stop_name": "Mitte Zentrum",
+      "district": "Mitte",
+      "lat": 48.75884,
+      "lon": 11.428502,
+      "departures_weekday": 70,
+      "departures_sunday": 27
+    },
+    {
+      "stop_id": "S052",
+      "stop_name": "Oberhaunstadt Ost",
+      "district": "Oberhaunstadt",
+      "lat": 48.800644,
+      "lon": 11.463361,
+      "departures_weekday": 112,
+      "departures_sunday": 42
+    },
+    {
+      "stop_id": "S013",
+      "stop_name": "Nordost Sued",
+      "district": "Nordost",
+      "lat": 48.790129,
+      "lon": 11.453462,
+      "departures_weekday": 61,
+      "departures_sunday": 22
+    },
+    {
+      "stop_id": "S026",
+      "stop_name": "Südost West",
+      "district": "Südost",
+      "lat": 48.744721,
+      "lon": 11.454119,
+      "departures_weekday": 180,
+      "departures_sunday": 69
+    },
+    {
+      "stop_id": "S015",
+      "stop_name": "Nordost West",
+      "district": "Nordost",
+      "lat": 48.796567,
+      "lon": 11.450374,
+      "departures_weekday": 41,
+      "departures_sunday": 15
+    },
+    {
+      "stop_id": "S024",
+      "stop_name": "Südost Sued",
+      "district": "Südost",
+      "lat": 48.74627,
+      "lon": 11.457156,
+      "departures_weekday": 0,
+      "departures_sunday": 0
+    },
+    {
+      "stop_id": "S014",
+      "stop_name": "Nordost Ost",
+      "district": "Nordost",
+      "lat": 48.789651,
+      "lon": 11.453723,
+      "departures_weekday": 173,
+      "departures_sunday": 66
+    },
+    {
+      "stop_id": "S029",
+      "stop_name": "Ringsee Nord",
+      "district": "Ringsee",
+      "lat": 48.758873,
+      "lon": 11.403269,
       "departures_weekday": 58,
       "departures_sunday": 22
+    },
+    {
+      "stop_id": "S033",
+      "stop_name": "Friedrichshofen Zentrum",
+      "district": "Friedrichshofen",
+      "lat": 48.775432,
+      "lon": 11.381235,
+      "departures_weekday": 112,
+      "departures_sunday": 42
+    },
+    {
+      "stop_id": "S046",
+      "stop_name": "Unsernherrn Ost",
+      "district": "Unsernherrn",
+      "lat": 48.730212,
+      "lon": 11.417709,
+      "departures_weekday": 110,
+      "departures_sunday": 41
+    },
+    {
+      "stop_id": "S011",
+      "stop_name": "Nordost Zentrum",
+      "district": "Nordost",
+      "lat": 48.79289,
+      "lon": 11.451382,
+      "departures_weekday": 93,
+      "departures_sunday": 35
+    },
+    {
+      "stop_id": "S048",
+      "stop_name": "Unsernherrn Platz",
+      "district": "Unsernherrn",
+      "lat": 48.732378,
+      "lon": 11.421487,
+      "departures_weekday": 195,
+      "departures_sunday": 74
     },
     {
       "stop_id": "S037",
@@ -5351,15 +5567,6 @@
       "departures_sunday": 68
     },
     {
-      "stop_id": "S026",
-      "stop_name": "Suedost West",
-      "district": "Suedost",
-      "lat": 48.744721,
-      "lon": 11.454119,
-      "departures_weekday": 180,
-      "departures_sunday": 69
-    },
-    {
       "stop_id": "S005",
       "stop_name": "Nordwest Zentrum",
       "district": "Nordwest",
@@ -5369,13 +5576,13 @@
       "departures_sunday": 37
     },
     {
-      "stop_id": "S025",
-      "stop_name": "Suedost Ost",
-      "district": "Suedost",
-      "lat": 48.748525,
-      "lon": 11.450171,
-      "departures_weekday": 160,
-      "departures_sunday": 61
+      "stop_id": "S021",
+      "stop_name": "Südwest West",
+      "district": "Südwest",
+      "lat": 48.739338,
+      "lon": 11.398929,
+      "departures_weekday": 180,
+      "departures_sunday": 67
     },
     {
       "stop_id": "S034",
@@ -5441,6 +5648,15 @@
       "departures_sunday": 58
     },
     {
+      "stop_id": "S027",
+      "stop_name": "Südost Platz",
+      "district": "Südost",
+      "lat": 48.743444,
+      "lon": 11.454899,
+      "departures_weekday": 120,
+      "departures_sunday": 46
+    },
+    {
       "stop_id": "S044",
       "stop_name": "Unsernherrn Nord",
       "district": "Unsernherrn",
@@ -5448,222 +5664,6 @@
       "lon": 11.421307,
       "departures_weekday": 111,
       "departures_sunday": 41
-    },
-    {
-      "stop_id": "S001",
-      "stop_name": "Mitte Zentrum",
-      "district": "Mitte",
-      "lat": 48.75884,
-      "lon": 11.428502,
-      "departures_weekday": 70,
-      "departures_sunday": 27
-    },
-    {
-      "stop_id": "S023",
-      "stop_name": "Suedost Nord",
-      "district": "Suedost",
-      "lat": 48.746894,
-      "lon": 11.458716,
-      "departures_weekday": 128,
-      "departures_sunday": 49
-    },
-    {
-      "stop_id": "S052",
-      "stop_name": "Oberhaunstadt Ost",
-      "district": "Oberhaunstadt",
-      "lat": 48.800644,
-      "lon": 11.463361,
-      "departures_weekday": 112,
-      "departures_sunday": 42
-    },
-    {
-      "stop_id": "S013",
-      "stop_name": "Nordost Sued",
-      "district": "Nordost",
-      "lat": 48.790129,
-      "lon": 11.453462,
-      "departures_weekday": 61,
-      "departures_sunday": 22
-    },
-    {
-      "stop_id": "S020",
-      "stop_name": "Suedwest Ost",
-      "district": "Suedwest",
-      "lat": 48.744973,
-      "lon": 11.400173,
-      "departures_weekday": 0,
-      "departures_sunday": 0
-    },
-    {
-      "stop_id": "S018",
-      "stop_name": "Suedwest Nord",
-      "district": "Suedwest",
-      "lat": 48.741544,
-      "lon": 11.394639,
-      "departures_weekday": 0,
-      "departures_sunday": 0
-    },
-    {
-      "stop_id": "S032",
-      "stop_name": "Ringsee West",
-      "district": "Ringsee",
-      "lat": 48.758173,
-      "lon": 11.408605,
-      "departures_weekday": 174,
-      "departures_sunday": 65
-    },
-    {
-      "stop_id": "S030",
-      "stop_name": "Ringsee Sued",
-      "district": "Ringsee",
-      "lat": 48.75366,
-      "lon": 11.410651,
-      "departures_weekday": 138,
-      "departures_sunday": 52
-    },
-    {
-      "stop_id": "S012",
-      "stop_name": "Nordost Nord",
-      "district": "Nordost",
-      "lat": 48.786287,
-      "lon": 11.450591,
-      "departures_weekday": 45,
-      "departures_sunday": 17
-    },
-    {
-      "stop_id": "S021",
-      "stop_name": "Suedwest West",
-      "district": "Suedwest",
-      "lat": 48.739338,
-      "lon": 11.398929,
-      "departures_weekday": 180,
-      "departures_sunday": 67
-    },
-    {
-      "stop_id": "S015",
-      "stop_name": "Nordost West",
-      "district": "Nordost",
-      "lat": 48.796567,
-      "lon": 11.450374,
-      "departures_weekday": 41,
-      "departures_sunday": 15
-    },
-    {
-      "stop_id": "S014",
-      "stop_name": "Nordost Ost",
-      "district": "Nordost",
-      "lat": 48.789651,
-      "lon": 11.453723,
-      "departures_weekday": 173,
-      "departures_sunday": 66
-    },
-    {
-      "stop_id": "S029",
-      "stop_name": "Ringsee Nord",
-      "district": "Ringsee",
-      "lat": 48.758873,
-      "lon": 11.403269,
-      "departures_weekday": 58,
-      "departures_sunday": 22
-    },
-    {
-      "stop_id": "S033",
-      "stop_name": "Friedrichshofen Zentrum",
-      "district": "Friedrichshofen",
-      "lat": 48.775432,
-      "lon": 11.381235,
-      "departures_weekday": 112,
-      "departures_sunday": 42
-    },
-    {
-      "stop_id": "S046",
-      "stop_name": "Unsernherrn Ost",
-      "district": "Unsernherrn",
-      "lat": 48.730212,
-      "lon": 11.417709,
-      "departures_weekday": 110,
-      "departures_sunday": 41
-    },
-    {
-      "stop_id": "S011",
-      "stop_name": "Nordost Zentrum",
-      "district": "Nordost",
-      "lat": 48.79289,
-      "lon": 11.451382,
-      "departures_weekday": 93,
-      "departures_sunday": 35
-    },
-    {
-      "stop_id": "S028",
-      "stop_name": "Ringsee Zentrum",
-      "district": "Ringsee",
-      "lat": 48.76098,
-      "lon": 11.406537,
-      "departures_weekday": 102,
-      "departures_sunday": 37
-    },
-    {
-      "stop_id": "S019",
-      "stop_name": "Suedwest Sued",
-      "district": "Suedwest",
-      "lat": 48.738702,
-      "lon": 11.400602,
-      "departures_weekday": 43,
-      "departures_sunday": 16
-    },
-    {
-      "stop_id": "S050",
-      "stop_name": "Oberhaunstadt Nord",
-      "district": "Oberhaunstadt",
-      "lat": 48.80495,
-      "lon": 11.456266,
-      "departures_weekday": 0,
-      "departures_sunday": 0
-    },
-    {
-      "stop_id": "S022",
-      "stop_name": "Suedost Zentrum",
-      "district": "Suedost",
-      "lat": 48.746875,
-      "lon": 11.459486,
-      "departures_weekday": 113,
-      "departures_sunday": 42
-    },
-    {
-      "stop_id": "S051",
-      "stop_name": "Oberhaunstadt Sued",
-      "district": "Oberhaunstadt",
-      "lat": 48.801178,
-      "lon": 11.4562,
-      "departures_weekday": 41,
-      "departures_sunday": 15
-    },
-    {
-      "stop_id": "S041",
-      "stop_name": "Etting Ost",
-      "district": "Etting",
-      "lat": 48.796217,
-      "lon": 11.437948,
-      "departures_weekday": 61,
-      "departures_sunday": 22
-    },
-    {
-      "stop_id": "S045",
-      "stop_name": "Unsernherrn Sued",
-      "district": "Unsernherrn",
-      "lat": 48.735681,
-      "lon": 11.416251,
-      "departures_weekday": 0,
-      "departures_sunday": 0
-    },
-    {
-      "stop_id": "S024",
-      "stop_name": "Suedost Sued",
-      "district": "Suedost",
-      "lat": 48.74627,
-      "lon": 11.457156,
-      "departures_weekday": 0,
-      "departures_sunday": 0
     }
   ],
   "siting": {
@@ -5735,7 +5735,7 @@
           "gap_score": 0.154,
           "demand": 1.0,
           "supply": 0.846,
-          "nearest_district": "Suedwest"
+          "nearest_district": "Südwest"
         },
         {
           "rank": 7,

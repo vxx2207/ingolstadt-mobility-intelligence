@@ -76,11 +76,11 @@ See [`docs/model_card.md`](../docs/model_card.md) for assumptions, biases and li
 | L10 | Hauptbahnhof - Zentrum - Klinikum | 70 | 10.9 min | 18.1 h | 11 |
 | L20 | Hauptbahnhof - Audi - Nordwest | 67 | 11.0 min | 18.1 h | 9 |
 | L44 | Ringsee - Hauptbahnhof - Nordost | 61 | 12.2 min | 18.3 h | 12 |
-| L15 | Suedwest - Rathausplatz - Etting | 58 | 13.4 min | 18.3 h | 8 |
+| L15 | Südwest - Rathausplatz - Etting | 58 | 13.4 min | 18.3 h | 8 |
 | L60 | Friedrichshofen - Audi - Oberhaunstadt | 52 | 14.6 min | 18.0 h | 12 |
 | L21 | Unsernherrn - Zentrum - Nordost | 50 | 15.7 min | 18.3 h | 8 |
 | L16 | Ringsee - Zentrum - Oberhaunstadt | 45 | 17.4 min | 18.2 h | 8 |
-| L40 | Suedost - Klinikum - Etting | 43 | 18.5 min | 18.2 h | 12 |
+| L40 | Südost - Klinikum - Etting | 43 | 18.5 min | 18.2 h | 12 |
 | L11 | Friedrichshofen - Zentrum - Nordost | 41 | 19.6 min | 18.2 h | 11 |
 
 ![Headway by line](figures/headway.png)
@@ -99,7 +99,7 @@ Weekend service runs at **37.6 %** of weekday level.
 | 3 | Ringsee | 0.213 | 0.645 | 0.432 | 48.76176, 11.39412 |
 | 4 | Nordwest | 0.211 | 0.299 | 0.088 | 48.78765, 11.41177 |
 | 5 | Nordost | 0.174 | 0.523 | 0.349 | 48.78118, 11.45588 |
-| 6 | Suedwest | 0.154 | 1.0 | 0.846 | 48.74882, 11.40294 |
+| 6 | Südwest | 0.154 | 1.0 | 0.846 | 48.74882, 11.40294 |
 | 7 | Oberhaunstadt | 0.148 | 0.309 | 0.161 | 48.81353, 11.44706 |
 | 8 | Nordwest | 0.132 | 0.214 | 0.082 | 48.78765, 11.39412 |
 
@@ -111,10 +111,10 @@ Weekend service runs at **37.6 %** of weekday level.
 | --- | --- | --- | --- | --- | --- | --- |
 | Ringsee | 27,026 | 3 | 5 | 558 | 12 | 582 |
 | Nordwest | 22,023 | 2 | 6 | 803 | 2 | 100 |
-| Suedwest | 18,763 | 2 | 5 | 281 | 17 | 1,049 |
+| Südwest | 18,763 | 2 | 5 | 281 | 17 | 1,049 |
 | Nordost | 17,513 | 1 | 6 | 480 | 10 | 326 |
 | Oberhaunstadt | 17,385 | 1 | 4 | 153 | 5 | 155 |
-| Suedost | 17,044 | 2 | 6 | 701 | 14 | 671 |
+| Südost | 17,044 | 2 | 6 | 701 | 14 | 671 |
 | Etting | 8,572 | 2 | 5 | 693 | 13 | 410 |
 | Unsernherrn | 2,140 | 1 | 6 | 527 | 8 | 121 |
 | Friedrichshofen | 0 | 0 | 5 | 455 | 10 | 349 |
