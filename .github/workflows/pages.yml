@@ -25,7 +25,7 @@ jobs:
           pip install -r requirements.txt
           pip install -e .
           python -m ingomob.cli run-all
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: dashboard
 
